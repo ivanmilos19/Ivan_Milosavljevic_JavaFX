@@ -1,0 +1,94 @@
+.root {
+    -fx-background-image: url('TrollBackground.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+
+
+#startButton {
+      -fx-background-color: #5B5B5B;
+      -fx-text-fill: #FFFFFF;
+      -fx-font-size: 16px;
+      -fx-padding: 10px 23px;
+      -fx-background-radius: 5px;
+      -fx-border-radius: 5px;
+      -fx-translate-y: 100;
+
+}
+
+#startButton:hover {
+      -fx-background-color: linear-gradient(to bottom, #6600CC, #9900FF);
+      -fx-text-fill: #FFFFFF;
+      -fx-background-radius: 5px;
+      -fx-border-radius: 5px;
+}
+
+
+#startButton:pressed {
+    -fx-background-color: linear-gradient(to bottom, #6600CC, #9900FF);
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+
+
+/*.my-image {
+  background-image: url("C:\Users\ivanm\IdeaProjects\javafx\src\main\resources\application\title.png");
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+}*/
+
+.HP {
+    -fx-fill: green;
+    -fx-font-size: 11pt; /* Change the font size to 16 points */
+    -fx-font-weight: bold; /* Make the text bold */
+    -fx-translate-x: 20px; /* adjust as needed */
+    -fx-translate-y: 500px; /* adjust as needed */
+}
+
+.Mana {
+    -fx-fill: blue;
+    -fx-font-size: 11pt; /* Change the font size to 16 points */
+    -fx-font-weight: bold; /* Make the text bold */
+    -fx-translate-x: 200px; /* adjust as needed */
+    -fx-translate-y: 500px; /* adjust as needed */
+}
+
+.attack {
+    -fx-fill: yellow;
+    -fx-font-size: 11pt; /* Change the font size to 16 points */
+    -fx-font-weight: bold; /* Make the text bold */
+    -fx-translate-x: 360px; /* adjust as needed */
+    -fx-translate-y: 500px; /* adjust as needed */
+}
+
+.accuracy {
+    -fx-fill: purple;
+    -fx-font-size: 11pt; /* Change the font size to 16 points */
+    -fx-font-weight: bold; /* Make the text bold */
+    -fx-translate-x: 540px; /* adjust as needed */
+    -fx-translate-y: 500px; /* adjust as needed */
+}
+
+.level {
+    -fx-font-size: 11pt; /* Change the font size to 16 points */
+    -fx-font-weight: bold; /* Make the text bold */
+    -fx-translate-x: 700px; /* adjust as needed */
+    -fx-translate-y: 500px; /* adjust as needed */
+}
+
+.troll {
+    -fx-fill: red;
+    -fx-font-size: 11pt; /* Change the font size to 16 points */
+    -fx-font-weight: bold; /* Make the text bold */
+    -fx-translate-x: 940px; /* adjust as needed */
+    -fx-translate-y: 500px; /* adjust as needed */
+}
+
+
+
+
+

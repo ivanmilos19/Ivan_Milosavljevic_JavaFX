@@ -1,9 +1,13 @@
 .root {
-    -fx-background-image: url('TrollBackground.jpg');
+    -fx-background-image: url('images/TrollBackground.jpg');
     -fx-background-size: cover;
     -fx-background-position: center center;
 }
 
+.HP, .Mana, .attack, .accuracy, .level, .troll {
+    -fx-translate-y: 600px;
+    -fx-font-weight: bold;
+}
 
 
 #startButton {
@@ -14,7 +18,6 @@
       -fx-background-radius: 5px;
       -fx-border-radius: 5px;
       -fx-translate-y: 100;
-
 }
 
 #startButton:hover {
@@ -42,53 +45,73 @@
 }*/
 
 .HP {
-    -fx-fill: green;
+    -fx-fill: white;
     -fx-font-size: 11pt; /* Change the font size to 16 points */
-    -fx-font-weight: bold; /* Make the text bold */
     -fx-translate-x: 20px; /* adjust as needed */
-    -fx-translate-y: 500px; /* adjust as needed */
+
 }
 
 .Mana {
-    -fx-fill: blue;
+    -fx-fill: white;
     -fx-font-size: 11pt; /* Change the font size to 16 points */
-    -fx-font-weight: bold; /* Make the text bold */
     -fx-translate-x: 200px; /* adjust as needed */
-    -fx-translate-y: 500px; /* adjust as needed */
 }
 
 .attack {
-    -fx-fill: yellow;
+    -fx-fill: white;
     -fx-font-size: 11pt; /* Change the font size to 16 points */
-    -fx-font-weight: bold; /* Make the text bold */
     -fx-translate-x: 360px; /* adjust as needed */
-    -fx-translate-y: 500px; /* adjust as needed */
 }
 
 .accuracy {
-    -fx-fill: purple;
+    -fx-fill: white;
     -fx-font-size: 11pt; /* Change the font size to 16 points */
-    -fx-font-weight: bold; /* Make the text bold */
     -fx-translate-x: 540px; /* adjust as needed */
-    -fx-translate-y: 500px; /* adjust as needed */
 }
 
 .level {
+    -fx-fill: white;
     -fx-font-size: 11pt; /* Change the font size to 16 points */
-    -fx-font-weight: bold; /* Make the text bold */
     -fx-translate-x: 700px; /* adjust as needed */
-    -fx-translate-y: 500px; /* adjust as needed */
 }
 
 .troll {
     -fx-fill: red;
     -fx-font-size: 11pt; /* Change the font size to 16 points */
-    -fx-font-weight: bold; /* Make the text bold */
     -fx-translate-x: 940px; /* adjust as needed */
-    -fx-translate-y: 500px; /* adjust as needed */
+}
+
+#rectangle {
+    -fx-fill: black;
+    -fx-stroke: white;
+    -fx-stroke-width: 3;
+    -fx-arc-width: 10;
+    -fx-arc-height: 1
 }
 
 
+
+#choice1, #choice2, #choice3, #choice4 {
+    -fx-font-weight: bold;
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 15px;
+    -fx-alignment: baseline-left;
+    -fx-padding: 5px;
+    -fx-graphic: url('images/triangle.png'); /* set the bullet point image as the button's graphic */
+    -fx-graphic-text-gap: 5px; /* add some spacing between the bullet point and the text */
+
+
+}
+
+#choice1:hover, #choice2:hover, #choice3:hover, #choice4:hover {
+   -fx-text-fill: #00FF00; /* Green color */
+}
+
+
+#choice1:hover .bullet-point, #choice2:hover .bullet-point, #choice3:hover .bullet-point, #choice4:hover .bullet-point {
+  -fx-opacity: 1; /* show the bullet point on hover */
+}
 
 
 

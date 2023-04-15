@@ -1,24 +1,20 @@
 package application;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 import java.util.ArrayList;
-
-
 import java.io.IOException;
-import java.util.ArrayList;
+
 
 public class Main extends Application {
 
@@ -75,7 +71,6 @@ public class Main extends Application {
                 .sectumsempraManaUsg(70)
 
 
-
                 .Gold(70)
                 .build();
 
@@ -87,7 +82,6 @@ public class Main extends Application {
         wizard.addHealthPotion(new Potion());
         wizard.addDamagePotion(new Potion());
         wizard.addManaPotion(new Potion());
-
 
 
         // add spells
@@ -103,33 +97,26 @@ public class Main extends Application {
                 .build();
 
 
-
-
         Text textHP = new Text();
         Text textMana = new Text();
         Text textAttack = new Text();
         Text textAccuracy = new Text();
-        Text levelText= new Text();
+        Text levelText = new Text();
         Text trollHPText = new Text();
-
-
-        Rectangle rectangle = new Rectangle();
-        rectangle.setY(450);
-        rectangle.setWidth(1200);
-        rectangle.setHeight(300);
-        rectangle.setFill(Color.LIGHTGRAY);
 
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("troll.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root, 1200, 690);
+        Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        ((Pane) root).getChildren().addAll(rectangle, textHP, levelText, textMana, textAttack, textAccuracy, trollHPText);
+        ((Pane) root).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, trollHPText);
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        stage.setTitle("Harry Potter");
         stage.setScene(scene);
         stage.show();
 
 
-        textHP.setText("Wizard HP: " + wizard.getCurrentHP() + "/" + wizard.getBaseHP() + " ❤" +"   |");
+        textHP.setText("Wizard HP: " + wizard.getCurrentHP() + "/" + wizard.getBaseHP() + " ❤" + "   |");
         textHP.getStyleClass().add("HP");
 
         textMana.setText("Mana: " + wizard.getCurrentmanaPool() + "/" + wizard.getManaPool() + " \uD83D\uDCA7" + "   |");
@@ -147,6 +134,6 @@ public class Main extends Application {
         trollHPText.setText(troll.getName() + ": " + troll.getCurrentHP() + "/" + troll.getBaseHP() + " ❤");
         trollHPText.getStyleClass().add("troll");
 
-
     }
+
 }

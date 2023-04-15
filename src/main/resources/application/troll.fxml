@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
+<AnchorPane prefHeight="776.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
    <children>
-      <Button layoutX="274.0" layoutY="121.0" mnemonicParsing="false" text="Button" />
+      <ImageView fitHeight="285.0" fitWidth="282.0" layoutX="873.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/ltg.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#6e7780" height="209.0" layoutY="566.0" stroke="BLACK" strokeType="INSIDE" width="1178.0" />
+      <Button fx:id="choice1" layoutX="73.0" layoutY="622.0" mnemonicParsing="false" scaleZ="2.0" text="Attack" />
+      <Button fx:id="choice2" layoutX="73.0" layoutY="658.0" mnemonicParsing="false" text="Defend" />
+      <Button fx:id="choice3" layoutX="73.0" layoutY="694.0" mnemonicParsing="false" text="Inventory" />
+      <Button fx:id="choice4" layoutX="73.0" layoutY="731.0" mnemonicParsing="false" text="Spell" />
    </children>
 </AnchorPane>

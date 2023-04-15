@@ -11,7 +11,7 @@
    <top>
       <ImageView fx:id="title" fitHeight="108.0" fitWidth="337.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
          <image>
-            <Image url="@title.png" />
+            <Image url="@images/title.png" />
          </image></ImageView>
    </top>
    <center>

@@ -91,7 +91,7 @@
 
 
 
-#choice1, #choice2, #choice3, #choice4 {
+#attack, #defend, #inventory, #spell, #attackTroll, #returnButton, #healPotion, #damagePotion, #manaPotion {
     -fx-font-weight: bold;
     -fx-background-color: transparent;
     -fx-text-fill: #FFFFFF;
@@ -104,12 +104,13 @@
 
 }
 
-#choice1:hover, #choice2:hover, #choice3:hover, #choice4:hover {
+#attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover {
    -fx-text-fill: #00FF00; /* Green color */
 }
 
 
-#choice1:hover .bullet-point, #choice2:hover .bullet-point, #choice3:hover .bullet-point, #choice4:hover .bullet-point {
+#attack:hover .bullet-point, #defend:hover .bullet-point, #inventory:hover .bullet-point, #spell:hover .bullet-point, #attackTroll:hover, bullet-point, #returnButton:hover, bullet-point, #healPotion:hover, bullet-point
+ , #damagePotion:hover, bullet-point, #manaPotion:hover, bullet-point{
   -fx-opacity: 1; /* show the bullet point on hover */
 }
 

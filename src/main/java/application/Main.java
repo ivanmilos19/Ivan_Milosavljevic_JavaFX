@@ -1,14 +1,11 @@
 package application;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -105,6 +102,7 @@ public class Main extends Application {
         Text trollHPText = new Text();
 
 
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("troll.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
@@ -112,6 +110,7 @@ public class Main extends Application {
         ((Pane) root).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, trollHPText);
         stage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
         stage.setTitle("Harry Potter");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
 

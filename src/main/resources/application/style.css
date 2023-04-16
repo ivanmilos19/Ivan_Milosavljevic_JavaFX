@@ -109,10 +109,7 @@
 }
 
 
-#attack:hover .bullet-point, #defend:hover .bullet-point, #inventory:hover .bullet-point, #spell:hover .bullet-point, #attackTroll:hover, bullet-point, #returnButton:hover, bullet-point, #healPotion:hover, bullet-point
- , #damagePotion:hover, bullet-point, #manaPotion:hover, bullet-point{
-  -fx-opacity: 1; /* show the bullet point on hover */
-}
+
 
 
 

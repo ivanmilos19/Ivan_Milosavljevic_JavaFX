@@ -3,12 +3,12 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 
-public class ChoiceController {
+public class ChoiceControllerBasilic {
 
-///////Actions Buttons/////////
+    ///////Actions Buttons/////////
+
+
     @FXML
     private Button attack;
     @FXML
@@ -18,7 +18,7 @@ public class ChoiceController {
     @FXML
     private Button spell;
     @FXML
-    private Button attackTroll;
+    private Button attackBasilic;
 
     ///////Potions Buttons/////////
     @FXML
@@ -32,23 +32,28 @@ public class ChoiceController {
     @FXML
     private Button returnButton;
 
+    @FXML
     public void initialize() {
-        attackTroll.setVisible(false);
+        attackBasilic.setVisible(false);
         returnButton.setVisible(false);
         healPotion.setVisible(false);
         damagePotion.setVisible(false);
         manaPotion.setVisible(false);
+
     }
+
 
     @FXML
     private void handleAttackButtonPress(ActionEvent event) {
+        attackBasilic.setVisible(true);
         attack.setVisible(false);
         defend.setVisible(false);
         inventory.setVisible(false);
         spell.setVisible(false);
-        attackTroll.setVisible(true);
         returnButton.setVisible(true);
     }
+
+
 
     @FXML
     private void handleInventoryButtonPress(ActionEvent event) {
@@ -68,7 +73,7 @@ public class ChoiceController {
         defend.setVisible(true);
         inventory.setVisible(true);
         spell.setVisible(true);
-        attackTroll.setVisible(false);
+        attackBasilic.setVisible(false);
         healPotion.setVisible(false);
         damagePotion.setVisible(false);
         manaPotion.setVisible(false);

@@ -108,14 +108,15 @@ public class Wizard extends Character {
     @Override
     public int damageInflicted() {
         int effective_attack_strength = getAttack_strength();
-        if (house.canUseSword())
-            effective_attack_strength *= 1.5;
+        /*if (house.canUseSword())
+            effective_attack_strength *= 1.5;*/
         if (damagePotionTurnsLeft > 0) {
             effective_attack_strength += currentDamagePotion.attackImprovement() *house.potionImprovement();
             damagePotionTurnsLeft--;
         } else {
             currentDamagePotion = null;
         }
+
         Random rand = new Random();
         double probability = accuracy; // hitting accuracy
 
@@ -123,7 +124,7 @@ public class Wizard extends Character {
         if (rand.nextDouble() < probability) {
             return effective_attack_strength;
         } else {
-            System.out.println(YELLOW_BOLD_BRIGHT + "Your attack missed");
+            System.out.println(CYAN_BOLD_BRIGHT + "Your attack missed");
             return 0; // attack misses
         }
     }

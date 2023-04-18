@@ -1,5 +1,11 @@
-.root {
+#trollBackground {
     -fx-background-image: url('images/TrollBackground.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+#basilicBackground {
+    -fx-background-image: url('images/basilicBackground.jpg');
     -fx-background-size: cover;
     -fx-background-position: center center;
 }
@@ -81,6 +87,14 @@
     -fx-translate-x: 940px; /* adjust as needed */
 }
 
+.basilic {
+    -fx-fill: red;
+    -fx-font-size: 11pt; /* Change the font size to 16 points */
+    -fx-translate-x: 940px; /* adjust as needed */
+}
+
+
+
 #rectangle {
     -fx-fill: black;
     -fx-stroke: white;
@@ -91,7 +105,7 @@
 
 
 
-#attack, #defend, #inventory, #spell, #attackTroll, #returnButton, #healPotion, #damagePotion, #manaPotion {
+#attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic, #returnButton, #healPotion, #damagePotion, #manaPotion {
     -fx-font-weight: bold;
     -fx-background-color: transparent;
     -fx-text-fill: #FFFFFF;
@@ -104,7 +118,7 @@
 
 }
 
-#attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover {
+#attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #attackBasilic:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover {
    -fx-text-fill: #00FF00; /* Green color */
 }
 

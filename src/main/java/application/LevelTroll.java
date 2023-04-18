@@ -18,6 +18,7 @@ public class LevelTroll {
     Spell spell;
     Potion potion;
 
+
     public void battle(Wizard wizard, Enemy troll) {
         int playerChoice = 0;
         while (true) {
@@ -38,10 +39,9 @@ public class LevelTroll {
 
 
             if (playerChoice == 1) { // Attack
-
                 wizard.attack(troll);
-
             }
+
             else if (playerChoice == 2) { // Defend
                 wizard.defend();
 

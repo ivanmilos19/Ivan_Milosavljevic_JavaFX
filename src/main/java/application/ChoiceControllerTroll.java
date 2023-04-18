@@ -3,7 +3,6 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.text.Text;
 
 public class ChoiceControllerTroll {
 
@@ -83,34 +82,6 @@ public class ChoiceControllerTroll {
         manaPotion.setVisible(false);
 
         returnButton.setVisible(false);
-    }
-
-
-    public void showAtributes() {
-        Text textHP = new Text();
-        Text textMana = new Text();
-        Text textAttack = new Text();
-        Text textAccuracy = new Text();
-        Text levelText = new Text();
-        Text trollHPText = new Text();
-
-
-        textHP.setText("Wizard HP: " + wizard.getCurrentHP() + "/" + wizard.getBaseHP() + " ❤" + "   |");
-        textHP.getStyleClass().add("HP");
-
-        textMana.setText("Mana: " + wizard.getCurrentmanaPool() + "/" + wizard.getManaPool() + " \uD83D\uDCA7" + "   |");
-        textMana.getStyleClass().add("Mana");
-
-        textAttack.setText("Wizard attack: " + wizard.getAttack_strength() + " \uD83D\uDCA5" + "   |");
-        textAttack.getStyleClass().add("attack");
-
-        textAccuracy.setText("Accuracy: " + wizard.getAccuracy() + " \uD83C\uDFAF" + "   |");
-        textAccuracy.getStyleClass().add("accuracy");
-
-        levelText.setText("Level: " + wizard.getLevel() + " ⭐" + "   |");
-        levelText.getStyleClass().add("level");
-
-
     }
 
 

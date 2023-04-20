@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="512.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.wizardCreation">
+   <children>
+      <ChoiceBox fx:id="qualityChoice" layoutX="300.0" layoutY="72.0" prefWidth="150.0" />
+      <Label fx:id="myLabel" alignment="CENTER" layoutX="191.0" layoutY="31.0" prefHeight="17.0" prefWidth="368.0" text="Select one of the qualities">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="petLabel" alignment="CENTER" layoutX="191.0" layoutY="143.0" prefHeight="17.0" prefWidth="368.0" text="Select a pet">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="petChoice" layoutX="300.0" layoutY="177.0" prefWidth="150.0" />
+      <Label fx:id="wandLabel" alignment="CENTER" layoutX="191.0" layoutY="246.0" prefHeight="17.0" prefWidth="368.0" text="Select a wand core">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="wandChoice" layoutX="300.0" layoutY="278.0" prefWidth="150.0" />
+      <Label fx:id="heightLabel" alignment="CENTER" layoutX="193.0" layoutY="363.0" prefHeight="17.0" prefWidth="368.0" text="How tall are you ?">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="height" layoutX="300.0" layoutY="397.0" />
+   </children>
+</AnchorPane>

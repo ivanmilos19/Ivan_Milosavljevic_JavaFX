@@ -16,15 +16,6 @@ import java.io.IOException;
 public class Main extends Application {
 
 
-    /*@Override
-    public void start(Stage title) throws IOException {
-
-        TitleScreen titleScreen = new TitleScreen();
-        titleScreen.TitleScreen(title);
-
-    }*/
-
-
     private Wizard wizard;
     private Enemy enemy;
     private Boss basilic;
@@ -32,14 +23,102 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("wizardCreation.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        stage.setTitle("Harry Potter");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+
+        new Thread(() -> {
+            SortingHat sortingHat = new SortingHat();
+            House house = sortingHat.getHouse();
+
+            wizard = Wizard.builder()
+                    .currentHP(500)
+                    .previousHP(500)
+                    .baseHP(500)
+                    .level(1)
+                    .accuracy(0.85 + house.precision())
+                    .house(sortingHat.getHouse())
+                    .joinedEnemy(false)
+
+
+                    .healthPotions(new ArrayList<>())
+                    .manaPotions(new ArrayList<>())
+                    .damagePotions(new ArrayList<>())
+
+                    .wingardiumLeviosa(new ArrayList<>())
+                    .expectoPatronum(new ArrayList<>())
+                    .accio(new ArrayList<>())
+                    .sectumsempra(new ArrayList<>())
+                    .expelliarmus(new ArrayList<>())
+
+                    .attack_strength((int)(40 * house.attackMultiplier()))
+                    .manaPool(150)
+                    .currentmanaPool(150)
+
+                    .wingardiumManaUsage(15)
+                    .wingardiumCrit(140)
+                    .wingardiumDmg(70)
+
+                    .expectoCrit(99999)
+                    .expectoDmg(40)
+                    .expectoManaUsage(80)
+
+                    .expelliarmusDmg(250)
+                    .expellarmusManaUsg(30)
+
+                    .accioDmg(150)
+                    .accioManaUsage(15)
+
+                    .sectumsempraDmg(450)
+                    .sectumsempraManaUsg(70)
+
+
+
+                    .Gold(70)
+                    .build();
+
+            // give it 4 potion to start with
+            wizard.addHealthPotion(new Potion());
+            wizard.addDamagePotion(new Potion());
+            wizard.addManaPotion(new Potion());
+
+            wizard.addHealthPotion(new Potion());
+            wizard.addDamagePotion(new Potion());
+            wizard.addManaPotion(new Potion());
+
+
+            // add spells
+            wizard.addSpell(new Spell());
+            wizard.addSpell(new Spell());
+
+            enemy = Enemy.builder()
+                    .currentHP(800)
+                    .baseHP(800)
+                    .attack_strength(30)
+                    .attackStrengthMultiplier(3)
+                    .name("Troll")
+                    .build();
+        }).start();
+
+        /* SortingHat sortingHat = new SortingHat();
+        House house = sortingHat.getHouse();
+
         wizard = Wizard.builder()
                 .currentHP(500)
                 .previousHP(500)
                 .baseHP(500)
                 .level(1)
-                .accuracy(1)
+                .accuracy(0.85 + house.precision())
+                .house(sortingHat.getHouse())
                 .joinedEnemy(false)
-                .attack_strength(40)
 
 
                 .healthPotions(new ArrayList<>())
@@ -52,7 +131,7 @@ public class Main extends Application {
                 .sectumsempra(new ArrayList<>())
                 .expelliarmus(new ArrayList<>())
 
-
+                .attack_strength((int)(40 * house.attackMultiplier()))
                 .manaPool(150)
                 .currentmanaPool(150)
 
@@ -72,6 +151,7 @@ public class Main extends Application {
 
                 .sectumsempraDmg(450)
                 .sectumsempraManaUsg(70)
+
 
 
                 .Gold(70)
@@ -100,7 +180,7 @@ public class Main extends Application {
                 .build();
 
 
-        Text textHP = new Text();
+        /*Text textHP = new Text();
         Text textMana = new Text();
         Text textAttack = new Text();
         Text textAccuracy = new Text();
@@ -177,14 +257,14 @@ public class Main extends Application {
             stage.setTitle("Harry Potter");
             stage.setResizable(false);
             stage.setScene(scene2);
-            stage.show();
+            stage.show(); */
         }
 
 
 
 
 
-    }
+    //}
 
     Wizard getWizard() {
         return wizard;

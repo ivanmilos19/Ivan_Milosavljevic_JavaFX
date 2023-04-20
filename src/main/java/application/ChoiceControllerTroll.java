@@ -7,9 +7,9 @@ import javafx.scene.control.Button;
 public class ChoiceControllerTroll {
 
 ///////Actions Buttons/////////
-    Main main = new Main();
+  /*  Main main = new Main();
     Wizard wizard = main.getWizard();
-    Enemy troll = main.getEnemy();
+    Enemy troll = main.getEnemy(); */
 
     @FXML
     private Button attack;

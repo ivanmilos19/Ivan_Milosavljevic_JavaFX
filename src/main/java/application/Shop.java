@@ -1,7 +1,6 @@
-package application;
+/* package application;
 
 import java.util.Scanner;
-
 public class Shop {
     public static final String RESET = "\033[0m";  // Text Reset
     public static final String YELLOW_BOLD_BRIGHT = "\033[1;93m";// YELLOW
@@ -13,9 +12,8 @@ public class Shop {
     public void enterShop(Wizard wizard) {
         int playerChoice;
 
-        playerChoice = (new InputReader(RESET + "Do you wish to buy something in Brewsings ?" + newLine, new String[]{"Yes", "No"})).readInputByNumber();
 
-        if (playerChoice == 1) {
+
             System.out.println("Welcome to Brewsings! Which potion may warrant your attention ? " + newLine);
             System.out.println("You have: " + wizard.getGold() + " Gold\uD83D\uDCB0" + newLine);
 
@@ -26,7 +24,7 @@ public class Shop {
                 int manaPrice = 15;
 
 
-                playerChoice = (new InputReader(RESET + "Please enter your choice" + newLine, new String[]{"Health potion: 15 Gold", "Damage boost potion: 30 Gold", "Mana potion: 15 Gold", "Nevermind"})).readInputByNumber();
+
 
 
                 if (playerChoice == 1 && wizard.getGold() - healthPrice > 0) {
@@ -56,4 +54,4 @@ public class Shop {
             }
         }
     }
-}
+} */

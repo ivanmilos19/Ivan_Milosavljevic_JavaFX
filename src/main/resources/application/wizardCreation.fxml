@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="512.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.wizardCreation">
+<AnchorPane prefHeight="512.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Gaming">
    <children>
       <ChoiceBox fx:id="qualityChoice" layoutX="300.0" layoutY="72.0" prefWidth="150.0" />
       <Label fx:id="myLabel" alignment="CENTER" layoutX="191.0" layoutY="31.0" prefHeight="17.0" prefWidth="368.0" text="Select one of the qualities">
@@ -27,11 +27,13 @@
          </font>
       </Label>
       <ChoiceBox fx:id="wandChoice" layoutX="300.0" layoutY="278.0" prefWidth="150.0" />
-      <Label fx:id="heightLabel" alignment="CENTER" layoutX="193.0" layoutY="363.0" prefHeight="17.0" prefWidth="368.0" text="How tall are you ?">
+      <Label fx:id="heightLabel" alignment="CENTER" layoutX="193.0" layoutY="334.0" prefHeight="17.0" prefWidth="368.0" text="How tall are you ?">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="height" layoutX="300.0" layoutY="397.0" />
+      <TextField fx:id="height" layoutX="301.0" layoutY="363.0" />
+      <Button layoutX="310.0" layoutY="402.0" mnemonicParsing="false" onAction="#createWizard" prefHeight="31.0" prefWidth="131.0" text="Create your wizard !" />
+      <Button layoutX="310.0" layoutY="448.0" mnemonicParsing="false" onAction="#startGame" prefHeight="31.0" prefWidth="131.0" text="Start the game" />
    </children>
 </AnchorPane>

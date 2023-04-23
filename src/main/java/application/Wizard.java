@@ -360,24 +360,4 @@ public class Wizard extends Character {
         return success;
     }
 
-
-
-
-    Pet pet;
-
-    private static String choice[] = {"Snowy owl", "Cat", "Toad", "Rat" };
-    private static  Pet pets [] = {Pet.SNOWY_OWL, Pet.CAT, Pet.TOAD, Pet.RAT};
-    public void Pet(){
-        Scanner scanner = new Scanner(System.in);
-        String newLine = System.getProperty("line.separator");
-        String instructions = newLine + CYAN_BOLD_BRIGHT +"Choose your pet" +RESET;
-        InputReader qualityReader = new InputReader(instructions, choice);
-        int playerChoice = qualityReader.readInputByNumber();
-        int index = playerChoice - 1;
-        pet = pets[index];
-        System.out.println("A " + pet.name().toLowerCase().replace("_", " ") + " will accompany you.");
-    }
-
-
-
 }

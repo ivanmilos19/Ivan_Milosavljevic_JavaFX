@@ -54,11 +54,7 @@ public class Wand {
         determineWandSize();
 
 
-        String instructions = newLine + CYAN_BOLD_BRIGHT+ "Choose the property of your core:" +RESET;
-        InputReader qualityReader = new InputReader(instructions, qualities);
-        int playerChoice = qualityReader.readInputByNumber();
-        int index = playerChoice - 1;
-        core = cores[index];
+
 
         System.out.println("You have a: " + size + " inch wand with a " + core.name().toLowerCase().replace("_", " ") + " core");
 

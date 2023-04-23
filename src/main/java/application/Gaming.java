@@ -83,8 +83,7 @@ public class Gaming implements Initializable {
     private Boss basilic;
 
     public void createWizard(ActionEvent event) {
-        wizard = Wizard.builder()
-                .currentHP(500)
+         wizard = Wizard.builder().currentHP(500)
                 .previousHP(500)
                 .baseHP(500)
                 .level(1)
@@ -102,7 +101,7 @@ public class Gaming implements Initializable {
                 .sectumsempra(new ArrayList<>())
                 .expelliarmus(new ArrayList<>())
 
-                .attack_strength((int) (40 * house.attackMultiplier()))
+                .attack_strength((int)(400 * house.attackMultiplier()))
                 .manaPool(150)
                 .currentmanaPool(150)
 
@@ -126,6 +125,7 @@ public class Gaming implements Initializable {
                 .Gold(70)
                 .build();
 
+
         wizard.addHealthPotion(new Potion());
         wizard.addDamagePotion(new Potion());
         wizard.addManaPotion(new Potion());
@@ -147,6 +147,7 @@ public class Gaming implements Initializable {
     Text textAccuracy = new Text();
     Text levelText = new Text();
     Text trollHP = new Text();
+    Text gameOver = new Text();
 
 
 
@@ -171,24 +172,21 @@ public class Gaming implements Initializable {
 
     }
 
-
-
+    private Stage trollStage;
     public void createTrollStage() throws IOException {
-        Stage stage = new Stage();
+        this.trollStage = new Stage();
         FXMLLoader loaderTroll = new FXMLLoader(getClass().getResource("troll.fxml"));
         Parent rootTroll = loaderTroll.load();
         Scene sceneTroll = new Scene(rootTroll);
         sceneTroll.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         ((Pane) rootTroll).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, trollHP);
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
-        stage.setTitle("Harry Potter");
-        stage.setResizable(false);
-        stage.setScene(sceneTroll);
+        trollStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        trollStage.setTitle("Harry Potter");
+        trollStage.setResizable(false);
+        trollStage.setScene(sceneTroll);
         LevelTroll controller = loaderTroll.getController();
         controller.setGaming(this);
-        controller.setTexts((Pane) rootTroll, textHP, textMana, trollHP);
-
-        stage.show();
+        trollStage.show();
     }
 
 
@@ -197,7 +195,54 @@ public class Gaming implements Initializable {
         System.out.println(troll.getCurrentHP());
         wizard.attack(troll);
         System.out.println(troll.getCurrentHP());
+    }
 
+    public void trollAttackWizard() {
+        troll.attack(wizard);
+    }
+
+    public void wizardDefends(){
+        wizard.defend();
+    }
+
+    public void wizardStopsDefend() {
+        wizard.stopDefending();
+    }
+
+    public void wizardUsesHealthPotion() {
+        wizard.useHealthPotion();
+    }
+
+    public void wizardUsesManaPotion() {
+        wizard.useManaPotion();
+    }
+
+    public void wizardUsesDamagePotion() {
+        wizard.equipDamagePotion();
+    }
+
+
+
+    public boolean checkGameState() {
+        if (wizard.isDead()) {
+            return true;
+        }
+        return false;
+    }
+
+    public void gameOver() throws IOException {
+        trollStage.close();
+        Stage stage = new Stage();
+        FXMLLoader loaderGameOver = new FXMLLoader(getClass().getResource("GameOver.fxml"));
+        Parent rootGamerOver = loaderGameOver.load();
+        Scene sceneGameOver = new Scene(rootGamerOver);
+        sceneGameOver.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        ((Pane) rootGamerOver).getChildren().addAll(gameOver);
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        stage.setTitle("Harry Potter");
+        stage.setResizable(false);
+        stage.setScene(sceneGameOver);
+        stage.show();
     }
 
 
@@ -211,7 +256,7 @@ public class Gaming implements Initializable {
             troll = Enemy.builder()
                     .currentHP(800)
                     .baseHP(800)
-                    .attack_strength(30)
+                    .attack_strength(400)
                     .attackStrengthMultiplier(3)
                     .name("Troll")
                     .build();

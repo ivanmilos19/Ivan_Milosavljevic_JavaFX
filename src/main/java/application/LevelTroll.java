@@ -5,6 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class LevelTroll {
 
@@ -54,29 +57,6 @@ public class LevelTroll {
     }
 
 
-
-    @FXML
-    private void handleAttackButtonPress(ActionEvent event) {
-        attackTroll.setVisible(true);
-        attack.setVisible(false);
-        defend.setVisible(false);
-        inventory.setVisible(false);
-        spell.setVisible(false);
-        returnButton.setVisible(true);
-    }
-
-
-
-
-
-    @FXML
-    private void attackTroll(ActionEvent event) {
-        gaming.wizardAttackTroll();
-        gaming.putText();
-    }
-
-
-
     @FXML
     private void handleInventoryButtonPress(ActionEvent event) {
         attack.setVisible(false);
@@ -89,6 +69,7 @@ public class LevelTroll {
         returnButton.setVisible(true);
     }
 
+
     @FXML
     private void handleReturn(ActionEvent event) {
         attack.setVisible(true);
@@ -99,7 +80,58 @@ public class LevelTroll {
         healPotion.setVisible(false);
         damagePotion.setVisible(false);
         manaPotion.setVisible(false);
-
         returnButton.setVisible(false);
     }
+
+    @FXML
+    private void handleAttackButtonPress(ActionEvent event) {
+        attackTroll.setVisible(true);
+        attack.setVisible(false);
+        defend.setVisible(false);
+        inventory.setVisible(false);
+        spell.setVisible(false);
+        returnButton.setVisible(true);
+    }
+
+    @FXML
+    private void attackTroll(ActionEvent event) throws IOException {
+        gaming.wizardAttackTroll();
+        gaming.trollAttackWizard();
+        gaming.putText();
+        if (gaming.checkGameState()) {
+            gaming.gameOver();
+        }
+    }
+
+    @FXML
+    private void handleDefend(ActionEvent event) throws IOException {
+        gaming.wizardDefends();
+        gaming.trollAttackWizard();
+        gaming.wizardStopsDefend();
+        gaming.putText();
+
+        if (gaming.checkGameState()) {
+            gaming.gameOver();
+        }
+    }
+
+    @FXML
+    private void handleHealthPotion(ActionEvent event) {
+        gaming.wizardUsesHealthPotion();
+        gaming.putText();
+    }
+
+    @FXML
+    private void handleDamagePotion(ActionEvent event) {
+        gaming.wizardUsesDamagePotion();
+        gaming.putText();
+    }
+
+    @FXML
+    private void handleManaPotion(ActionEvent event) {
+        gaming.wizardUsesManaPotion();
+        gaming.putText();
+    }
+
+
 }

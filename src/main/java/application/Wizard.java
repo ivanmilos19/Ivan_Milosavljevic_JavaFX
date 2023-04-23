@@ -111,7 +111,7 @@ public class Wizard extends Character {
         /*if (house.canUseSword())
             effective_attack_strength *= 1.5;*/
         if (damagePotionTurnsLeft > 0) {
-            effective_attack_strength += currentDamagePotion.attackImprovement() *house.potionImprovement();
+            effective_attack_strength += currentDamagePotion.attackImprovement();
             damagePotionTurnsLeft--;
         } else {
             currentDamagePotion = null;
@@ -131,7 +131,7 @@ public class Wizard extends Character {
 
     @Override
     public int defenseFactor() {
-        return (int)(super.defenseFactor() * house.defenseMultiplier());
+        return (int)(super.defenseFactor());
     }
 
 
@@ -190,7 +190,7 @@ public class Wizard extends Character {
         if (healthPotions.size() > 0) {
             Potion potion = healthPotions.get(0);
             int newHP = getCurrentHP();
-            newHP += potion.healthImprovement()*house.potionImprovement();
+            newHP += potion.healthImprovement();
             setCurrentHP(newHP);
             // now remove the used potion
             healthPotions.remove(0);
@@ -204,7 +204,7 @@ public class Wizard extends Character {
         // use the first available potion in my collection of potions
         if (manaPotions.size() > 0) {
             Potion potion = manaPotions.get(0);
-            currentmanaPool += potion.manaImprovement() * house.potionImprovement();
+            currentmanaPool += potion.manaImprovement();
             // now remove the used potion
             manaPotions.remove(0);
             maxMana();

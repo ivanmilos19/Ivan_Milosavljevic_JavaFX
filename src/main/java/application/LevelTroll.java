@@ -112,6 +112,9 @@ public class LevelTroll {
         gaming.wizardStopsDefend();
         gaming.putText();
 
+        if (gaming.checkGameStateWizard()) {
+            gaming.gameOver();
+        }
 
         if (gaming.checkGameStateTroll()) {
             gaming.closeTrollStage();

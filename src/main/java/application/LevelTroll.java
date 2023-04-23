@@ -3,9 +3,6 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -98,8 +95,13 @@ public class LevelTroll {
         gaming.wizardAttackTroll();
         gaming.trollAttackWizard();
         gaming.putText();
-        if (gaming.checkGameState()) {
+
+        if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
+        }
+
+        if (gaming.checkGameStateTroll()) {
+            gaming.closeTrollStage();
         }
     }
 
@@ -110,8 +112,9 @@ public class LevelTroll {
         gaming.wizardStopsDefend();
         gaming.putText();
 
-        if (gaming.checkGameState()) {
-            gaming.gameOver();
+
+        if (gaming.checkGameStateTroll()) {
+            gaming.closeTrollStage();
         }
     }
 

@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.IllegalFormatCodePointException;
 import java.util.ResourceBundle;
 
 public class Gaming implements Initializable {
@@ -146,8 +145,9 @@ public class Gaming implements Initializable {
     Text textAttack = new Text();
     Text textAccuracy = new Text();
     Text levelText = new Text();
-    Text trollHP = new Text();
+    Text trollInfo = new Text();
     Text gameOver = new Text();
+    Text basilicIinfo = new Text();
 
 
 
@@ -166,20 +166,37 @@ public class Gaming implements Initializable {
 
         levelText.setText("Level: " + wizard.getLevel() + " ⭐" + "   |");
         levelText.getStyleClass().add("level");
-
-        trollHP.setText(troll.getName() + ": " + troll.getCurrentHP() + "/" + troll.getBaseHP() + " ❤");
-        trollHP.getStyleClass().add("troll");
-
     }
 
     private Stage trollStage;
+
+    public void startGame(ActionEvent event) throws IOException {
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+
+        if (house != null) {
+            troll = Enemy.builder()
+                    .currentHP(800)
+                    .baseHP(800)
+                    .attack_strength(30)
+                    .attackStrengthMultiplier(3)
+                    .name("Troll")
+                    .build();
+
+            trollInfo.setText(troll.getName() + ": " + troll.getCurrentHP() + "/" + troll.getBaseHP() + " ❤");
+            trollInfo.getStyleClass().add("troll");
+            createTrollStage();
+            putText();
+        }
+    }
     public void createTrollStage() throws IOException {
         this.trollStage = new Stage();
         FXMLLoader loaderTroll = new FXMLLoader(getClass().getResource("troll.fxml"));
         Parent rootTroll = loaderTroll.load();
         Scene sceneTroll = new Scene(rootTroll);
         sceneTroll.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        ((Pane) rootTroll).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, trollHP);
+        ((Pane) rootTroll).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, trollInfo);
         trollStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
         trollStage.setTitle("Harry Potter");
         trollStage.setResizable(false);
@@ -188,6 +205,66 @@ public class Gaming implements Initializable {
         controller.setGaming(this);
         trollStage.show();
     }
+
+    public void createBasilicStage() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loaderBasilic = new FXMLLoader(getClass().getResource("basilic.fxml"));
+        Parent rootBasilic = loaderBasilic.load();
+        Scene sceneBasilic = new Scene(rootBasilic);
+        sceneBasilic.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        ((Pane) rootBasilic).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, basilicIinfo);
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        stage.setTitle("Harry Potter");
+        stage.setResizable(false);
+        stage.setScene(sceneBasilic);
+        stage.show();
+    }
+
+    public boolean checkGameStateWizard() {
+        if (wizard.isDead()) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkGameStateTroll() {
+        if (troll.isDead()) {
+            return true;
+        }
+        return false;
+    }
+
+    public void gameOver() throws IOException {
+        trollStage.close();
+        Stage stage = new Stage();
+        FXMLLoader loaderGameOver = new FXMLLoader(getClass().getResource("GameOver.fxml"));
+        Parent rootGamerOver = loaderGameOver.load();
+        Scene sceneGameOver = new Scene(rootGamerOver);
+        sceneGameOver.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        ((Pane) rootGamerOver).getChildren().addAll(gameOver);
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        stage.setTitle("Harry Potter");
+        stage.setResizable(false);
+        stage.setScene(sceneGameOver);
+        stage.show();
+    }
+
+    public void closeTrollStage() throws IOException {
+        trollStage.close();
+        basilic = Boss.builder()
+                .currentHP(1000)
+                .baseHP(1000)
+                .attack_strength(30)
+                .attackStrengthMultiplier(3)
+                .name("Basilic")
+                .build();
+
+        basilicIinfo.setText(basilic.getName() + ": " + basilic.getCurrentHP() + "/" + basilic.getBaseHP() + " ❤");
+        basilicIinfo.getStyleClass().add("troll");
+        createBasilicStage();
+
+    }
+
 
 
 
@@ -221,92 +298,4 @@ public class Gaming implements Initializable {
         wizard.equipDamagePotion();
     }
 
-
-
-    public boolean checkGameState() {
-        if (wizard.isDead()) {
-            return true;
-        }
-        return false;
-    }
-
-    public void gameOver() throws IOException {
-        trollStage.close();
-        Stage stage = new Stage();
-        FXMLLoader loaderGameOver = new FXMLLoader(getClass().getResource("GameOver.fxml"));
-        Parent rootGamerOver = loaderGameOver.load();
-        Scene sceneGameOver = new Scene(rootGamerOver);
-        sceneGameOver.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        ((Pane) rootGamerOver).getChildren().addAll(gameOver);
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
-        stage.setTitle("Harry Potter");
-        stage.setResizable(false);
-        stage.setScene(sceneGameOver);
-        stage.show();
-    }
-
-
-    public void startGame(ActionEvent event) throws IOException {
-        Node source = (Node) event.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
-
-        if (house != null) {
-
-            troll = Enemy.builder()
-                    .currentHP(800)
-                    .baseHP(800)
-                    .attack_strength(400)
-                    .attackStrengthMultiplier(3)
-                    .name("Troll")
-                    .build();
-
-            createTrollStage();
-            putText();
-
-
-            if (wizard.isAlive() && troll.isDead()) {
-                basilic = Boss.builder()
-                        .currentHP(1000)
-                        .baseHP(1000)
-                        .attack_strength(30)
-                        .attackStrengthMultiplier(3)
-                        .name("Basilic")
-                        .build();
-
-                Text basilicHP = new Text();
-
-
-                textHP.setText("Wizard HP: " + wizard.getCurrentHP() + "/" + wizard.getBaseHP() + " ❤" + "   |");
-                textHP.getStyleClass().add("HP");
-
-                textMana.setText("Mana: " + wizard.getCurrentmanaPool() + "/" + wizard.getManaPool() + " \uD83D\uDCA7" + "   |");
-                textMana.getStyleClass().add("Mana");
-
-                textAttack.setText("Wizard attack: " + wizard.getAttack_strength() + " \uD83D\uDCA5" + "   |");
-                textAttack.getStyleClass().add("attack");
-
-                textAccuracy.setText("Accuracy: " + wizard.getAccuracy() + " \uD83C\uDFAF" + "   |");
-                textAccuracy.getStyleClass().add("accuracy");
-
-                levelText.setText("Level: " + wizard.getLevel() + " ⭐" + "   |");
-                levelText.getStyleClass().add("level");
-
-                basilicHP.setText(basilic.getName() + ": " + basilic.getCurrentHP() + "/" + basilic.getBaseHP() + " ❤");
-                basilicHP.getStyleClass().add("troll");
-
-
-                FXMLLoader loaderBasilic = new FXMLLoader(getClass().getResource("basilic.fxml"));
-                Parent rootBasilic = loaderBasilic.load();
-                Scene sceneBasilic = new Scene(rootBasilic);
-                sceneBasilic.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-                ((Pane) rootBasilic).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, basilicHP);
-                stage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
-                stage.setTitle("Harry Potter");
-                stage.setResizable(false);
-                stage.setScene(sceneBasilic);
-                stage.show();
-            }
-        }
-    }
 }

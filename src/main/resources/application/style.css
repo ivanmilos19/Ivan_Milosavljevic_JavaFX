@@ -1,3 +1,54 @@
+AnchorPane {
+    -fx-background-image: url('images/hogwarts.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+/* Background color */
+AnchorPane {
+    -fx-background-color: #212121;
+}
+
+/* Label styles */
+Label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+/* ChoiceBox styles */
+ChoiceBox {
+    -fx-background-color: #4d4d4d;
+    -fx-text-fill: #ffd700;
+    -fx-font-family: "Harry P";
+
+}
+
+/* TextField styles */
+TextField {
+    -fx-background-color: #4d4d4d;
+    -fx-text-fill: #ffd700;
+    -fx-font-family: "Harry P";
+
+}
+
+/* Button styles */
+Button {
+    -fx-background-color: #bfbfbf;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Harry P";
+
+
+}
+
+/* Button hover effect */
+Button:hover {
+    -fx-background-color: #e6e6e6;
+}
+
+
+
+
 #trollBackground {
     -fx-background-image: url('images/TrollBackground.jpg');
     -fx-background-size: cover;

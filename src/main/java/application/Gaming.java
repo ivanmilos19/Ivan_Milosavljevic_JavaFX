@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -39,6 +40,10 @@ public class Gaming implements Initializable {
     private ChoiceBox<String> wandChoice;
     private String[] wands = {"Dragon Heartstring", "Unicorn hair", "Phoenix feather"};
 
+
+    @FXML
+    private Button startGame;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         // Auto-generated method stub
@@ -48,6 +53,7 @@ public class Gaming implements Initializable {
         petChoice.setOnAction(this::getPet);
         wandChoice.getItems().addAll(wands);
         wandChoice.setOnAction(this::getWand);
+        startGame.setVisible(false);
     }
 
     private House house;
@@ -82,62 +88,65 @@ public class Gaming implements Initializable {
     private Boss basilic;
 
     public void createWizard(ActionEvent event) {
-         wizard = Wizard.builder().currentHP(500)
-                .previousHP(500)
-                .baseHP(500)
-                .level(1)
-                .accuracy(0.85 + house.precision())
-                .joinedEnemy(false)
+        if (house != null) {
+            wizard = Wizard.builder().currentHP(500)
+                    .previousHP(500)
+                    .baseHP(500)
+                    .level(1)
+                    .accuracy(0.85 + house.precision())
+                    .joinedEnemy(false)
 
 
-                .healthPotions(new ArrayList<>())
-                .manaPotions(new ArrayList<>())
-                .damagePotions(new ArrayList<>())
+                    .healthPotions(new ArrayList<>())
+                    .manaPotions(new ArrayList<>())
+                    .damagePotions(new ArrayList<>())
 
-                .wingardiumLeviosa(new ArrayList<>())
-                .expectoPatronum(new ArrayList<>())
-                .accio(new ArrayList<>())
-                .sectumsempra(new ArrayList<>())
-                .expelliarmus(new ArrayList<>())
+                    .wingardiumLeviosa(new ArrayList<>())
+                    .expectoPatronum(new ArrayList<>())
+                    .accio(new ArrayList<>())
+                    .sectumsempra(new ArrayList<>())
+                    .expelliarmus(new ArrayList<>())
 
-                .attack_strength((int)(400 * house.attackMultiplier()))
-                .manaPool(150)
-                .currentmanaPool(150)
+                    .attack_strength((int) (400 * house.attackMultiplier()))
+                    .manaPool(150)
+                    .currentmanaPool(150)
 
-                .wingardiumManaUsage(15)
-                .wingardiumCrit(5)
-                .wingardiumDmg(70)
+                    .wingardiumManaUsage(15)
+                    .wingardiumCrit(5)
+                    .wingardiumDmg(70)
 
-                .expectoCrit(99999)
-                .expectoDmg(40)
-                .expectoManaUsage(80)
+                    .expectoCrit(99999)
+                    .expectoDmg(40)
+                    .expectoManaUsage(80)
 
-                .expelliarmusDmg(250)
-                .expellarmusManaUsg(30)
+                    .expelliarmusDmg(250)
+                    .expellarmusManaUsg(30)
 
-                .accioDmg(150)
-                .accioManaUsage(15)
+                    .accioDmg(150)
+                    .accioManaUsage(15)
 
-                .sectumsempraDmg(450)
-                .sectumsempraManaUsg(70)
+                    .sectumsempraDmg(450)
+                    .sectumsempraManaUsg(70)
 
-                .Gold(70)
-                .build();
-
-
-        wizard.addHealthPotion(new Potion());
-        wizard.addDamagePotion(new Potion());
-        wizard.addManaPotion(new Potion());
-
-        wizard.addHealthPotion(new Potion());
-        wizard.addDamagePotion(new Potion());
-        wizard.addManaPotion(new Potion());
+                    .Gold(70)
+                    .build();
 
 
-        // add spells
-        wizard.addSpell(new Spell());
-        wizard.addSpell(new Spell());
+            wizard.addHealthPotion(new Potion());
+            wizard.addDamagePotion(new Potion());
+            wizard.addManaPotion(new Potion());
 
+            wizard.addHealthPotion(new Potion());
+            wizard.addDamagePotion(new Potion());
+            wizard.addManaPotion(new Potion());
+
+
+            // add spells
+            wizard.addSpell(new Spell());
+            wizard.addSpell(new Spell());
+
+            startGame.setVisible(true);
+        }
     }
 
 
@@ -181,19 +190,17 @@ public class Gaming implements Initializable {
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
 
-        if (house != null) {
-            troll = Enemy.builder()
-                    .currentHP(800)
-                    .baseHP(800)
-                    .attack_strength(30)
-                    .attackStrengthMultiplier(3)
-                    .name("Troll")
-                    .build();
+        troll = Enemy.builder()
+                .currentHP(800)
+                .baseHP(800)
+                .attack_strength(30)
+                .attackStrengthMultiplier(3)
+                .name("Troll")
+                .build();
 
-            createTrollStage();
-            putText();
-            putTrollInfo();
-        }
+        createTrollStage();
+        putText();
+        putTrollInfo();
     }
     public void createTrollStage() throws IOException {
         this.trollStage = new Stage();

@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+//TODO - faire fxml de tt les levels / ajouter message pour dégâts et attaques ratée / résoudre probleme de house.null
+//TODO - ajouter grosses attaques / styliser création wizard  / masquer bouton commencer avant de créer le wizard / faire le shop
 
 public class Main extends Application {
 

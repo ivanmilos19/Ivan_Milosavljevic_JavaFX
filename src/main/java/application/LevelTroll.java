@@ -37,6 +37,11 @@ public class LevelTroll {
     @FXML
     private Button manaPotion;
 
+    /////Spells//////
+
+    @FXML
+    private Button wingardium;
+
     /////Return to initial choices//////
     @FXML
     private Button returnButton;
@@ -50,6 +55,7 @@ public class LevelTroll {
         healPotion.setVisible(false);
         damagePotion.setVisible(false);
         manaPotion.setVisible(false);
+        wingardium.setVisible(false);
 
     }
 
@@ -66,6 +72,16 @@ public class LevelTroll {
         returnButton.setVisible(true);
     }
 
+    @FXML
+    private void handleSpellPress(ActionEvent event) {
+        attack.setVisible(false);
+        defend.setVisible(false);
+        inventory.setVisible(false);
+        spell.setVisible(false);
+        wingardium.setVisible(true);
+        returnButton.setVisible(true);
+    }
+
 
     @FXML
     private void handleReturn(ActionEvent event) {
@@ -77,6 +93,7 @@ public class LevelTroll {
         healPotion.setVisible(false);
         damagePotion.setVisible(false);
         manaPotion.setVisible(false);
+        wingardium.setVisible(false);
         returnButton.setVisible(false);
     }
 
@@ -95,6 +112,8 @@ public class LevelTroll {
         gaming.wizardAttackTroll();
         gaming.trollAttackWizard();
         gaming.putText();
+        gaming.putTrollInfo();
+
 
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -111,6 +130,24 @@ public class LevelTroll {
         gaming.trollAttackWizard();
         gaming.wizardStopsDefend();
         gaming.putText();
+
+        if (gaming.checkGameStateWizard()) {
+            gaming.gameOver();
+        }
+
+        if (gaming.checkGameStateTroll()) {
+            gaming.closeTrollStage();
+        }
+    }
+
+    @FXML
+    private void handleWingardium(ActionEvent event) throws IOException {
+        boolean canUseWingardium = gaming.wingardiumButtonPress();
+        if (canUseWingardium) {
+            gaming.trollAttackWizard();
+            gaming.putText();
+            gaming.putTrollInfo();
+        }
 
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();

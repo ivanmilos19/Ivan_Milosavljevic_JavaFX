@@ -11,7 +11,7 @@
 }
 
 .HP, .Mana, .attack, .accuracy, .level, .troll {
-    -fx-translate-y: 600px;
+    -fx-translate-y: 410px;
     -fx-font-weight: bold;
 }
 
@@ -105,7 +105,7 @@
 
 
 
-#attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic, #returnButton, #healPotion, #damagePotion, #manaPotion {
+#attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic, #returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium {
     -fx-font-weight: bold;
     -fx-background-color: transparent;
     -fx-text-fill: #FFFFFF;
@@ -118,7 +118,7 @@
 
 }
 
-#attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #attackBasilic:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover {
+#attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #attackBasilic:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover, #wingardium:hover {
    -fx-text-fill: #00FF00; /* Green color */
 }
 

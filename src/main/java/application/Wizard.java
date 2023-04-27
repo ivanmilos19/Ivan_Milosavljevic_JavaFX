@@ -258,8 +258,6 @@ public class Wizard extends Character {
             wingardiumLeviosa.remove(0);
             success = true;
 
-
-
         }
         minMana();
         return success;

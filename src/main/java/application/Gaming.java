@@ -105,7 +105,7 @@ public class Gaming implements Initializable {
                 .currentmanaPool(150)
 
                 .wingardiumManaUsage(15)
-                .wingardiumCrit(140)
+                .wingardiumCrit(5)
                 .wingardiumDmg(70)
 
                 .expectoCrit(99999)
@@ -137,6 +137,7 @@ public class Gaming implements Initializable {
         // add spells
         wizard.addSpell(new Spell());
         wizard.addSpell(new Spell());
+
     }
 
 
@@ -168,6 +169,11 @@ public class Gaming implements Initializable {
         levelText.getStyleClass().add("level");
     }
 
+    public void putTrollInfo() {
+        trollInfo.setText(troll.getName() + ": " + troll.getCurrentHP() + "/" + troll.getBaseHP() + " ❤");
+        trollInfo.getStyleClass().add("troll");
+    }
+
     private Stage trollStage;
 
     public void startGame(ActionEvent event) throws IOException {
@@ -184,10 +190,9 @@ public class Gaming implements Initializable {
                     .name("Troll")
                     .build();
 
-            trollInfo.setText(troll.getName() + ": " + troll.getCurrentHP() + "/" + troll.getBaseHP() + " ❤");
-            trollInfo.getStyleClass().add("troll");
             createTrollStage();
             putText();
+            putTrollInfo();
         }
     }
     public void createTrollStage() throws IOException {
@@ -265,13 +270,21 @@ public class Gaming implements Initializable {
 
     }
 
-
-
-
     public void wizardAttackTroll() {
         System.out.println(troll.getCurrentHP());
         wizard.attack(troll);
         System.out.println(troll.getCurrentHP());
+    }
+
+    public boolean wingardiumButtonPress() {
+        boolean canUseWingardium = true;
+        boolean success = wizard.useWingardiumLeviosa(troll);
+            if (!success) {
+                System.out.println("You have no wingardium left");
+                canUseWingardium = false;
+
+            }
+        return canUseWingardium;
     }
 
     public void trollAttackWizard() {

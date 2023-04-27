@@ -3,6 +3,7 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 
@@ -46,6 +47,16 @@ public class LevelTroll {
     @FXML
     private Button returnButton;
 
+    //warning messages//
+    @FXML
+    private Label wingardiumWarning;
+    @FXML
+    private Label healthPotionWarning;
+    @FXML
+    private Label damagePotionWarning;
+    @FXML
+    private Label manaPotionWarning;
+
 
 
     @FXML
@@ -56,6 +67,12 @@ public class LevelTroll {
         damagePotion.setVisible(false);
         manaPotion.setVisible(false);
         wingardium.setVisible(false);
+
+        //messages//
+        wingardiumWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
 
     }
 
@@ -109,11 +126,15 @@ public class LevelTroll {
 
     @FXML
     private void attackTroll(ActionEvent event) throws IOException {
+        wingardiumWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
         gaming.wizardAttackTroll();
         gaming.trollAttackWizard();
         gaming.putText();
         gaming.putTrollInfo();
-
 
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -126,6 +147,11 @@ public class LevelTroll {
 
     @FXML
     private void handleDefend(ActionEvent event) throws IOException {
+        wingardiumWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
         gaming.wizardDefends();
         gaming.trollAttackWizard();
         gaming.wizardStopsDefend();
@@ -142,11 +168,18 @@ public class LevelTroll {
 
     @FXML
     private void handleWingardium(ActionEvent event) throws IOException {
+        wingardiumWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
         boolean canUseWingardium = gaming.wingardiumButtonPress();
         if (canUseWingardium) {
             gaming.trollAttackWizard();
             gaming.putText();
             gaming.putTrollInfo();
+        } else {
+            wingardiumWarning.setVisible(true);
         }
 
         if (gaming.checkGameStateWizard()) {
@@ -160,19 +193,44 @@ public class LevelTroll {
 
     @FXML
     private void handleHealthPotion(ActionEvent event) {
-        gaming.wizardUsesHealthPotion();
+        wingardiumWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
+        boolean canUseHealthPotion = gaming.healthPotionButtonPress();
+        if (canUseHealthPotion) {
+            gaming.putText();
+        } else {
+            healthPotionWarning.setVisible(true);
+        }
         gaming.putText();
     }
 
     @FXML
     private void handleDamagePotion(ActionEvent event) {
+        wingardiumWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
         gaming.wizardUsesDamagePotion();
         gaming.putText();
     }
 
     @FXML
     private void handleManaPotion(ActionEvent event) {
-        gaming.wizardUsesManaPotion();
+        wingardiumWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
+        boolean canUseManaPotion = gaming.manaPotionButtonPress();
+        if (canUseManaPotion) {
+            gaming.putText();
+        } else {
+            manaPotionWarning.setVisible(true);
+        }
         gaming.putText();
     }
 

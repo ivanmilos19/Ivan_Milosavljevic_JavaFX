@@ -282,7 +282,6 @@ public class Gaming implements Initializable {
             if (!success) {
                 System.out.println("You have no wingardium left");
                 canUseWingardium = false;
-
             }
         return canUseWingardium;
     }
@@ -299,12 +298,24 @@ public class Gaming implements Initializable {
         wizard.stopDefending();
     }
 
-    public void wizardUsesHealthPotion() {
-        wizard.useHealthPotion();
+    public boolean healthPotionButtonPress() {
+        boolean canUseHealthPotion = true;
+        boolean success = wizard.useHealthPotion();
+        if (!success) {
+            System.out.println("You have no hp pots");
+            canUseHealthPotion = false;
+        }
+        return canUseHealthPotion;
     }
 
-    public void wizardUsesManaPotion() {
-        wizard.useManaPotion();
+    public boolean manaPotionButtonPress() {
+        boolean canUseManaPotion = true;
+        boolean success = wizard.useManaPotion();
+        if (!success) {
+            System.out.println("You have no mana pots");
+            canUseManaPotion = false;
+        }
+        return canUseManaPotion;
     }
 
     public void wizardUsesDamagePotion() {

@@ -11,7 +11,7 @@
 }
 
 .HP, .Mana, .attack, .accuracy, .level, .troll {
-    -fx-translate-y: 410px;
+    -fx-translate-y: 460px;
     -fx-font-weight: bold;
 }
 

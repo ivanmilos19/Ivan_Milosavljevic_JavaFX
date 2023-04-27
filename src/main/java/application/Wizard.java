@@ -185,8 +185,9 @@ public class Wizard extends Character {
     }
 
 
-    public void useHealthPotion() {
+    public boolean useHealthPotion() {
         // use the first available potion in my collection of potions
+        boolean success = true;
         if (healthPotions.size() > 0) {
             Potion potion = healthPotions.get(0);
             int newHP = getCurrentHP();
@@ -196,12 +197,14 @@ public class Wizard extends Character {
             healthPotions.remove(0);
             maxHealth();
         } else {
-            System.out.println(YELLOW_BOLD_BRIGHT+"You have no health potions left");
+            success = false;
         }
+        return success;
     }
 
-    public void useManaPotion() {
+    public boolean useManaPotion() {
         // use the first available potion in my collection of potions
+        boolean success = true;
         if (manaPotions.size() > 0) {
             Potion potion = manaPotions.get(0);
             currentmanaPool += potion.manaImprovement();
@@ -209,8 +212,9 @@ public class Wizard extends Character {
             manaPotions.remove(0);
             maxMana();
         } else {
-            System.out.println(YELLOW_BOLD_BRIGHT+" You have no mana potions left ");
+            success = false;
         }
+        return success;
     }
 
 

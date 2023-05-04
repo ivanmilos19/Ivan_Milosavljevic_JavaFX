@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class Gaming implements Initializable {
@@ -155,9 +156,10 @@ public class Gaming implements Initializable {
     Text textAttack = new Text();
     Text textAccuracy = new Text();
     Text levelText = new Text();
+    Text gold = new Text();
     Text trollInfo = new Text();
-    Text gameOver = new Text();
     Text basilicIinfo = new Text();
+    Text numberHealthPotions = new Text();
 
 
 
@@ -176,6 +178,15 @@ public class Gaming implements Initializable {
 
         levelText.setText("Level: " + wizard.getLevel() + " ⭐" + "   |");
         levelText.getStyleClass().add("level");
+
+        numberHealthPotions.setText(Arrays.toString(new String[]{String.valueOf(wizard.getNumberHealthPotion(wizard.getHealthPotions()))}));
+        numberHealthPotions.getStyleClass().add("nbrHealthPots");
+
+    }
+
+    public void showGold() {
+        gold.setText("Current gold: " + wizard.getGold() + " \uD83D\uDCB0");
+        gold.getStyleClass().add("gold");
     }
 
     public void putTrollInfo() {
@@ -184,6 +195,12 @@ public class Gaming implements Initializable {
     }
 
     private Stage trollStage;
+    private Stage basilicStage;
+    private Stage shopStage;
+    private Stage stageTransition;
+
+
+
 
     public void startGame(ActionEvent event) throws IOException {
         Node source = (Node) event.getSource();
@@ -199,6 +216,7 @@ public class Gaming implements Initializable {
                 .build();
 
         createTrollStage();
+        showGold();
         putText();
         putTrollInfo();
     }
@@ -208,28 +226,61 @@ public class Gaming implements Initializable {
         Parent rootTroll = loaderTroll.load();
         Scene sceneTroll = new Scene(rootTroll);
         sceneTroll.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        ((Pane) rootTroll).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, trollInfo);
+        ((Pane) rootTroll).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, numberHealthPotions, trollInfo);
         trollStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
         trollStage.setTitle("Harry Potter");
         trollStage.setResizable(false);
         trollStage.setScene(sceneTroll);
-        LevelTroll controller = loaderTroll.getController();
-        controller.setGaming(this);
+        LevelTroll controllerTroll = loaderTroll.getController();
+        controllerTroll.setGaming(this);
+
         trollStage.show();
     }
 
     public void createBasilicStage() throws IOException {
-        Stage stage = new Stage();
+
+        basilic = Boss.builder()
+                .currentHP(1000)
+                .baseHP(1000)
+                .attack_strength(30)
+                .attackStrengthMultiplier(3)
+                .name("Basilic")
+                .build();
+
+        basilicIinfo.setText(basilic.getName() + ": " + basilic.getCurrentHP() + "/" + basilic.getBaseHP() + " ❤");
+        basilicIinfo.getStyleClass().add("troll");
+
+
+        this.basilicStage = new Stage();
         FXMLLoader loaderBasilic = new FXMLLoader(getClass().getResource("basilic.fxml"));
         Parent rootBasilic = loaderBasilic.load();
         Scene sceneBasilic = new Scene(rootBasilic);
         sceneBasilic.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         ((Pane) rootBasilic).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, basilicIinfo);
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
-        stage.setTitle("Harry Potter");
-        stage.setResizable(false);
-        stage.setScene(sceneBasilic);
-        stage.show();
+        basilicStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        basilicStage.setTitle("Harry Potter");
+        basilicStage.setResizable(false);
+        basilicStage.setScene(sceneBasilic);
+        basilicStage.show();
+    }
+
+    public void createShop() throws IOException {
+        this.shopStage = new Stage();
+        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("shop.fxml"));
+        Parent rootShop = loaderStage.load();
+        Scene sceneShop = new Scene(rootShop);
+        sceneShop.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        ((Pane) rootShop).getChildren().addAll(gold, numberHealthPotions);
+        shopStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        shopStage.setTitle("Harry Potter");
+        shopStage.setResizable(false);
+        shopStage.setScene(sceneShop);
+        ShopStage controllerShop = loaderStage.getController();
+
+        controllerShop.setGaming(this);
+
+
+        shopStage.show();
     }
 
     public boolean checkGameStateWizard() {
@@ -252,8 +303,6 @@ public class Gaming implements Initializable {
         FXMLLoader loaderGameOver = new FXMLLoader(getClass().getResource("GameOver.fxml"));
         Parent rootGamerOver = loaderGameOver.load();
         Scene sceneGameOver = new Scene(rootGamerOver);
-        sceneGameOver.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        ((Pane) rootGamerOver).getChildren().addAll(gameOver);
         stage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
         stage.setTitle("Harry Potter");
         stage.setResizable(false);
@@ -261,20 +310,33 @@ public class Gaming implements Initializable {
         stage.show();
     }
 
+    public void closeStage() throws IOException {
+        stageTransition.close();
+    }
+    public void closeShop() throws IOException {
+        shopStage.close();
+        createBasilicStage();
+    }
+
+    public void stageTransition() throws IOException {
+
+        this.stageTransition = new Stage();
+        FXMLLoader loaderTransition = new FXMLLoader(getClass().getResource("StageTransition.fxml"));
+        Parent rootTransition = loaderTransition.load();
+        Scene sceneTransition = new Scene(rootTransition);
+        sceneTransition.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        stageTransition.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        stageTransition.setTitle("Harry Potter");
+        stageTransition.setResizable(false);
+        stageTransition.setScene(sceneTransition);
+        StageTransition controllerTransition = loaderTransition.getController();
+        controllerTransition.setGaming(this);
+        stageTransition.show();
+    }
+
     public void closeTrollStage() throws IOException {
         trollStage.close();
-        basilic = Boss.builder()
-                .currentHP(1000)
-                .baseHP(1000)
-                .attack_strength(30)
-                .attackStrengthMultiplier(3)
-                .name("Basilic")
-                .build();
-
-        basilicIinfo.setText(basilic.getName() + ": " + basilic.getCurrentHP() + "/" + basilic.getBaseHP() + " ❤");
-        basilicIinfo.getStyleClass().add("troll");
-        createBasilicStage();
-
+        stageTransition();
     }
 
     public void wizardAttackTroll() {
@@ -327,6 +389,37 @@ public class Gaming implements Initializable {
 
     public void wizardUsesDamagePotion() {
         wizard.equipDamagePotion();
+    }
+
+    public boolean canBuyHealthPotion() {
+        int healthPrice = 15;
+        boolean success = false;
+        if (wizard.getGold() - healthPrice > 0) {
+            wizard.addHealthPotion(new Potion());
+            wizard.setGold(wizard.getGold() - healthPrice);
+            return success = true;
+        }
+        return success;
+    }
+    public boolean canBuyDamagePotion() {
+        int damagePrice = 30;
+        boolean success = false;
+        if (wizard.getGold() - damagePrice > 0) {
+            wizard.addDamagePotion(new Potion());
+            wizard.setGold(wizard.getGold() - damagePrice);
+            return success = true;
+        }
+        return success;
+    }
+    public boolean canBuyManaPotion() {
+        int manaPrice = 15;
+        boolean success = false;
+        if (wizard.getGold() - manaPrice > 0) {
+            wizard.addManaPotion(new Potion());
+            wizard.setGold(wizard.getGold() - manaPrice);
+            return success = true;
+        }
+        return success;
     }
 
 }

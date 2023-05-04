@@ -12,10 +12,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 //TODO - faire fxml de tt les levels / ajouter message pour dégâts et attaques ratée / résoudre probleme de house.null
-//TODO - ajouter grosses attaques / styliser création wizard  / masquer bouton commencer avant de créer le wizard / faire le shop
+//TODO - ajouter grosses attaques  / faire le shop
 
 public class Main extends Application {
-
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -28,7 +27,6 @@ public class Main extends Application {
             stage.setResizable(false);
             stage.setScene(sceneCreateWizard);
             stage.show();
-
             loaderCreateWizard.getController();
     }
 
@@ -36,6 +34,4 @@ public class Main extends Application {
         launch(args);
 
     }
-
-
 }

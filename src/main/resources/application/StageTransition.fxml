@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StageTransition">
+   <children>
+      <Label layoutX="23.0" layoutY="41.0" text="You finished the level ! Do you want to go to the shop ? ">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="yesButton" layoutX="257.0" layoutY="156.0" mnemonicParsing="false" onAction="#handleYesButton" text="YES" />
+      <Button fx:id="noButton" layoutX="258.0" layoutY="258.0" mnemonicParsing="false" onAction="#handleNoButton" text="NO" />
+   </children>
+</AnchorPane>

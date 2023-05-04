@@ -4,15 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 
 public class LevelTroll {
-
-///////Actions Buttons/////////
-  /*  Main main = new Main();
-    Wizard wizard = main.getWizard();
-    Enemy troll = main.getEnemy(); */
 
 
     Gaming gaming = new Gaming();
@@ -87,6 +83,7 @@ public class LevelTroll {
         damagePotion.setVisible(true);
         manaPotion.setVisible(true);
         returnButton.setVisible(true);
+
     }
 
     @FXML

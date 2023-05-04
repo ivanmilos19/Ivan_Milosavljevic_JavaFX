@@ -1,13 +1,11 @@
-AnchorPane {
-    -fx-background-image: url('images/hogwarts.jpg');
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-}
+
 
 /* Background color */
 AnchorPane {
     -fx-background-color: #212121;
 }
+
+
 
 /* Label styles */
 Label {
@@ -61,11 +59,6 @@ Button:hover {
     -fx-background-position: center center;
 }
 
-.HP, .Mana, .attack, .accuracy, .level, .troll {
-    -fx-translate-y: 460px;
-    -fx-font-weight: bold;
-}
-
 
 #startButton {
       -fx-background-color: #5B5B5B;
@@ -93,18 +86,32 @@ Button:hover {
 }
 
 
+.HP, .Mana, .attack, .accuracy, .level, .troll{
+    -fx-translate-y: 460px;
+    -fx-font-weight: bold;
+}
 
-/*.my-image {
-  background-image: url("C:\Users\ivanm\IdeaProjects\javafx\src\main\resources\application\title.png");
-  background-size: cover;
-  width: 200px;
-  height: 200px;
-}*/
+.nbrHealthPots {
+    -fx-fill: white;
+    -fx-font-size: 11pt; /* Change the font size to 16 points */
+    -fx-translate-x: 700px; /* adjust as needed */
+    -fx-translate-y: 560px;
+    -fx-font-weight: bold;
+}
 
 .HP {
     -fx-fill: white;
     -fx-font-size: 11pt; /* Change the font size to 16 points */
     -fx-translate-x: 20px; /* adjust as needed */
+
+}
+
+.gold {
+    -fx-translate-y: 480px;
+    -fx-font-weight: bold;
+    -fx-fill: white;
+    -fx-font-size: 11pt; /* Change the font size to 16 points */
+    -fx-translate-x: 46px; /* adjust as needed */
 
 }
 
@@ -132,6 +139,8 @@ Button:hover {
     -fx-translate-x: 700px; /* adjust as needed */
 }
 
+
+
 .troll {
     -fx-fill: red;
     -fx-font-size: 11pt; /* Change the font size to 16 points */
@@ -156,7 +165,8 @@ Button:hover {
 
 
 
-#attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic, #returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium {
+#attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic, #returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium
+, #shopHp, #shopDamage, #shopMana, #yesButton, #noButton, #leaveShop {
     -fx-font-weight: bold;
     -fx-background-color: transparent;
     -fx-text-fill: #FFFFFF;
@@ -169,10 +179,17 @@ Button:hover {
 
 }
 
-#attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #attackBasilic:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover, #wingardium:hover {
+#attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #attackBasilic:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover, #wingardium:hover, #shopHp:hover, #shopDamage:hover, #shopMana:hover
+ , #yesButton:hover, #noButton:hover, #leaveShop:hover {
    -fx-text-fill: #00FF00; /* Green color */
 }
 
+
+#shopBackground {
+    -fx-background-image: url('images/shop.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
 
 
 

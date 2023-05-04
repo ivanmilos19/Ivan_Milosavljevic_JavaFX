@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
 import java.util.Random;
-import java.util.Scanner;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package application;
+package application.Houses;
 
 public class Ravenclaw extends House {
     public String getName() { return "Ravenclaw"; }

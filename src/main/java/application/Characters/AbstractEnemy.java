@@ -1,4 +1,4 @@
-package application;
+package application.Characters;
 
 import lombok.Data;
 import lombok.experimental.SuperBuilder;

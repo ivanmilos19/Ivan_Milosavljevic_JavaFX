@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="hangleton" prefHeight="532.0" prefWidth="1178.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LevelHangleton">
+<AnchorPane fx:id="hangleton" prefHeight="532.0" prefWidth="1178.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Levels.LevelHangleton">
    <children>
       <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#6e7780" height="197.0" layoutY="430.0" stroke="BLACK" strokeType="INSIDE" width="1178.0" />
       <Button fx:id="attack" layoutX="39.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleAttackButtonPress" scaleZ="2.0" text="Attack" />

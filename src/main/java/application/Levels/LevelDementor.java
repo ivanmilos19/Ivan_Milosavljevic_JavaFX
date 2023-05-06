@@ -1,5 +1,6 @@
-package application;
+package application.Levels;
 
+import application.Gaming;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

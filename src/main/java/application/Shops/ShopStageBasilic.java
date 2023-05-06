@@ -1,11 +1,12 @@
-package application;
+package application.Shops;
 
+import application.Gaming;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-public class ShopStage {
+public class ShopStageBasilic {
     Gaming gaming = new Gaming();
     public void setGaming(Gaming gaming){
         this.gaming = gaming;

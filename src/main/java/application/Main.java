@@ -18,7 +18,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-            FXMLLoader loaderCreateWizard = new FXMLLoader(getClass().getResource("hangleton.fxml"));
+            FXMLLoader loaderCreateWizard = new FXMLLoader(getClass().getResource("wizardCreation.fxml"));
             Parent rootCreateWizard = loaderCreateWizard.load();
             Scene sceneCreateWizard = new Scene(rootCreateWizard);
             sceneCreateWizard.getStylesheets().add(getClass().getResource("style.css").toExternalForm());

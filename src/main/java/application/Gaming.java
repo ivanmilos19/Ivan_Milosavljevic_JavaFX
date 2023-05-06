@@ -1,5 +1,14 @@
 package application;
 
+import application.Characters.Boss;
+import application.Characters.Enemy;
+import application.Characters.Wizard;
+import application.Houses.*;
+import application.Levels.LevelBasilic;
+import application.Levels.LevelDementor;
+import application.Levels.LevelTroll;
+import application.Shops.ShopStageBasilic;
+import application.StageTransitions.StageTransitionBasilic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -320,7 +329,7 @@ public class Gaming implements Initializable {
         shopStage.setTitle("Harry Potter");
         shopStage.setResizable(false);
         shopStage.setScene(sceneShop);
-        ShopStage controllerShop = loaderStage.getController();
+        ShopStageBasilic controllerShop = loaderStage.getController();
         controllerShop.setGaming(this);
 
         shopStage.show();
@@ -384,7 +393,7 @@ public class Gaming implements Initializable {
         stageTransition.setTitle("Harry Potter");
         stageTransition.setResizable(false);
         stageTransition.setScene(sceneTransition);
-        StageTransition controllerTransition = loaderTransition.getController();
+        StageTransitionBasilic controllerTransition = loaderTransition.getController();
         controllerTransition.setGaming(this);
         levelUp();
         stageTransition.show();

@@ -1,4 +1,4 @@
-package application;
+package application.Houses;
 
 public abstract class House {
 

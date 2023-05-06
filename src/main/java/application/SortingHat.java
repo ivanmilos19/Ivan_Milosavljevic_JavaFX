@@ -1,7 +1,8 @@
 package application;
 
+import application.Houses.*;
 import lombok.Data;
-import java.util.Arrays;
+
 @Data
 public class SortingHat {
 

@@ -1,4 +1,4 @@
-package application;
+package application.Houses;
 
 public class Slytherin extends House {
     public String getName() { return "Hufflepuff"; }

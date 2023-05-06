@@ -1,5 +1,7 @@
 package application;
 
+import application.Characters.Wizard;
+
 public class Rewards {
     String newLine = System.getProperty("line.separator");
     public void getRewards(Wizard wizard) {

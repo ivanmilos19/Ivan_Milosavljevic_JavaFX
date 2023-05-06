@@ -1,5 +1,6 @@
-package application;
+package application.Levels;
 
+import application.Gaming;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,8 +8,7 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-public class LevelTroll {
-
+public class LevelHangleton {
 
     Gaming gaming = new Gaming();
     public void setGaming(Gaming gaming){
@@ -23,7 +23,11 @@ public class LevelTroll {
     @FXML
     private Button spell;
     @FXML
-    private Button attackTroll;
+    private Button attackVoldemort;
+    @FXML
+    private Button attackWormtail;
+    @FXML
+    private Button accioTrophy;
 
     ///////Potions Buttons/////////
     @FXML
@@ -37,6 +41,11 @@ public class LevelTroll {
 
     @FXML
     private Button wingardium;
+    @FXML
+    private Button accio;
+    @FXML
+    private Button expecto;
+
 
     /////Return to initial choices//////
     @FXML
@@ -45,6 +54,10 @@ public class LevelTroll {
     //warning messages//
     @FXML
     private Label wingardiumWarning;
+    @FXML
+    private Label accioWarning;
+    @FXML
+    private Label expectoWarning;
     @FXML
     private Label healthPotionWarning;
     @FXML
@@ -56,15 +69,21 @@ public class LevelTroll {
 
     @FXML
     public void initialize() {
-        attackTroll.setVisible(false);
+        attackVoldemort.setVisible(false);
+        attackWormtail.setVisible(false);
         returnButton.setVisible(false);
         healPotion.setVisible(false);
         damagePotion.setVisible(false);
         manaPotion.setVisible(false);
         wingardium.setVisible(false);
+        accio.setVisible(false);
+        expecto.setVisible(false);
 
         //messages//
         wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
+        expectoWarning.setVisible(false);
+
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -91,6 +110,8 @@ public class LevelTroll {
         inventory.setVisible(false);
         spell.setVisible(false);
         wingardium.setVisible(true);
+        accio.setVisible(true);
+        expecto.setVisible(true);
         returnButton.setVisible(true);
     }
 
@@ -101,17 +122,21 @@ public class LevelTroll {
         defend.setVisible(true);
         inventory.setVisible(true);
         spell.setVisible(true);
-        attackTroll.setVisible(false);
+        attackVoldemort.setVisible(false);
+        attackWormtail.setVisible(false);
         healPotion.setVisible(false);
         damagePotion.setVisible(false);
         manaPotion.setVisible(false);
         wingardium.setVisible(false);
+        accio.setVisible(false);
+        expecto.setVisible(false);
         returnButton.setVisible(false);
     }
 
     @FXML
     private void handleAttackButtonPress(ActionEvent event) {
-        attackTroll.setVisible(true);
+        attackVoldemort.setVisible(true);
+        attackWormtail.setVisible(true);
         attack.setVisible(false);
         defend.setVisible(false);
         inventory.setVisible(false);
@@ -120,35 +145,61 @@ public class LevelTroll {
     }
 
     @FXML
-    private void attackTroll(ActionEvent event) throws IOException {
+    private void attackVoldemort(ActionEvent event) throws IOException {
         wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
+        expectoWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
-        gaming.wizard.attack(gaming.troll);
-        gaming.trollAttacksWizard();
+        gaming.wizard.attack(gaming.dementor);
+        gaming.dementorAttacksWizard();
         gaming.putText();
-        gaming.putTrollInfo();
+        gaming.putDementorInfo();
 
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
         }
 
-        if (gaming.checkGameStateTroll()) {
-            gaming.closeTrollStage();
+        if (gaming.checkGameStateDementor()) {
+            gaming.closeDementorStage();
+        }
+    }
+    @FXML
+    private void attackWormtail(ActionEvent event) throws IOException {
+        wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
+        expectoWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
+        gaming.wizard.attack(gaming.dementor);
+        gaming.dementorAttacksWizard();
+        gaming.putText();
+        gaming.putDementorInfo();
+
+        if (gaming.checkGameStateWizard()) {
+            gaming.gameOver();
+        }
+
+        if (gaming.checkGameStateDementor()) {
+            gaming.closeDementorStage();
         }
     }
 
     @FXML
     private void handleDefend(ActionEvent event) throws IOException {
         wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
+        expectoWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
         gaming.wizardDefends();
-        gaming.trollAttacksWizard();
+        gaming.dementorAttacksWizard();
         gaming.wizardStopsDefend();
         gaming.putText();
 
@@ -156,41 +207,103 @@ public class LevelTroll {
             gaming.gameOver();
         }
 
-        if (gaming.checkGameStateTroll()) {
-            gaming.closeTrollStage();
+        if (gaming.checkGameStateDementor()) {
+            gaming.closeDementorStage();
         }
     }
 
     @FXML
     private boolean handleWingardium(ActionEvent event) throws IOException {
         wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
+        expectoWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
 
-        boolean success = gaming.wizard.useWingardiumLeviosa(gaming.troll);
+        boolean success = gaming.wizard.useWingardiumLeviosa(gaming.dementor);
         if (!success) {
             wingardiumWarning.setVisible(true);
             success = false;
         } else {
-            gaming.trollAttacksWizard();
+            gaming.dementorAttacksWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
         }
 
-        if (gaming.checkGameStateTroll()) {
-            gaming.closeTrollStage();
+        if (gaming.checkGameStateDementor()) {
+            gaming.closeDementorStage();
         }
         gaming.putText();
-        gaming.putTrollInfo();
+        gaming.putDementorInfo();
         return success;
     }
 
     @FXML
+    private boolean handleAccio(ActionEvent event) throws IOException {
+        wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
+        expectoWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
+
+        boolean success = gaming.wizard.useAccio(gaming.dementor);
+        if (!success) {
+            accioWarning.setVisible(true);
+            success = false;
+        } else {
+            gaming.dementorAttacksWizard();
+        }
+        if (gaming.checkGameStateWizard()) {
+            gaming.gameOver();
+        }
+
+        if (gaming.checkGameStateDementor()) {
+            gaming.closeDementorStage();
+        }
+        gaming.putText();
+        gaming.putDementorInfo();
+        return success;
+    }
+    @FXML
+    private boolean handleExpecto(ActionEvent event) throws IOException {
+        accioWarning.setVisible(false);
+        wingardiumWarning.setVisible(false);
+        expectoWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
+
+        boolean success = gaming.wizard.useExpecto(gaming.dementor);
+        if (!success) {
+            expectoWarning.setVisible(true);
+            success = false;
+        } else {
+            gaming.dementorAttacksWizard();
+        }
+        if (gaming.checkGameStateWizard()) {
+            gaming.gameOver();
+        }
+
+        if (gaming.checkGameStateDementor()) {
+            gaming.closeDementorStage();
+        }
+        gaming.putText();
+        gaming.putDementorInfo();
+        return success;
+    }
+
+
+    @FXML
     private void handleHealthPotion(ActionEvent event) {
         wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
+        expectoWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -207,6 +320,8 @@ public class LevelTroll {
     @FXML
     private void handleDamagePotion(ActionEvent event) {
         wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
+        expectoWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -218,6 +333,8 @@ public class LevelTroll {
     @FXML
     private void handleManaPotion(ActionEvent event) {
         wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
+        expectoWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -230,6 +347,4 @@ public class LevelTroll {
         }
         gaming.putText();
     }
-
-
 }

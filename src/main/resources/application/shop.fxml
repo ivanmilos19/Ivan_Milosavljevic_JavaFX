@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="shopBackground" prefHeight="616.0" prefWidth="1177.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ShopStage">
+<AnchorPane fx:id="shopBackground" prefHeight="616.0" prefWidth="1177.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Shops.ShopStageBasilic">
    <children>
       <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#6e7780" height="197.0" layoutX="-1.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" width="1178.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="25.0" layoutX="465.0" layoutY="27.0" scaleX="2.0" scaleY="2.0" stroke="WHITE" strokeType="INSIDE" width="247.0" />

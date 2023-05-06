@@ -1,5 +1,9 @@
-package application;
+package application.Characters;
 
+import application.Characters.Character;
+import application.Potion;
+import application.Spell;
+import application.Wand;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 import java.util.Random;

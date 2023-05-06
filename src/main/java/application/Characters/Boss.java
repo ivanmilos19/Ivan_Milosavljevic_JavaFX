@@ -1,5 +1,6 @@
-package application;
+package application.Characters;
 
+import application.Characters.AbstractEnemy;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 

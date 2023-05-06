@@ -115,6 +115,7 @@ public class LevelBasilic {
         damagePotion.setVisible(false);
         manaPotion.setVisible(false);
         wingardium.setVisible(false);
+        accio.setVisible(false);
         returnButton.setVisible(false);
     }
 
@@ -131,12 +132,13 @@ public class LevelBasilic {
     @FXML
     private void attackBasilic(ActionEvent event) throws IOException {
         wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
         gaming.wizard.attack(gaming.basilic);
-        gaming.basilicAttackWizard();
+        gaming.basilicAttacksWizard();
         gaming.putText();
         gaming.putBasilicInfo();
 
@@ -145,19 +147,20 @@ public class LevelBasilic {
         }
 
         if (gaming.checkGameStateBasilic()) {
-            gaming.closeTrollStage();
+            gaming.closeBasilicStage();
         }
     }
 
     @FXML
     private void handleDefend(ActionEvent event) throws IOException {
         wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
         gaming.wizardDefends();
-        gaming.basilicAttackWizard();
+        gaming.basilicAttacksWizard();
         gaming.wizardStopsDefend();
         gaming.putText();
 
@@ -166,13 +169,14 @@ public class LevelBasilic {
         }
 
         if (gaming.checkGameStateBasilic()) {
-            gaming.closeTrollStage();
+            gaming.closeBasilicStage();
         }
     }
 
     @FXML
     private boolean handleWingardium(ActionEvent event) throws IOException {
         wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -183,14 +187,14 @@ public class LevelBasilic {
             wingardiumWarning.setVisible(true);
             success = false;
         } else {
-            gaming.basilicAttackWizard();
+            gaming.basilicAttacksWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
         }
 
         if (gaming.checkGameStateBasilic()) {
-            gaming.closeTrollStage();
+            gaming.closeBasilicStage();
         }
         gaming.putText();
         gaming.putBasilicInfo();
@@ -211,14 +215,14 @@ public class LevelBasilic {
             accioWarning.setVisible(true);
             success = false;
         } else {
-            gaming.basilicAttackWizard();
+            gaming.basilicAttacksWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
         }
 
         if (gaming.checkGameStateBasilic()) {
-            gaming.closeTrollStage();
+            gaming.closeBasilicStage();
         }
         gaming.putText();
         gaming.putBasilicInfo();

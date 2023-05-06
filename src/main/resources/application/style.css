@@ -59,6 +59,12 @@ Button:hover {
     -fx-background-position: center center;
 }
 
+#dementorBackground {
+    -fx-background-image: url('images/azkaban.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
 
 #startButton {
       -fx-background-color: #5B5B5B;
@@ -86,7 +92,7 @@ Button:hover {
 }
 
 
-.HP, .Mana, .attack, .accuracy, .level, .troll{
+.HP, .Mana, .attack, .accuracy, .level, .troll, .dementor{
     -fx-translate-y: 460px;
     -fx-font-weight: bold;
 }
@@ -153,6 +159,11 @@ Button:hover {
     -fx-translate-x: 940px; /* adjust as needed */
 }
 
+.dementor {
+    -fx-fill: red;
+    -fx-font-size:  11pt; /* Change the font size to 16 points */
+    -fx-translate-x: 940px; /* adjust as needed */
+}
 
 
 #rectangle {
@@ -165,7 +176,7 @@ Button:hover {
 
 
 
-#attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic, #returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium, #accio
+#attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic,#attackDementor, #returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium, #accio, #expecto
 , #shopHp, #shopDamage, #shopMana, #yesButton, #noButton, #leaveShop {
     -fx-font-weight: bold;
     -fx-background-color: transparent;
@@ -179,8 +190,8 @@ Button:hover {
 
 }
 
-#attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #attackBasilic:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover, #wingardium:hover, #shopHp:hover, #shopDamage:hover, #shopMana:hover
- , #yesButton:hover, #noButton:hover, #leaveShop:hover , #accio:hover{
+#attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #attackBasilic:hover,#attackDementor:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover, #wingardium:hover, #shopHp:hover, #shopDamage:hover, #shopMana:hover
+ , #yesButton:hover, #noButton:hover, #leaveShop:hover , #accio:hover, #expecto:hover{
    -fx-text-fill: #00FF00; /* Green color */
 }
 

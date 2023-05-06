@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.text.Text;
 
 import java.io.IOException;
 
@@ -128,7 +127,7 @@ public class LevelTroll {
         manaPotionWarning.setVisible(false);
 
         gaming.wizard.attack(gaming.troll);
-        gaming.trollAttackWizard();
+        gaming.trollAttacksWizard();
         gaming.putText();
         gaming.putTrollInfo();
 
@@ -149,7 +148,7 @@ public class LevelTroll {
         manaPotionWarning.setVisible(false);
 
         gaming.wizardDefends();
-        gaming.trollAttackWizard();
+        gaming.trollAttacksWizard();
         gaming.wizardStopsDefend();
         gaming.putText();
 
@@ -175,7 +174,7 @@ public class LevelTroll {
             wingardiumWarning.setVisible(true);
             success = false;
         } else {
-            gaming.trollAttackWizard();
+            gaming.trollAttacksWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();

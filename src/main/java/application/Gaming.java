@@ -87,6 +87,7 @@ public class Gaming implements Initializable {
     public Wizard wizard;
     public Enemy troll;
     public Boss basilic;
+    public Enemy dementor;
 
     public void createWizard(ActionEvent event) {
         if (house != null) {
@@ -157,8 +158,11 @@ public class Gaming implements Initializable {
     Text textAccuracy = new Text();
     Text levelText = new Text();
     Text gold = new Text();
+
     Text trollInfo = new Text();
-    Text basilicIinfo = new Text();
+    Text basilicInfo = new Text();
+    Text dementorInfo = new Text();
+
     Text numberHealthPotions = new Text();
 
 
@@ -195,12 +199,17 @@ public class Gaming implements Initializable {
     }
 
     public void putBasilicInfo() {
-        basilicIinfo.setText(basilic.getName() + ": " + basilic.getCurrentHP() + "/" + basilic.getBaseHP() + " ❤");
-        basilicIinfo.getStyleClass().add("basilic");
+        basilicInfo.setText(basilic.getName() + ": " + basilic.getCurrentHP() + "/" + basilic.getBaseHP() + " ❤");
+        basilicInfo.getStyleClass().add("basilic");
+    }
+    public void putDementorInfo() {
+        dementorInfo.setText(dementor.getName() + ": " + dementor.getCurrentHP() + "/" + dementor.getBaseHP() + " ❤");
+        dementorInfo.getStyleClass().add("dementor");
     }
 
     private Stage trollStage;
     private Stage basilicStage;
+    private Stage dementorStage;
     private Stage shopStage;
     private Stage stageTransition;
 
@@ -252,8 +261,8 @@ public class Gaming implements Initializable {
                 .name("Basilic")
                 .build();
 
-        basilicIinfo.setText(basilic.getName() + ": " + basilic.getCurrentHP() + "/" + basilic.getBaseHP() + " ❤");
-        basilicIinfo.getStyleClass().add("troll");
+        basilicInfo.setText(basilic.getName() + ": " + basilic.getCurrentHP() + "/" + basilic.getBaseHP() + " ❤");
+        basilicInfo.getStyleClass().add("troll");
 
 
         this.basilicStage = new Stage();
@@ -261,7 +270,7 @@ public class Gaming implements Initializable {
         Parent rootBasilic = loaderBasilic.load();
         Scene sceneBasilic = new Scene(rootBasilic);
         sceneBasilic.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        ((Pane) rootBasilic).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, basilicIinfo);
+        ((Pane) rootBasilic).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, basilicInfo);
         basilicStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
         basilicStage.setTitle("Harry Potter");
         basilicStage.setResizable(false);
@@ -269,6 +278,35 @@ public class Gaming implements Initializable {
         LevelBasilic controllerBasilic = loaderBasilic.getController();
         controllerBasilic.setGaming(this);
         basilicStage.show();
+    }
+
+    public void createDementorStage() throws IOException {
+
+        dementor = Enemy.builder()
+                .currentHP(300)
+                .baseHP(300)
+                .attack_strength(50)
+                .attackStrengthMultiplier(3)
+                .name("Dementor")
+                .build();
+
+        dementorInfo.setText(dementor.getName() + ": " + dementor.getCurrentHP() + "/" + dementor.getBaseHP() + " ❤");
+        dementorInfo.getStyleClass().add("dementor");
+
+
+        this.dementorStage = new Stage();
+        FXMLLoader loaderDementor = new FXMLLoader(getClass().getResource("dementor.fxml"));
+        Parent rootDementor = loaderDementor.load();
+        Scene sceneDementor = new Scene(rootDementor);
+        sceneDementor.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        ((Pane) rootDementor).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, dementorInfo);
+        dementorStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        dementorStage.setTitle("Harry Potter");
+        dementorStage.setResizable(false);
+        dementorStage.setScene(sceneDementor);
+        LevelDementor controllerDementor = loaderDementor.getController();
+        controllerDementor.setGaming(this);
+        dementorStage.show();
     }
 
     public void createShop() throws IOException {
@@ -303,6 +341,12 @@ public class Gaming implements Initializable {
     }
     public boolean checkGameStateBasilic() {
         if (basilic.isDead()) {
+            return true;
+        }
+        return false;
+    }
+    public boolean checkGameStateDementor() {
+        if (dementor.isDead()) {
             return true;
         }
         return false;
@@ -350,13 +394,24 @@ public class Gaming implements Initializable {
         trollStage.close();
         stageTransition();
     }
+    public void closeBasilicStage() throws IOException {
+        basilicStage.close();
+        stageTransition();
+    }
+    public void closeDementorStage() throws IOException {
+        dementorStage.close();
+        stageTransition();
+    }
 
 
-    public void trollAttackWizard() {
+    public void trollAttacksWizard() {
         troll.attack(wizard);
     }
-    public void basilicAttackWizard() {
+    public void basilicAttacksWizard() {
         basilic.attack(wizard);
+    }
+    public void dementorAttacksWizard() {
+        dementor.attack(wizard);
     }
 
     public void wizardDefends(){

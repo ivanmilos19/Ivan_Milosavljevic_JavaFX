@@ -20,7 +20,7 @@ public class StageTransition {
         gaming.closeStage();
     }
     public void handleNoButton() throws IOException {
-        gaming.createBasilicStage();
+        gaming.createDementorStage();
         gaming.closeStage();
     }
 }

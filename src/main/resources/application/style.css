@@ -65,6 +65,12 @@ Button:hover {
     -fx-background-position: center center;
 }
 
+#hangleton {
+    -fx-background-image: url('images/hangleton.png');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
 
 #startButton {
       -fx-background-color: #5B5B5B;
@@ -92,7 +98,7 @@ Button:hover {
 }
 
 
-.HP, .Mana, .attack, .accuracy, .level, .troll, .dementor{
+.HP, .Mana, .attack, .accuracy, .level, .troll, .dementor, .voldemort, .wormtail{
     -fx-translate-y: 460px;
     -fx-font-weight: bold;
 }
@@ -176,7 +182,7 @@ Button:hover {
 
 
 
-#attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic,#attackDementor, #returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium, #accio, #expecto
+#attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic,#attackDementor, #attackVoldemort, #attackWormtail, #returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium, #accio, #expecto
 , #shopHp, #shopDamage, #shopMana, #yesButton, #noButton, #leaveShop {
     -fx-font-weight: bold;
     -fx-background-color: transparent;
@@ -190,7 +196,7 @@ Button:hover {
 
 }
 
-#attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #attackBasilic:hover,#attackDementor:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover, #wingardium:hover, #shopHp:hover, #shopDamage:hover, #shopMana:hover
+#attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #attackBasilic:hover,#attackDementor:hover, #attackVoldemort:hover,  #attackWormtail:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover, #wingardium:hover, #shopHp:hover, #shopDamage:hover, #shopMana:hover
  , #yesButton:hover, #noButton:hover, #leaveShop:hover , #accio:hover, #expecto:hover{
    -fx-text-fill: #00FF00; /* Green color */
 }

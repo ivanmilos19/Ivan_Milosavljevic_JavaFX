@@ -7,9 +7,7 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-public class LevelDementor {
-
-
+public class LevelHangleton {
 
     Gaming gaming = new Gaming();
     public void setGaming(Gaming gaming){
@@ -24,7 +22,11 @@ public class LevelDementor {
     @FXML
     private Button spell;
     @FXML
-    private Button attackDementor;
+    private Button attackVoldemort;
+    @FXML
+    private Button attackWormtail;
+    @FXML
+    private Button accioTrophy;
 
     ///////Potions Buttons/////////
     @FXML
@@ -66,7 +68,8 @@ public class LevelDementor {
 
     @FXML
     public void initialize() {
-        attackDementor.setVisible(false);
+        attackVoldemort.setVisible(false);
+        attackWormtail.setVisible(false);
         returnButton.setVisible(false);
         healPotion.setVisible(false);
         damagePotion.setVisible(false);
@@ -118,7 +121,8 @@ public class LevelDementor {
         defend.setVisible(true);
         inventory.setVisible(true);
         spell.setVisible(true);
-        attackDementor.setVisible(false);
+        attackVoldemort.setVisible(false);
+        attackWormtail.setVisible(false);
         healPotion.setVisible(false);
         damagePotion.setVisible(false);
         manaPotion.setVisible(false);
@@ -130,7 +134,8 @@ public class LevelDementor {
 
     @FXML
     private void handleAttackButtonPress(ActionEvent event) {
-        attackDementor.setVisible(true);
+        attackVoldemort.setVisible(true);
+        attackWormtail.setVisible(true);
         attack.setVisible(false);
         defend.setVisible(false);
         inventory.setVisible(false);
@@ -139,7 +144,29 @@ public class LevelDementor {
     }
 
     @FXML
-    private void attackDementor(ActionEvent event) throws IOException {
+    private void attackVoldemort(ActionEvent event) throws IOException {
+        wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
+        expectoWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
+        gaming.wizard.attack(gaming.dementor);
+        gaming.dementorAttacksWizard();
+        gaming.putText();
+        gaming.putDementorInfo();
+
+        if (gaming.checkGameStateWizard()) {
+            gaming.gameOver();
+        }
+
+        if (gaming.checkGameStateDementor()) {
+            gaming.closeDementorStage();
+        }
+    }
+    @FXML
+    private void attackWormtail(ActionEvent event) throws IOException {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);

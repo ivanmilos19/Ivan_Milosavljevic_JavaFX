@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="hangleton" prefHeight="532.0" prefWidth="1178.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LevelHangleton">
+   <children>
+      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#6e7780" height="197.0" layoutY="430.0" stroke="BLACK" strokeType="INSIDE" width="1178.0" />
+      <Button fx:id="attack" layoutX="39.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleAttackButtonPress" scaleZ="2.0" text="Attack" />
+      <Button fx:id="defend" layoutX="38.0" layoutY="510.0" mnemonicParsing="false" onAction="#handleDefend" text="Defend" />
+      <Button fx:id="inventory" layoutX="38.0" layoutY="546.0" mnemonicParsing="false" onAction="#handleInventoryButtonPress" text="Inventory" />
+      <Button fx:id="spell" layoutX="37.0" layoutY="580.0" mnemonicParsing="false" onAction="#handleSpellPress" text="Spell" />
+      <Button fx:id="attackVoldemort" layoutX="38.0" layoutY="476.0" mnemonicParsing="false" onAction="#attackVoldemort" text="Voldemot" />
+      <Button fx:id="returnButton" layoutX="436.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleReturn" text="Return" />
+      <Button fx:id="healPotion" layoutX="40.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleHealthPotion" text="Healing Potion" />
+      <Button fx:id="damagePotion" layoutX="38.0" layoutY="510.0" mnemonicParsing="false" onAction="#handleDamagePotion" text="Damage Potion" />
+      <Button fx:id="manaPotion" layoutX="37.0" layoutY="546.0" mnemonicParsing="false" onAction="#handleManaPotion" text="Mana Potion" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="466.0" layoutY="20.0" scaleX="2.0" scaleY="2.0" stroke="BLACK" strokeType="INSIDE" width="247.0" />
+      <Button fx:id="wingardium" layoutX="38.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleWingardium" text="Wingardium Leviosa" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="41.0" layoutX="347.0" layoutY="12.0" scaleZ="2.0" stroke="BLACK" strokeType="INSIDE" width="486.0" />
+      <Label fx:id="wingardiumWarning" alignment="CENTER" layoutX="376.0" layoutY="20.0" prefHeight="17.0" prefWidth="427.0" text="You have no wingardium spells left !" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="healthPotionWarning" alignment="CENTER" layoutX="376.0" layoutY="20.0" prefHeight="17.0" prefWidth="427.0" text="You have no health potions left !" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="damagePotionWarning" alignment="CENTER" layoutX="377.0" layoutY="20.0" prefHeight="17.0" prefWidth="427.0" text="You have no damage potions left !" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="manaPotionWarning" alignment="CENTER" layoutX="376.0" layoutY="20.0" prefHeight="17.0" prefWidth="427.0" text="You have no mana potions left !" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="accio" layoutX="38.0" layoutY="511.0" mnemonicParsing="false" onAction="#handleAccio" text="Accio" />
+      <Label fx:id="accioWarning" alignment="CENTER" layoutX="376.0" layoutY="20.0" prefHeight="17.0" prefWidth="427.0" text="You have no accio spells left !" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="expecto" layoutX="37.0" layoutY="547.0" mnemonicParsing="false" onAction="#handleExpecto" text="Expecto Patronum" />
+      <Label fx:id="expectoWarning" alignment="CENTER" layoutX="347.0" layoutY="20.0" prefHeight="17.0" prefWidth="427.0" text="You have no expecto spells left !" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="attackWormtail" layoutX="226.0" layoutY="476.0" mnemonicParsing="false" onAction="#attackWormtail" text="Wormtail" />
+   </children>
+</AnchorPane>

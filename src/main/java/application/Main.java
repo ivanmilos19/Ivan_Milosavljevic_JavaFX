@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 //TODO - faire fxml de tt les levels / ajouter message pour dégâts et attaques ratée / résoudre probleme de house.null
-//TODO - ajouter grosses attaques  / faire le shop
+//TODO - ajouter grosses attaques / comment faire en sorte que shop ouvre prochain level sans avoir à faire 7 ptn de shop différents (cancer)
 
 public class Main extends Application {
 

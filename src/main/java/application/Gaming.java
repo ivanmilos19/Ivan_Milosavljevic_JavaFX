@@ -85,8 +85,8 @@ public class Gaming implements Initializable {
 
 
     public Wizard wizard;
-    private Enemy troll;
-    private Boss basilic;
+    public Enemy troll;
+    public Boss basilic;
 
     public void createWizard(ActionEvent event) {
         if (house != null) {
@@ -194,6 +194,11 @@ public class Gaming implements Initializable {
         trollInfo.getStyleClass().add("troll");
     }
 
+    public void putBasilicInfo() {
+        basilicIinfo.setText(basilic.getName() + ": " + basilic.getCurrentHP() + "/" + basilic.getBaseHP() + " ❤");
+        basilicIinfo.getStyleClass().add("basilic");
+    }
+
     private Stage trollStage;
     private Stage basilicStage;
     private Stage shopStage;
@@ -261,6 +266,8 @@ public class Gaming implements Initializable {
         basilicStage.setTitle("Harry Potter");
         basilicStage.setResizable(false);
         basilicStage.setScene(sceneBasilic);
+        LevelBasilic controllerBasilic = loaderBasilic.getController();
+        controllerBasilic.setGaming(this);
         basilicStage.show();
     }
 
@@ -276,9 +283,7 @@ public class Gaming implements Initializable {
         shopStage.setResizable(false);
         shopStage.setScene(sceneShop);
         ShopStage controllerShop = loaderStage.getController();
-
         controllerShop.setGaming(this);
-
 
         shopStage.show();
     }
@@ -292,6 +297,12 @@ public class Gaming implements Initializable {
 
     public boolean checkGameStateTroll() {
         if (troll.isDead()) {
+            return true;
+        }
+        return false;
+    }
+    public boolean checkGameStateBasilic() {
+        if (basilic.isDead()) {
             return true;
         }
         return false;
@@ -331,6 +342,7 @@ public class Gaming implements Initializable {
         stageTransition.setScene(sceneTransition);
         StageTransition controllerTransition = loaderTransition.getController();
         controllerTransition.setGaming(this);
+        levelUp();
         stageTransition.show();
     }
 
@@ -339,24 +351,12 @@ public class Gaming implements Initializable {
         stageTransition();
     }
 
-    public void wizardAttackTroll() {
-        System.out.println(troll.getCurrentHP());
-        wizard.attack(troll);
-        System.out.println(troll.getCurrentHP());
-    }
-
-    public boolean wingardiumButtonPress() {
-        boolean canUseWingardium = true;
-        boolean success = wizard.useWingardiumLeviosa(troll);
-            if (!success) {
-                System.out.println("You have no wingardium left");
-                canUseWingardium = false;
-            }
-        return canUseWingardium;
-    }
 
     public void trollAttackWizard() {
         troll.attack(wizard);
+    }
+    public void basilicAttackWizard() {
+        basilic.attack(wizard);
     }
 
     public void wizardDefends(){
@@ -420,6 +420,20 @@ public class Gaming implements Initializable {
             return success = true;
         }
         return success;
+    }
+
+    public void levelUp() {
+        wizard.setBaseHP(wizard.getBaseHP() + 150);
+        wizard.setGold(wizard.getGold() + 40);
+        wizard.setManaPool(wizard.getManaPool() + 25);
+        wizard.setLevel(wizard.getLevel() + 1);
+        wizard.setAttack_strength((wizard.getAttack_strength()) + 20);
+
+        wizard.setCurrentHP(wizard.getBaseHP());
+        wizard.setCurrentmanaPool(wizard.getManaPool());
+
+        wizard.addSpell(new Spell());
+        wizard.addSpell(new Spell());
     }
 
 }

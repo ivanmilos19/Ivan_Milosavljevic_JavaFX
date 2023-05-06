@@ -69,7 +69,6 @@ public class LevelTroll {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
-
     }
 
 
@@ -128,7 +127,7 @@ public class LevelTroll {
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
-        gaming.wizardAttackTroll();
+        gaming.wizard.attack(gaming.troll);
         gaming.trollAttackWizard();
         gaming.putText();
         gaming.putTrollInfo();
@@ -164,21 +163,20 @@ public class LevelTroll {
     }
 
     @FXML
-    private void handleWingardium(ActionEvent event) throws IOException {
+    private boolean handleWingardium(ActionEvent event) throws IOException {
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
-        boolean canUseWingardium = gaming.wingardiumButtonPress();
-        if (canUseWingardium) {
-            gaming.trollAttackWizard();
-            gaming.putText();
-            gaming.putTrollInfo();
-        } else {
-            wingardiumWarning.setVisible(true);
-        }
 
+        boolean success = gaming.wizard.useWingardiumLeviosa(gaming.troll);
+        if (!success) {
+            wingardiumWarning.setVisible(true);
+            success = false;
+        } else {
+            gaming.trollAttackWizard();
+        }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
         }
@@ -186,6 +184,9 @@ public class LevelTroll {
         if (gaming.checkGameStateTroll()) {
             gaming.closeTrollStage();
         }
+        gaming.putText();
+        gaming.putTrollInfo();
+        return success;
     }
 
     @FXML

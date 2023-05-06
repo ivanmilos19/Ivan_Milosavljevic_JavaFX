@@ -2,9 +2,7 @@ package application;
 
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
-
 import java.util.Random;
-
 import java.util.ArrayList;
 
 @Data
@@ -13,7 +11,6 @@ public class Wizard extends Character {
     public static final String YELLOW_BOLD_BRIGHT = "\033[1;93m";// YELLOW
     public static final String CYAN_BOLD_BRIGHT = "\033[1;96m";  // CYAN
     public static final String RESET = "\033[0m";  // Text Reset
-
 
 
 
@@ -63,12 +60,8 @@ public class Wizard extends Character {
     private int new_HP;
     private double accuracy;
 
-
-
-
     private Wand wand;
 
-    House house;
 
     private boolean joinedEnemy;
 
@@ -101,7 +94,7 @@ public class Wizard extends Character {
     private int Gold;
 
     @Override
-    public String getName() { return "Wizard"; }
+    public String getName() { return "Harry Potter"; }
 
 
     @Override
@@ -130,7 +123,7 @@ public class Wizard extends Character {
 
     @Override
     public int defenseFactor() {
-        return (int)(super.defenseFactor());
+        return (int)(super.defenseFactor() /* house.defenseMultiplier()*/);
     }
 
 

@@ -165,7 +165,7 @@ Button:hover {
 
 
 
-#attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic, #returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium
+#attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic, #returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium, #accio
 , #shopHp, #shopDamage, #shopMana, #yesButton, #noButton, #leaveShop {
     -fx-font-weight: bold;
     -fx-background-color: transparent;
@@ -180,7 +180,7 @@ Button:hover {
 }
 
 #attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #attackBasilic:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover, #wingardium:hover, #shopHp:hover, #shopDamage:hover, #shopMana:hover
- , #yesButton:hover, #noButton:hover, #leaveShop:hover {
+ , #yesButton:hover, #noButton:hover, #leaveShop:hover , #accio:hover{
    -fx-text-fill: #00FF00; /* Green color */
 }
 

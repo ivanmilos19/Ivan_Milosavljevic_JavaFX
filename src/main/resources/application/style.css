@@ -1,5 +1,4 @@
 
-
 /* Background color */
 AnchorPane {
     -fx-background-color: #212121;
@@ -43,8 +42,6 @@ Button {
 Button:hover {
     -fx-background-color: #e6e6e6;
 }
-
-
 
 
 #trollBackground {

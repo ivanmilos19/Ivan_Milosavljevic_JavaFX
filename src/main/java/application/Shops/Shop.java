@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-public class ShopStageBasilic {
+public class Shop {
     Gaming gaming = new Gaming();
     public void setGaming(Gaming gaming){
         this.gaming = gaming;
@@ -47,6 +47,21 @@ public class ShopStageBasilic {
     }
 
     public void leaveShop() throws IOException {
-        gaming.closeShop();
+        if (gaming.wizard.getLevel() == 2) {
+            gaming.createBasilicStage();
+            gaming.closeShop();
+        } if (gaming.wizard.getLevel() == 3) {
+            gaming.createDementorStage();
+            gaming.closeShop();
+        } if (gaming.wizard.getLevel() == 4) {
+            gaming.createHangletonStage();
+            gaming.closeShop();
+        } if (gaming.wizard.getLevel() == 5) {
+            gaming.createDoloresStage();
+            gaming.closeShop();
+        } if (gaming.wizard.getLevel() == 6) {
+            gaming.createDeatheaterStage();
+            gaming.closeShop();
+        }
     }
 }

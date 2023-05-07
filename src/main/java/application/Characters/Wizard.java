@@ -100,14 +100,18 @@ public class Wizard extends Character {
     @Override
     public String getName() { return "Harry Potter"; }
 
-   House house;
+    private House house;
+
+    public void setHouse(House house) {
+        this.house = house;
+    }
 
 
     @Override
     public int damageInflicted() {
         int effective_attack_strength = getAttack_strength();
-        /*if (house.canUseSword())
-            effective_attack_strength *= 1.5;*/
+        if (house.canUseSword())
+            effective_attack_strength *= 1.5;
         if (damagePotionTurnsLeft > 0) {
             effective_attack_strength += currentDamagePotion.attackImprovement();
             damagePotionTurnsLeft--;
@@ -129,7 +133,7 @@ public class Wizard extends Character {
 
     @Override
     public int defenseFactor() {
-        return (int)(super.defenseFactor() /* house.defenseMultiplier()*/);
+        return (int)(super.defenseFactor() * house.defenseMultiplier());
     }
 
 

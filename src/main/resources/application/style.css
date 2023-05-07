@@ -5,7 +5,6 @@ AnchorPane {
 }
 
 
-
 /* Label styles */
 Label {
     -fx-text-fill: #FFFFFF;
@@ -34,15 +33,17 @@ Button {
     -fx-background-color: #bfbfbf;
     -fx-text-fill: #000000;
     -fx-font-family: "Harry P";
-
-
 }
 
-/* Button hover effect */
 Button:hover {
     -fx-background-color: #e6e6e6;
 }
 
+#shopBackground {
+    -fx-background-image: url('images/shop.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
 
 #trollBackground {
     -fx-background-image: url('images/TrollBackground.jpg');
@@ -79,6 +80,8 @@ Button:hover {
     -fx-background-size: cover;
     -fx-background-position: center center;
 }
+
+
 
 #startButton {
       -fx-background-color: #5B5B5B;
@@ -229,19 +232,18 @@ Button:hover {
 
 }
 
-#attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #attackBasilic:hover,#attackDementor:hover, #attackVoldemort:hover,  #attackWormtail:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover, #wingardium:hover, #shopHp:hover, #shopDamage:hover, #shopMana:hover
+#attack:hover, #defend:hover, #inventory:hover, #spell:hover
+, #attackTroll:hover, #attackBasilic:hover,#attackDementor:hover, #attackVoldemort:hover,  #attackWormtail:hover, #returnButton:hover
+, #healPotion:hover, #damagePotion:hover, #manaPotion:hover, #wingardium:hover, #shopHp:hover, #shopDamage:hover, #shopMana:hover
  , #yesButton:hover, #noButton:hover, #leaveShop:hover , #accio:hover, #expecto:hover, #accioTrophy:hover, #wingardiumVoldemort:hover, #accioVoldemort:hover, #expectoVoldemort:hover
- , #wingardiumWormtail:hover, #accioWormtail:hover, #expectoWormtail:hover, #accioTrophy:hover, #fireworks:hover, #attackDolores:hover, #deathEater:hover, #sectumsempra:hover
- ,#attackDeathEater:hover{
+ , #wingardiumWormtail:hover, #accioWormtail:hover, #expectoWormtail:hover, #accioTrophy:hover, #fireworks:hover, #attackDolores:hover
+ , #deathEater:hover, #sectumsempra:hover
+ ,#attackDeathEater:hover   {
    -fx-text-fill: #00FF00; /* Green color */
 }
 
 
-#shopBackground {
-    -fx-background-image: url('images/shop.jpg');
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-}
+
 
 
 

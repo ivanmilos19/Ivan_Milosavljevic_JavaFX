@@ -28,9 +28,4 @@ public class Main extends Application {
             stage.show();
             loaderCreateWizard.getController();
     }
-
-    public static void main(String[] args) {
-        launch(args);
-
-    }
 }

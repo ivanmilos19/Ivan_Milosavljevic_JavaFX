@@ -22,6 +22,7 @@ public class Shop {
         gaming.putText();
         noGoldLeft.setVisible(false);
         if (gaming.canBuyHealthPotion()) {
+            gaming.putText();
             gaming.showGold();
         } else {
             noGoldLeft.setVisible(true);

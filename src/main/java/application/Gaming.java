@@ -66,6 +66,7 @@ public class Gaming implements Initializable {
 
     private House house;
 
+
     public void getQuality(ActionEvent event) {
         String myQuality = qualityChoice.getValue();
         myLabel.setText(myQuality);
@@ -101,6 +102,7 @@ public class Gaming implements Initializable {
     public Enemy trophy;
     public Boss dolores;
     public Boss deathEater;
+    public Enemy bellatrix;
 
     public void createWizard() {
         if (house != null) {
@@ -155,6 +157,8 @@ public class Gaming implements Initializable {
             wizard.addDamagePotion(new Potion());
             wizard.addManaPotion(new Potion());
 
+            wizard.setHouse(house);
+
 
             // add spells
             wizard.addWingardiumSpell(new Spell());
@@ -179,6 +183,8 @@ public class Gaming implements Initializable {
     Text voldemortInfo = new Text();
     Text doloresInfo = new Text();
     Text deathEaterInfo = new Text();
+    Text bellatrixInfo = new Text();
+
 
 
     Text numberHealthPotions = new Text();
@@ -244,6 +250,10 @@ public class Gaming implements Initializable {
         deathEaterInfo.setText(deathEater.getName() + ": " + deathEater.getCurrentHP() + "/" + deathEater.getBaseHP() + " ❤");
         deathEaterInfo.getStyleClass().add("deathEater");
     }
+    public void putBellatrixInfo() {
+        bellatrixInfo.setText(bellatrix.getName() + ": " + bellatrix.getCurrentHP() + "/" + bellatrix.getBaseHP() + " ❤");
+        bellatrixInfo.getStyleClass().add("wormtail");
+    }
 
 
     private Stage trollStage;
@@ -252,6 +262,7 @@ public class Gaming implements Initializable {
     private Stage hangletonStage;
     private Stage doloresStage;
     private Stage deathEaterStage;
+    private Stage voldemortStage;
     private Stage shopStage;
     private Stage stageTransition;
 
@@ -443,6 +454,43 @@ public class Gaming implements Initializable {
         controllerDeathEater.setGaming(this);
         deathEaterStage.show();
     }
+    public void createVoldemortStage() throws IOException {
+
+        bellatrix = Enemy.builder()
+                .currentHP(600)
+                .baseHP(600)
+                .attack_strength(20)
+                .attackStrengthMultiplier(3)
+                .name("Wormtail")
+                .build();
+
+        voldemort = Boss.builder()
+                .currentHP(2000)
+                .baseHP(2000)
+                .attack_strength(80)
+                .attackStrengthMultiplier(3)
+                .name("Voldemort")
+                .build();
+
+
+        putVoldemortInfo();
+
+
+
+        this.voldemortStage = new Stage();
+        FXMLLoader loaderVoldemort = new FXMLLoader(getClass().getResource("Levels/voldemort.fxml"));
+        Parent rootVoldemort= loaderVoldemort.load();
+        Scene sceneVoldemort = new Scene(rootVoldemort);
+        sceneVoldemort.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
+        ((Pane) rootVoldemort).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, voldemortInfo, wormtailInfo);
+        voldemortStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
+        voldemortStage.setTitle("Harry Potter");
+        voldemortStage.setResizable(false);
+        voldemortStage.setScene(sceneVoldemort);
+        LevelVoldemort controllerVoldemort = loaderVoldemort.getController();
+        controllerVoldemort.setGaming(this);
+        voldemortStage.show();
+    }
 
     public void createShopStage() throws IOException {
         showGold();
@@ -482,9 +530,7 @@ public class Gaming implements Initializable {
         return voldemort.isDead();
     }
 
-    public boolean checkGameStateWormtail() {
-        return wormtail.isDead();
-    }
+    public boolean checkGameStateWormtail() {return wormtail.isDead();}
 
     public boolean checkGameStateDolores() {
         return dolores.isDead();
@@ -492,6 +538,9 @@ public class Gaming implements Initializable {
 
     public boolean checkGameStateDeathEater() {
         return deathEater.isDead();
+    }
+    public boolean checkGameStateBellatrix() {
+        return bellatrix.isDead();
     }
 
     public void gameOver() throws IOException {
@@ -566,25 +615,17 @@ public class Gaming implements Initializable {
     }
 
 
-    public void trollAttacksWizard() {
-        troll.attack(wizard);
-    }
+    public void trollAttacksWizard() {troll.attack(wizard);}
 
-    public void basilicAttacksWizard() {
-        basilic.attack(wizard);
-    }
+    public void basilicAttacksWizard() {basilic.attack(wizard);}
 
-    public void dementorAttacksWizard() {
-        dementor.attack(wizard);
-    }
+    public void dementorAttacksWizard() {dementor.attack(wizard);}
 
     public void voldemortAttackWizard() {
         voldemort.attack(wizard);
     }
 
-    public void wormtailAttacksWizard() {
-        wormtail.attack(wizard);
-    }
+    public void wormtailAttacksWizard() {wormtail.attack(wizard);}
 
     public void doloresAttacksWizard() {
         dolores.attack(wizard);
@@ -593,7 +634,9 @@ public class Gaming implements Initializable {
     public void deathEaterAttacksWizard() {
         deathEater.attack(wizard);
     }
-
+    public void deathBellatrixWizard() {
+        bellatrix.attack(wizard);
+    }
 
     public void wizardDefends() {
         wizard.defend();

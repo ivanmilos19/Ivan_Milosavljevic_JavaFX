@@ -200,7 +200,7 @@ public class Gaming implements Initializable {
         levelText.setText("Level: " + wizard.getLevel() + " ⭐" + "   |");
         levelText.getStyleClass().add("level");
 
-        numberHealthPotions.setText(Arrays.toString(new String[]{String.valueOf(wizard.getNumberWingardiumSpells(wizard.getWingardiumLeviosa()))}));
+        numberHealthPotions.setText(Arrays.toString(new String[]{String.valueOf(wizard.getNumberHealthPotion(wizard.getHealthPotions()))}));
         numberHealthPotions.getStyleClass().add("nbrHealthPots");
 
     }
@@ -217,7 +217,7 @@ public class Gaming implements Initializable {
 
     public void putBasilicInfo() {
         basilicInfo.setText(basilic.getName() + ": " + basilic.getCurrentHP() + "/" + basilic.getBaseHP() + " ❤");
-        basilicInfo.getStyleClass().add("basilic");
+        basilicInfo.getStyleClass().add("dementor");
     }
 
     public void putDementorInfo() {
@@ -302,8 +302,7 @@ public class Gaming implements Initializable {
                 .name("Basilic")
                 .build();
 
-        basilicInfo.setText(basilic.getName() + ": " + basilic.getCurrentHP() + "/" + basilic.getBaseHP() + " ❤");
-        basilicInfo.getStyleClass().add("troll");
+       putBasilicInfo();
 
 
         this.basilicStage = new Stage();
@@ -331,8 +330,7 @@ public class Gaming implements Initializable {
                 .name("Dementor")
                 .build();
 
-        dementorInfo.setText(dementor.getName() + ": " + dementor.getCurrentHP() + "/" + dementor.getBaseHP() + " ❤");
-        dementorInfo.getStyleClass().add("dementor");
+        putDementorInfo();
 
 
         this.dementorStage = new Stage();
@@ -371,11 +369,9 @@ public class Gaming implements Initializable {
         trophy = Enemy.builder()
                 .build();
 
-        voldemortInfo.setText(voldemort.getName() + ": " + voldemort.getCurrentHP() + "/" + voldemort.getBaseHP() + " ❤");
-        voldemortInfo.getStyleClass().add("voldemort");
+        putVoldemortInfo();
 
-        wormtailInfo.setText(wormtail.getName() + ": " + wormtail.getCurrentHP() + "/" + wormtail.getBaseHP() + " ❤");
-        wormtailInfo.getStyleClass().add("wormtail");
+        putWormtailInfo();
 
         this.hangletonStage = new Stage();
         FXMLLoader loaderHangleton = new FXMLLoader(getClass().getResource("Levels/hangleton.fxml"));
@@ -402,8 +398,7 @@ public class Gaming implements Initializable {
                 .name("Dolores Umbridge")
                 .build();
 
-        doloresInfo.setText(dolores.getName() + ": " + dolores.getCurrentHP() + "/" + dolores.getBaseHP() + " ❤");
-        doloresInfo.getStyleClass().add("dolores");
+        putDoloresInfo();
 
 
         this.doloresStage = new Stage();
@@ -431,8 +426,7 @@ public class Gaming implements Initializable {
                 .name("Death Eater")
                 .build();
 
-        deathEaterInfo.setText(deathEater.getName() + ": " + deathEater.getCurrentHP() + "/" + deathEater.getBaseHP() + " ❤");
-        deathEaterInfo.getStyleClass().add("deathEater");
+        putDeathEaterInfo();
 
 
         this.deathEaterStage = new Stage();
@@ -451,6 +445,7 @@ public class Gaming implements Initializable {
     }
 
     public void createShopStage() throws IOException {
+        showGold();
         this.shopStage = new Stage();
         FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("shop.fxml"));
         Parent rootShop = loaderStage.load();
@@ -524,7 +519,8 @@ public class Gaming implements Initializable {
     }
 
     public void stageTransition() throws IOException {
-
+        levelUp();
+        putText();
         this.stageTransition = new Stage();
         FXMLLoader loaderTransition = new FXMLLoader(getClass().getResource("StageTransition.fxml"));
         Parent rootTransition = loaderTransition.load();
@@ -536,7 +532,6 @@ public class Gaming implements Initializable {
         stageTransition.setScene(sceneTransition);
         StageTransition controllerTransition = loaderTransition.getController();
         controllerTransition.setGaming(this);
-        levelUp();
         stageTransition.show();
     }
 

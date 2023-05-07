@@ -1,4 +1,4 @@
-package application.Shops;
+package application.Transitions;
 
 import application.Gaming;
 import javafx.fxml.FXML;

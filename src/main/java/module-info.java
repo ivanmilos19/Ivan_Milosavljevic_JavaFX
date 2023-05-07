@@ -7,10 +7,8 @@ module com.example.javafx {
 
     opens application to javafx.fxml;
     exports application;
-    exports application.StageTransitions;
-    opens application.StageTransitions to javafx.fxml;
-    exports application.Shops;
-    opens application.Shops to javafx.fxml;
+    exports application.Transitions;
+    opens application.Transitions to javafx.fxml;
     exports application.Levels;
     opens application.Levels to javafx.fxml;
     exports application.Houses;

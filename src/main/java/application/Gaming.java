@@ -5,8 +5,8 @@ import application.Characters.Enemy;
 import application.Characters.Wizard;
 import application.Houses.*;
 import application.Levels.*;
-import application.Shops.Shop;
-import application.Shops.StageTransitionBasilic;
+import application.Transitions.Shop;
+import application.Transitions.StageTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -449,7 +449,7 @@ public class Gaming implements Initializable {
 
     public void createShopStageBasilic() throws IOException {
         this.shopStage = new Stage();
-        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("Shops/shop.fxml"));
+        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("shop.fxml"));
         Parent rootShop = loaderStage.load();
         Scene sceneShop = new Scene(rootShop);
         sceneShop.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -464,7 +464,7 @@ public class Gaming implements Initializable {
     }
     public void createShopStageDementor() throws IOException {
         this.shopStage = new Stage();
-        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("Shops/shop.fxml"));
+        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("shop.fxml"));
         Parent rootShop = loaderStage.load();
         Scene sceneShop = new Scene(rootShop);
         sceneShop.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -479,7 +479,7 @@ public class Gaming implements Initializable {
     }
     public void createShopStageHangleton() throws IOException {
         this.shopStage = new Stage();
-        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("Shops/shop.fxml"));
+        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("shop.fxml"));
         Parent rootShop = loaderStage.load();
         Scene sceneShop = new Scene(rootShop);
         sceneShop.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -494,7 +494,7 @@ public class Gaming implements Initializable {
     }
     public void createShopStageDolores() throws IOException {
         this.shopStage = new Stage();
-        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("Shops/shop.fxml"));
+        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("shop.fxml"));
         Parent rootShop = loaderStage.load();
         Scene sceneShop = new Scene(rootShop);
         sceneShop.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -509,7 +509,7 @@ public class Gaming implements Initializable {
     }
     public void createShopStageDeathEater() throws IOException {
         this.shopStage = new Stage();
-        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("Shops/shop.fxml"));
+        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("shop.fxml"));
         Parent rootShop = loaderStage.load();
         Scene sceneShop = new Scene(rootShop);
         sceneShop.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -599,7 +599,7 @@ public class Gaming implements Initializable {
     public void stageTransition() throws IOException {
 
         this.stageTransition = new Stage();
-        FXMLLoader loaderTransition = new FXMLLoader(getClass().getResource("StageTransitions/StageTransition.fxml"));
+        FXMLLoader loaderTransition = new FXMLLoader(getClass().getResource("StageTransition.fxml"));
         Parent rootTransition = loaderTransition.load();
         Scene sceneTransition = new Scene(rootTransition);
         sceneTransition.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -607,7 +607,7 @@ public class Gaming implements Initializable {
         stageTransition.setTitle("Harry Potter");
         stageTransition.setResizable(false);
         stageTransition.setScene(sceneTransition);
-        StageTransitionBasilic controllerTransition = loaderTransition.getController();
+        StageTransition controllerTransition = loaderTransition.getController();
         controllerTransition.setGaming(this);
         levelUp();
         stageTransition.show();

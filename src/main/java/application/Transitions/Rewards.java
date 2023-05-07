@@ -1,4 +1,4 @@
-package application.Shops;
+package application.Transitions;
 
 import application.Characters.Wizard;
 import application.Spell;

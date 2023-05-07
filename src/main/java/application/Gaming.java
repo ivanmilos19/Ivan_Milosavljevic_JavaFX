@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Gaming implements Initializable {
@@ -33,19 +34,19 @@ public class Gaming implements Initializable {
     private Label myLabel;
     @FXML
     private ChoiceBox<String> qualityChoice;
-    private String[] qualities = {"Daring", "Curious", "Loyal", "Ambitious"};
+    private final String[] qualities = {"Daring", "Curious", "Loyal", "Ambitious"};
 
     @FXML
     private Label petLabel;
     @FXML
     private ChoiceBox<String> petChoice;
-    private String[] pets = {"Snowy owl", "Rat", "Toad", "Cat"};
+    private final String[] pets = {"Snowy owl", "Rat", "Toad", "Cat"};
 
     @FXML
     private Label wandLabel;
     @FXML
     private ChoiceBox<String> wandChoice;
-    private String[] wands = {"Dragon Heartstring", "Unicorn hair", "Phoenix feather"};
+    private final String[] wands = {"Dragon Heartstring", "Unicorn hair", "Phoenix feather"};
 
 
     @FXML
@@ -68,13 +69,13 @@ public class Gaming implements Initializable {
     public void getQuality(ActionEvent event) {
         String myQuality = qualityChoice.getValue();
         myLabel.setText(myQuality);
-        if (myQuality == "Daring")
+        if (Objects.equals(myQuality, "Daring"))
             this.house = new Gryffindor();
-        else if (myQuality == "Curious") {
+        else if (Objects.equals(myQuality, "Curious")) {
             this.house = new Ravenclaw();
-        } else if (myQuality == "Loyal") {
+        } else if (Objects.equals(myQuality, "Loyal")) {
             this.house = new Hufflepuff();
-        } else if (myQuality == "Ambitious") {
+        } else if (Objects.equals(myQuality, "Ambitious")) {
             this.house = new Slytherin();
         }
     }
@@ -278,9 +279,9 @@ public class Gaming implements Initializable {
         FXMLLoader loaderTroll = new FXMLLoader(getClass().getResource("levels/troll.fxml"));
         Parent rootTroll = loaderTroll.load();
         Scene sceneTroll = new Scene(rootTroll);
-        sceneTroll.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        sceneTroll.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
         ((Pane) rootTroll).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, numberHealthPotions, trollInfo);
-        trollStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        trollStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         trollStage.setTitle("Harry Potter");
         trollStage.setResizable(false);
         trollStage.setScene(sceneTroll);
@@ -308,9 +309,9 @@ public class Gaming implements Initializable {
         FXMLLoader loaderBasilic = new FXMLLoader(getClass().getResource("Levels/basilic.fxml"));
         Parent rootBasilic = loaderBasilic.load();
         Scene sceneBasilic = new Scene(rootBasilic);
-        sceneBasilic.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        sceneBasilic.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
         ((Pane) rootBasilic).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, basilicInfo);
-        basilicStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        basilicStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         basilicStage.setTitle("Harry Potter");
         basilicStage.setResizable(false);
         basilicStage.setScene(sceneBasilic);
@@ -337,9 +338,9 @@ public class Gaming implements Initializable {
         FXMLLoader loaderDementor = new FXMLLoader(getClass().getResource("Levels/dementor.fxml"));
         Parent rootDementor = loaderDementor.load();
         Scene sceneDementor = new Scene(rootDementor);
-        sceneDementor.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        sceneDementor.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
         ((Pane) rootDementor).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, dementorInfo);
-        dementorStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        dementorStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         dementorStage.setTitle("Harry Potter");
         dementorStage.setResizable(false);
         dementorStage.setScene(sceneDementor);
@@ -378,9 +379,9 @@ public class Gaming implements Initializable {
         FXMLLoader loaderHangleton = new FXMLLoader(getClass().getResource("Levels/hangleton.fxml"));
         Parent rootHangleton = loaderHangleton.load();
         Scene sceneHangleton = new Scene(rootHangleton);
-        sceneHangleton.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        sceneHangleton.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
         ((Pane) rootHangleton).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, voldemortInfo, wormtailInfo);
-        hangletonStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        hangletonStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         hangletonStage.setTitle("Harry Potter");
         hangletonStage.setResizable(false);
         hangletonStage.setScene(sceneHangleton);
@@ -407,9 +408,9 @@ public class Gaming implements Initializable {
         FXMLLoader loaderDolores = new FXMLLoader(getClass().getResource("Levels/dolores.fxml"));
         Parent rootDolores = loaderDolores.load();
         Scene sceneDolores = new Scene(rootDolores);
-        sceneDolores.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        sceneDolores.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
         ((Pane) rootDolores).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, doloresInfo);
-        doloresStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        doloresStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         doloresStage.setTitle("Harry Potter");
         doloresStage.setResizable(false);
         doloresStage.setScene(sceneDolores);
@@ -436,9 +437,9 @@ public class Gaming implements Initializable {
         FXMLLoader loaderDeathEater = new FXMLLoader(getClass().getResource("Levels/deathEater.fxml"));
         Parent rootDeatheater = loaderDeathEater.load();
         Scene sceneDeathEater = new Scene(rootDeatheater);
-        sceneDeathEater.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        sceneDeathEater.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
         ((Pane) rootDeatheater).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, deathEaterInfo);
-        deathEaterStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        deathEaterStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         deathEaterStage.setTitle("Harry Potter");
         deathEaterStage.setResizable(false);
         deathEaterStage.setScene(sceneDeathEater);
@@ -447,74 +448,14 @@ public class Gaming implements Initializable {
         deathEaterStage.show();
     }
 
-    public void createShopStageBasilic() throws IOException {
+    public void createShopStage() throws IOException {
         this.shopStage = new Stage();
         FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("shop.fxml"));
         Parent rootShop = loaderStage.load();
         Scene sceneShop = new Scene(rootShop);
-        sceneShop.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        sceneShop.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
         ((Pane) rootShop).getChildren().addAll(gold, numberHealthPotions);
-        shopStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
-        shopStage.setTitle("Harry Potter");
-        shopStage.setResizable(false);
-        shopStage.setScene(sceneShop);
-        Shop controllerShop = loaderStage.getController();
-        controllerShop.setGaming(this);
-        shopStage.show();
-    }
-    public void createShopStageDementor() throws IOException {
-        this.shopStage = new Stage();
-        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("shop.fxml"));
-        Parent rootShop = loaderStage.load();
-        Scene sceneShop = new Scene(rootShop);
-        sceneShop.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        ((Pane) rootShop).getChildren().addAll(gold, numberHealthPotions);
-        shopStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
-        shopStage.setTitle("Harry Potter");
-        shopStage.setResizable(false);
-        shopStage.setScene(sceneShop);
-        Shop controllerShop = loaderStage.getController();
-        controllerShop.setGaming(this);
-        shopStage.show();
-    }
-    public void createShopStageHangleton() throws IOException {
-        this.shopStage = new Stage();
-        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("shop.fxml"));
-        Parent rootShop = loaderStage.load();
-        Scene sceneShop = new Scene(rootShop);
-        sceneShop.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        ((Pane) rootShop).getChildren().addAll(gold, numberHealthPotions);
-        shopStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
-        shopStage.setTitle("Harry Potter");
-        shopStage.setResizable(false);
-        shopStage.setScene(sceneShop);
-        Shop controllerShop = loaderStage.getController();
-        controllerShop.setGaming(this);
-        shopStage.show();
-    }
-    public void createShopStageDolores() throws IOException {
-        this.shopStage = new Stage();
-        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("shop.fxml"));
-        Parent rootShop = loaderStage.load();
-        Scene sceneShop = new Scene(rootShop);
-        sceneShop.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        ((Pane) rootShop).getChildren().addAll(gold, numberHealthPotions);
-        shopStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
-        shopStage.setTitle("Harry Potter");
-        shopStage.setResizable(false);
-        shopStage.setScene(sceneShop);
-        Shop controllerShop = loaderStage.getController();
-        controllerShop.setGaming(this);
-        shopStage.show();
-    }
-    public void createShopStageDeathEater() throws IOException {
-        this.shopStage = new Stage();
-        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("shop.fxml"));
-        Parent rootShop = loaderStage.load();
-        Scene sceneShop = new Scene(rootShop);
-        sceneShop.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        ((Pane) rootShop).getChildren().addAll(gold, numberHealthPotions);
-        shopStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        shopStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         shopStage.setTitle("Harry Potter");
         shopStage.setResizable(false);
         shopStage.setScene(sceneShop);
@@ -523,54 +464,31 @@ public class Gaming implements Initializable {
         shopStage.show();
     }
 
+
     public boolean checkGameStateWizard() {
-        if (wizard.isDead()) {
-            return true;
-        }
-        return false;
+        return wizard.isDead();
     }
 
     public boolean checkGameStateTroll() {
-        if (troll.isDead()) {
-            return true;
-        }
-        return false;
+        return troll.isDead();
     }
     public boolean checkGameStateBasilic() {
-        if (basilic.isDead()) {
-            return true;
-        }
-        return false;
+        return basilic.isDead();
     }
     public boolean checkGameStateDementor() {
-        if (dementor.isDead()) {
-            return true;
-        }
-        return false;
+        return dementor.isDead();
     }
     public boolean checkGameStateVoldemort() {
-        if (voldemort.isDead()) {
-            return true;
-        }
-        return false;
+        return voldemort.isDead();
     }
     public boolean checkGameStateWormtail() {
-        if (wormtail.isDead()) {
-            return true;
-        }
-        return false;
+        return wormtail.isDead();
     }
     public boolean checkGameStateDolores() {
-        if (dolores.isDead()) {
-            return true;
-        }
-        return false;
+        return dolores.isDead();
     }
     public boolean checkGameStateDeathEater() {
-        if (deathEater.isDead()) {
-            return true;
-        }
-        return false;
+        return deathEater.isDead();
     }
 
     public void gameOver() throws IOException {
@@ -581,17 +499,17 @@ public class Gaming implements Initializable {
         FXMLLoader loaderGameOver = new FXMLLoader(getClass().getResource("GameOver.fxml"));
         Parent rootGamerOver = loaderGameOver.load();
         Scene sceneGameOver = new Scene(rootGamerOver);
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         stage.setTitle("Harry Potter");
         stage.setResizable(false);
         stage.setScene(sceneGameOver);
         stage.show();
     }
 
-    public void closeStage() throws IOException {
-        stageTransition.close();;
+    public void closeStage() {
+        stageTransition.close();
     }
-    public void closeShop() throws IOException {
+    public void closeShop() {
         shopStage.close();
 
     }
@@ -602,8 +520,8 @@ public class Gaming implements Initializable {
         FXMLLoader loaderTransition = new FXMLLoader(getClass().getResource("StageTransition.fxml"));
         Parent rootTransition = loaderTransition.load();
         Scene sceneTransition = new Scene(rootTransition);
-        sceneTransition.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        stageTransition.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        sceneTransition.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
+        stageTransition.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         stageTransition.setTitle("Harry Potter");
         stageTransition.setResizable(false);
         stageTransition.setScene(sceneTransition);
@@ -695,7 +613,7 @@ public class Gaming implements Initializable {
         if (wizard.getGold() - healthPrice > 0) {
             wizard.addHealthPotion(new Potion());
             wizard.setGold(wizard.getGold() - healthPrice);
-            return success = true;
+            return true;
         }
         return success;
     }
@@ -705,7 +623,7 @@ public class Gaming implements Initializable {
         if (wizard.getGold() - damagePrice > 0) {
             wizard.addDamagePotion(new Potion());
             wizard.setGold(wizard.getGold() - damagePrice);
-            return success = true;
+            return true;
         }
         return success;
     }
@@ -715,7 +633,7 @@ public class Gaming implements Initializable {
         if (wizard.getGold() - manaPrice > 0) {
             wizard.addManaPotion(new Potion());
             wizard.setGold(wizard.getGold() - manaPrice);
-            return success = true;
+            return true;
         }
         return success;
     }

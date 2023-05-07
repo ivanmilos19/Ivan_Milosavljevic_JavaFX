@@ -11,7 +11,7 @@ public class StageTransition {
     }
 
     public void handleYesButton() throws IOException {
-        gaming.createShopStageBasilic();
+        gaming.createShopStage();
         gaming.closeStage();
     }
     public void handleNoButton() throws IOException {

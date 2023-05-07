@@ -56,6 +56,6 @@ public class Shop {
             default -> {
             }
         }
-        gaming.closeStage();
+        gaming.closeShop();
     }
 }

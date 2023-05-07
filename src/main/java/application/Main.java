@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 //TODO - faire fxml de tt les levels / ajouter message pour dégâts et attaques ratée / résoudre probleme de house.null /ajouter grosses attaques
 
@@ -19,8 +20,8 @@ public class Main extends Application {
             FXMLLoader loaderCreateWizard = new FXMLLoader(getClass().getResource("wizardCreation.fxml"));
             Parent rootCreateWizard = loaderCreateWizard.load();
             Scene sceneCreateWizard = new Scene(rootCreateWizard);
-            sceneCreateWizard.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+            sceneCreateWizard.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
+            stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
             stage.setTitle("Harry Potter");
             stage.setResizable(false);
             stage.setScene(sceneCreateWizard);

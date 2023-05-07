@@ -71,6 +71,11 @@ Button:hover {
     -fx-background-position: center center;
 }
 
+#doloresBackground {
+    -fx-background-image: url('images/dolores.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
 
 #startButton {
       -fx-background-color: #5B5B5B;
@@ -98,7 +103,7 @@ Button:hover {
 }
 
 
-.HP, .Mana, .attack, .accuracy, .level, .troll, .dementor, .voldemort, .wormtail{
+.HP, .Mana, .attack, .accuracy, .level, .troll, .dementor, .voldemort, .wormtail, .dolores{
     -fx-translate-y: 460px;
     -fx-font-weight: bold;
 }
@@ -183,6 +188,12 @@ Button:hover {
     -fx-translate-x: 800px; /* adjust as needed */
 }
 
+.dolores {
+    -fx-fill: red;
+    -fx-font-size:  11pt; /* Change the font size to 16 points */
+    -fx-translate-x: 900px; /* adjust as needed */
+}
+
 
 #rectangle {
     -fx-fill: black;
@@ -195,8 +206,8 @@ Button:hover {
 
 
 #attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic,#attackDementor, #attackVoldemort, #accioTrophy, #attackWormtail, #wingardiumVoldemort, #accioVoldemort, #expectoVoldemort,
-#returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium, #accio, #expecto, #wingardiumWormtail, #accioWormtail, #expectoWormtail, #accioTrophy
-, #shopHp, #shopDamage, #shopMana, #yesButton, #noButton, #leaveShop {
+#returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium, #accio, #expecto, #wingardiumWormtail, #accioWormtail, #expectoWormtail, #accioTrophy, #attackDolores
+, #shopHp, #shopDamage, #shopMana, #yesButton, #noButton, #leaveShop, #fireworks {
     -fx-font-weight: bold;
     -fx-background-color: transparent;
     -fx-text-fill: #FFFFFF;
@@ -211,7 +222,7 @@ Button:hover {
 
 #attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #attackBasilic:hover,#attackDementor:hover, #attackVoldemort:hover,  #attackWormtail:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover, #wingardium:hover, #shopHp:hover, #shopDamage:hover, #shopMana:hover
  , #yesButton:hover, #noButton:hover, #leaveShop:hover , #accio:hover, #expecto:hover, #accioTrophy:hover, #wingardiumVoldemort:hover, #accioVoldemort:hover, #expectoVoldemort:hover
- , #wingardiumWormtail:hover, #accioWormtail:hover, #expectoWormtail:hover, #accioTrophy:hover{
+ , #wingardiumWormtail:hover, #accioWormtail:hover, #expectoWormtail:hover, #accioTrophy:hover, #fireworks:hover, #attackDolores:hover{
    -fx-text-fill: #00FF00; /* Green color */
 }
 

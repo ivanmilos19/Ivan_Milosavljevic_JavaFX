@@ -110,7 +110,7 @@ public class Wizard extends Character {
     @Override
     public int damageInflicted() {
         int effective_attack_strength = getAttack_strength();
-        if (house.canUseSword())
+        if (house.canUseSword() && level == 2)
             effective_attack_strength *= 1.5;
         if (damagePotionTurnsLeft > 0) {
             effective_attack_strength += currentDamagePotion.attackImprovement();

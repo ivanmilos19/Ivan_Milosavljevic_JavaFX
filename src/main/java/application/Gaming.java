@@ -457,11 +457,11 @@ public class Gaming implements Initializable {
     public void createVoldemortStage() throws IOException {
 
         bellatrix = Enemy.builder()
-                .currentHP(600)
-                .baseHP(600)
-                .attack_strength(20)
+                .currentHP(900)
+                .baseHP(900)
+                .attack_strength(40)
                 .attackStrengthMultiplier(3)
-                .name("Wormtail")
+                .name("Bellatrix")
                 .build();
 
         voldemort = Boss.builder()
@@ -472,17 +472,15 @@ public class Gaming implements Initializable {
                 .name("Voldemort")
                 .build();
 
-
         putVoldemortInfo();
-
-
+        putBellatrixInfo();
 
         this.voldemortStage = new Stage();
         FXMLLoader loaderVoldemort = new FXMLLoader(getClass().getResource("Levels/voldemort.fxml"));
         Parent rootVoldemort= loaderVoldemort.load();
         Scene sceneVoldemort = new Scene(rootVoldemort);
         sceneVoldemort.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
-        ((Pane) rootVoldemort).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, voldemortInfo, wormtailInfo);
+        ((Pane) rootVoldemort).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, voldemortInfo, bellatrixInfo);
         voldemortStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         voldemortStage.setTitle("Harry Potter");
         voldemortStage.setResizable(false);

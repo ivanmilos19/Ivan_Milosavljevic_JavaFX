@@ -50,13 +50,12 @@
          </font>
       </Label>
       <Button fx:id="expecto" layoutX="37.0" layoutY="547.0" mnemonicParsing="false" onAction="#handleExpecto" text="Expecto Patronum" />
-      <Label fx:id="expectoWarning" alignment="CENTER" layoutX="347.0" layoutY="20.0" prefHeight="17.0" prefWidth="427.0" text="You have no expecto spells left !" textFill="WHITE">
+      <Label fx:id="expectoWarning" alignment="CENTER" layoutX="355.0" layoutY="20.0" prefHeight="0.0" prefWidth="427.0" text="You have no expecto spells left !" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
       <Button fx:id="attackBellatrix" layoutX="226.0" layoutY="476.0" mnemonicParsing="false" onAction="#attackBellatrix" text="Bellatrix" />
-      <Button fx:id="accioTrophy" layoutX="38.0" layoutY="511.0" mnemonicParsing="false" onAction="#handleAccioTrophy" text="Trophy" />
       <Button fx:id="wingardiumVoldemort" layoutX="38.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleWingardiumVoldemort" text="Voldemort" />
       <Button fx:id="wingardiumBellatrix" layoutX="226.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleWingardiumBellatrix" text="Bellatrix" />
       <Button fx:id="accioVoldemort" layoutX="38.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleAccioVoldemort" text="Voldemort" />
@@ -68,7 +67,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="expelliarmusWarning" alignment="CENTER" layoutX="373.0" layoutY="20.0" prefHeight="17.0" prefWidth="427.0" text="You have no sectumsempra spells left !" textFill="WHITE">
+      <Label fx:id="expelliarmusWarning" alignment="CENTER" layoutX="373.0" layoutY="20.0" prefHeight="17.0" prefWidth="427.0" text="You have no expelliarmus spells left !" textFill="WHITE">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>

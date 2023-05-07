@@ -25,9 +25,6 @@ public class LevelVoldemort {
     private Button attackVoldemort;
     @FXML
     private Button attackBellatrix;
-    @FXML
-    private Button accioTrophy;
-
 
 
     // cast spells on specific target ///
@@ -38,6 +35,7 @@ public class LevelVoldemort {
     private Button accioVoldemort;
     @FXML
     private Button expectoVoldemort;
+    @FXML
     private Button sectumsempraVoldemort;
     @FXML
     private Button expelliarmusVoldemort;
@@ -88,7 +86,7 @@ public class LevelVoldemort {
     @FXML
     private Label sectumsempraWarning;
     @FXML
-    private Label expelliarusWarning;
+    private Label expelliarmusWarning;
     @FXML
     private Label healthPotionWarning;
     @FXML
@@ -102,7 +100,6 @@ public class LevelVoldemort {
     public void initialize() {
         attackVoldemort.setVisible(false);
         attackBellatrix.setVisible(false);
-        accioTrophy.setVisible(false);
         returnButton.setVisible(false);
         healPotion.setVisible(false);
         damagePotion.setVisible(false);
@@ -116,14 +113,22 @@ public class LevelVoldemort {
         wingardiumVoldemort.setVisible(false);
         accioVoldemort.setVisible(false);
         expectoVoldemort.setVisible(false);
+        sectumsempraVoldemort.setVisible(false);
+        expelliarmusVoldemort.setVisible(false);
+
         wingardiumBellatrix.setVisible(false);
         accioBellatrix.setVisible(false);
         expectoBellatrix.setVisible(false);
+        sectumsempraBellatrix.setVisible(false);
+        expelliarmusBellatrix.setVisible(false);
+
 
         //messages//
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
 
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
@@ -167,19 +172,24 @@ public class LevelVoldemort {
         spell.setVisible(true);
         attackVoldemort.setVisible(false);
         attackBellatrix.setVisible(false);
-        accioTrophy.setVisible(false);
         healPotion.setVisible(false);
         damagePotion.setVisible(false);
         manaPotion.setVisible(false);
         wingardium.setVisible(false);
         accio.setVisible(false);
         expecto.setVisible(false);
+        sectumsempra.setVisible(false);
+        expelliarmus.setVisible(false);
         wingardiumVoldemort.setVisible(false);
         accioVoldemort.setVisible(false);
         expectoVoldemort.setVisible(false);
+        sectumsempraVoldemort.setVisible(false);
+        expelliarmusVoldemort.setVisible(false);
         wingardiumBellatrix.setVisible(false);
         accioBellatrix.setVisible(false);
         expectoBellatrix.setVisible(false);
+        sectumsempraBellatrix.setVisible(false);
+        expelliarmusBellatrix.setVisible(false);
         returnButton.setVisible(false);
     }
 
@@ -199,6 +209,8 @@ public class LevelVoldemort {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -221,6 +233,8 @@ public class LevelVoldemort {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -244,6 +258,8 @@ public class LevelVoldemort {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -266,6 +282,8 @@ public class LevelVoldemort {
         wingardium.setVisible(false);
         accio.setVisible(false);
         expecto.setVisible(false);
+        sectumsempra.setVisible(false);
+        expelliarmus.setVisible(false);
 
         attack.setVisible(false);
         defend.setVisible(false);
@@ -278,10 +296,11 @@ public class LevelVoldemort {
     private void handleAccio() {
         accioVoldemort.setVisible(true);
         accioBellatrix.setVisible(true);
-        accioTrophy.setVisible(true);
         wingardium.setVisible(false);
         accio.setVisible(false);
         expecto.setVisible(false);
+        sectumsempra.setVisible(false);
+        expelliarmus.setVisible(false);
 
         attack.setVisible(false);
         defend.setVisible(false);
@@ -297,6 +316,9 @@ public class LevelVoldemort {
         wingardium.setVisible(false);
         accio.setVisible(false);
         expecto.setVisible(false);
+        sectumsempra.setVisible(false);
+        expelliarmus.setVisible(false);
+
 
         attack.setVisible(false);
         defend.setVisible(false);
@@ -309,7 +331,11 @@ public class LevelVoldemort {
     private void handleSectumsempra() {
         sectumsempraBellatrix.setVisible(true);
         sectumsempraVoldemort.setVisible(true);
-
+        wingardium.setVisible(false);
+        accio.setVisible(false);
+        expecto.setVisible(false);
+        sectumsempra.setVisible(false);
+        expelliarmus.setVisible(false);
 
         attack.setVisible(false);
         defend.setVisible(false);
@@ -322,6 +348,11 @@ public class LevelVoldemort {
     private void handleExpelliarmus() {
         expelliarmusBellatrix.setVisible(true);
         expelliarmusVoldemort.setVisible(true);
+        wingardium.setVisible(false);
+        accio.setVisible(false);
+        expecto.setVisible(false);
+        sectumsempra.setVisible(false);
+        expelliarmus.setVisible(false);
 
         attack.setVisible(false);
         defend.setVisible(false);
@@ -336,6 +367,8 @@ public class LevelVoldemort {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -366,6 +399,8 @@ public class LevelVoldemort {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -395,6 +430,8 @@ public class LevelVoldemort {
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -424,14 +461,16 @@ public class LevelVoldemort {
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
 
-        boolean success = gaming.wizard.useExpecto(gaming.voldemort);
+        boolean success = gaming.wizard.useSectumsempra(gaming.voldemort);
         if (!success) {
-            expectoWarning.setVisible(true);
+            sectumsempraWarning.setVisible(true);
         } else {
             gaming.voldemortAttackWizard();
             gaming.deathBellatrixWizard();
@@ -453,14 +492,16 @@ public class LevelVoldemort {
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
 
-        boolean success = gaming.wizard.useExpecto(gaming.voldemort);
+        boolean success = gaming.wizard.useExpelliarmus(gaming.voldemort);
         if (!success) {
-            expectoWarning.setVisible(true);
+            expelliarmusWarning.setVisible(true);
         } else {
             gaming.voldemortAttackWizard();
             gaming.deathBellatrixWizard();
@@ -483,6 +524,8 @@ public class LevelVoldemort {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -513,6 +556,8 @@ public class LevelVoldemort {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -538,10 +583,12 @@ public class LevelVoldemort {
         return success;
     }
     @FXML
-    private boolean handleSectumsempraBellatrix() throws IOException {
-        accioWarning.setVisible(false);
+    private boolean handleExpectoBellatrix() throws IOException {
         wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -550,6 +597,37 @@ public class LevelVoldemort {
         boolean success = gaming.wizard.useExpecto(gaming.bellatrix);
         if (!success) {
             expectoWarning.setVisible(true);
+        } else {
+            gaming.voldemortAttackWizard();
+            gaming.deathBellatrixWizard();
+        }
+        if (gaming.checkGameStateWizard()) {
+            gaming.gameOver();
+        }
+
+        if (gaming.checkGameStateVoldemort() && gaming.checkGameStateBellatrix()) {
+            gaming.closeHangletonStage();
+        }
+        gaming.putText();
+        gaming.putVoldemortInfo();
+        gaming.putBellatrixInfo();
+        return success;
+    }
+    @FXML
+    private boolean handleSectumsempraBellatrix() throws IOException {
+        accioWarning.setVisible(false);
+        wingardiumWarning.setVisible(false);
+        expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
+
+        boolean success = gaming.wizard.useSectumsempra(gaming.bellatrix);
+        if (!success) {
+            sectumsempraWarning.setVisible(true);
         } else {
             gaming.voldemortAttackWizard();
             gaming.deathBellatrixWizard();
@@ -571,14 +649,16 @@ public class LevelVoldemort {
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
 
-        boolean success = gaming.wizard.useExpecto(gaming.bellatrix);
+        boolean success = gaming.wizard.useExpelliarmus(gaming.bellatrix);
         if (!success) {
-            expectoWarning.setVisible(true);
+            expelliarmusWarning.setVisible(true);
         } else {
             gaming.voldemortAttackWizard();
             gaming.deathBellatrixWizard();
@@ -596,24 +676,6 @@ public class LevelVoldemort {
         return success;
     }
 
-    @FXML
-    private boolean handleAccioTrophy() throws IOException {
-        accioWarning.setVisible(false);
-        wingardiumWarning.setVisible(false);
-        expectoWarning.setVisible(false);
-        healthPotionWarning.setVisible(false);
-        damagePotionWarning.setVisible(false);
-        manaPotionWarning.setVisible(false);
-
-        boolean success = gaming.wizard.useAccio(gaming.trophy);
-
-        if (!success) {
-            accioWarning.setVisible(true);
-        } else {
-            gaming.closeHangletonStage();
-        }
-        return success;
-    }
 
 
     @FXML
@@ -621,6 +683,8 @@ public class LevelVoldemort {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -639,6 +703,8 @@ public class LevelVoldemort {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
@@ -652,6 +718,8 @@ public class LevelVoldemort {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
+        sectumsempraWarning.setVisible(false);
+        expelliarmusWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);

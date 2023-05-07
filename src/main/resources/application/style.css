@@ -81,6 +81,13 @@ Button:hover {
     -fx-background-position: center center;
 }
 
+#voldemortBackground {
+    -fx-background-image: url('images/voldemort.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+
 
 
 #startButton {
@@ -219,7 +226,8 @@ Button:hover {
 
 #attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic,#attackDementor, #attackVoldemort, #accioTrophy, #attackWormtail, #wingardiumVoldemort, #accioVoldemort, #expectoVoldemort,
 #returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium, #accio, #expecto, #wingardiumWormtail, #accioWormtail, #expectoWormtail, #accioTrophy, #attackDolores
-, #shopHp, #shopDamage, #shopMana, #yesButton, #noButton, #leaveShop, #fireworks, #deathEater, #sectumsempra, #attackDeathEater {
+, #shopHp, #shopDamage, #shopMana, #yesButton, #noButton, #leaveShop, #fireworks, #deathEater, #sectumsempra, #attackDeathEater
+,#attackBellatrix, #wingardiumBellatrix, #accioBellatrix, #expectoBellatrix, #sectumsempraBellatrix, #expelliarmusBellatrix, #expelliarmusVoldemort, #sectumsempraVoldemort, #expelliarmus    {
     -fx-font-weight: bold;
     -fx-background-color: transparent;
     -fx-text-fill: #FFFFFF;
@@ -238,7 +246,8 @@ Button:hover {
  , #yesButton:hover, #noButton:hover, #leaveShop:hover , #accio:hover, #expecto:hover, #accioTrophy:hover, #wingardiumVoldemort:hover, #accioVoldemort:hover, #expectoVoldemort:hover
  , #wingardiumWormtail:hover, #accioWormtail:hover, #expectoWormtail:hover, #accioTrophy:hover, #fireworks:hover, #attackDolores:hover
  , #deathEater:hover, #sectumsempra:hover
- ,#attackDeathEater:hover   {
+ ,#attackDeathEater:hover, #attackBellatrix:hover, #wingardiumBellatrix:hover, #accioBellatrix:hover, #expectoBellatrix:hover, #sectumsempraBellatrix:hover
+ , #expelliarmusBellatrix:hover, #expelliarmusVoldemort:hover, #sectumsempraVoldemort:hover, #expelliarmus:hover   {
    -fx-text-fill: #00FF00; /* Green color */
 }
 

@@ -100,6 +100,7 @@ public class Gaming implements Initializable {
     public Enemy wormtail;
     public Enemy trophy;
     public Boss dolores;
+    public Boss deathEater;
 
     public void createWizard(ActionEvent event) {
         if (house != null) {
@@ -177,6 +178,8 @@ public class Gaming implements Initializable {
     Text wormtailInfo = new Text();
     Text voldemortInfo = new Text();
     Text doloresInfo = new Text();
+    Text deathEaterInfo = new Text();
+
 
 
     Text numberHealthPotions = new Text();
@@ -184,13 +187,13 @@ public class Gaming implements Initializable {
 
 
     public void putText() {
-        textHP.setText("Ivan HP: " + wizard.getCurrentHP() + "/" + wizard.getBaseHP() + " ❤" + "   |");
+        textHP.setText("Wizard HP: " + wizard.getCurrentHP() + "/" + wizard.getBaseHP() + " ❤" + "   |");
         textHP.getStyleClass().add("HP");
 
         textMana.setText("Mana: " + wizard.getCurrentmanaPool() + "/" + wizard.getManaPool() + " \uD83D\uDCA7" + "   |");
         textMana.getStyleClass().add("Mana");
 
-        textAttack.setText("Ivan attack: " + wizard.getAttack_strength() + " \uD83D\uDCA5" + "   |");
+        textAttack.setText("Wizard attack: " + wizard.getAttack_strength() + " \uD83D\uDCA5" + "   |");
         textAttack.getStyleClass().add("attack");
 
         textAccuracy.setText("Accuracy: " + wizard.getAccuracy() + " \uD83C\uDFAF" + "   |");
@@ -224,15 +227,19 @@ public class Gaming implements Initializable {
     }
     public void putVoldemortInfo() {
         voldemortInfo.setText(voldemort.getName() + ": " + voldemort.getCurrentHP() + "/" + voldemort.getBaseHP() + " ❤");
-        voldemortInfo.getStyleClass().add("dementor");
+        voldemortInfo.getStyleClass().add("voldemort");
     }
     public void putWormtailInfo() {
         wormtailInfo.setText(wormtail.getName() + ": " + wormtail.getCurrentHP() + "/" + wormtail.getBaseHP() + " ❤");
-        wormtailInfo.getStyleClass().add("dementor");
+        wormtailInfo.getStyleClass().add("wormtail");
     }
     public void putDoloresInfo() {
         doloresInfo.setText(dolores.getName() + ": " + dolores.getCurrentHP() + "/" + dolores.getBaseHP() + " ❤");
-        doloresInfo.getStyleClass().add("dementor");
+        doloresInfo.getStyleClass().add("dolores");
+    }
+    public void putDeathEaterInfo() {
+        deathEaterInfo.setText(deathEater.getName() + ": " + deathEater.getCurrentHP() + "/" + deathEater.getBaseHP() + " ❤");
+        deathEaterInfo.getStyleClass().add("deathEater");
     }
 
 
@@ -241,6 +248,7 @@ public class Gaming implements Initializable {
     private Stage dementorStage;
     private Stage hangletonStage;
     private Stage doloresStage;
+    private Stage deathEaterStage;
     private Stage shopStage;
     private Stage stageTransition;
 
@@ -410,6 +418,35 @@ public class Gaming implements Initializable {
         doloresStage.show();
     }
 
+    public void createDeatheaterStage() throws IOException {
+
+        deathEater = Boss.builder()
+                .currentHP(1100)
+                .baseHP(1100)
+                .attack_strength(55)
+                .attackStrengthMultiplier(3)
+                .name("Death Eater")
+                .build();
+
+        deathEaterInfo.setText(deathEater.getName() + ": " + deathEater.getCurrentHP() + "/" + deathEater.getBaseHP() + " ❤");
+        deathEaterInfo.getStyleClass().add("deathEater");
+
+
+        this.deathEaterStage = new Stage();
+        FXMLLoader loaderDeathEater = new FXMLLoader(getClass().getResource("Levels/deathEater.fxml"));
+        Parent rootDeatheater = loaderDeathEater.load();
+        Scene sceneDeathEater = new Scene(rootDeatheater);
+        sceneDeathEater.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        ((Pane) rootDeatheater).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, deathEaterInfo);
+        deathEaterStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        deathEaterStage.setTitle("Harry Potter");
+        deathEaterStage.setResizable(false);
+        deathEaterStage.setScene(sceneDeathEater);
+        LevelDeathEater controllerDeathEater = loaderDeathEater.getController();
+        controllerDeathEater.setGaming(this);
+        deathEaterStage.show();
+    }
+
     public void createShop() throws IOException {
         this.shopStage = new Stage();
         FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("Shops/shop.fxml"));
@@ -466,6 +503,12 @@ public class Gaming implements Initializable {
     }
     public boolean checkGameStateDolores() {
         if (dolores.isDead()) {
+            return true;
+        }
+        return false;
+    }
+    public boolean checkGameStateDeathEater() {
+        if (deathEater.isDead()) {
             return true;
         }
         return false;
@@ -531,17 +574,16 @@ public class Gaming implements Initializable {
         doloresStage.close();
         stageTransition();
     }
+    public void closeDeathEaterStage() throws IOException {
+        deathEaterStage.close();
+        stageTransition();
+    }
 
 
-    public void trollAttacksWizard() {
-        troll.attack(wizard);
-    }
-    public void basilicAttacksWizard() {
-        basilic.attack(wizard);
-    }
-    public void dementorAttacksWizard() {
-        dementor.attack(wizard);
-    }
+
+    public void trollAttacksWizard() {troll.attack(wizard);}
+    public void basilicAttacksWizard() {basilic.attack(wizard);}
+    public void dementorAttacksWizard() {dementor.attack(wizard);}
     public void voldemortAttackWizard() {
         voldemort.attack(wizard);
     }
@@ -551,6 +593,10 @@ public class Gaming implements Initializable {
     public void doloresAttacksWizard() {
         dolores.attack(wizard);
     }
+    public void deathEaterAttacksWizard() {
+        deathEater.attack(wizard);
+    }
+
 
     public void wizardDefends(){
         wizard.defend();

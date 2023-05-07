@@ -103,7 +103,7 @@ public class Gaming implements Initializable {
     public Boss dolores;
     public Boss deathEater;
 
-    public void createWizard(ActionEvent event) {
+    public void createWizard() {
         if (house != null) {
             wizard = Wizard.builder().currentHP(5000)
                     .previousHP(5000)

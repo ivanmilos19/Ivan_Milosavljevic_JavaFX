@@ -1,6 +1,5 @@
 package application.Characters;
 
-import application.Characters.Character;
 import application.Houses.House;
 import application.Potion;
 import application.Spell;
@@ -249,7 +248,7 @@ public class Wizard extends Character {
         boolean success = false;
         if (wingardiumLeviosa.size() > 0 && currentmanaPool > 0 ) {
             Spell wingardium = wingardiumLeviosa.get(0);
-            if (target.getName() == "Troll" ) {
+            if (target.getName().equals("Troll")) {
                 new_HP = target.getCurrentHP() - wingardiumCrit;
             } else {
                 new_HP = target.getCurrentHP() - wingardiumDmg;
@@ -271,7 +270,7 @@ public class Wizard extends Character {
         if (expectoPatronum.size() > 0 && currentmanaPool > 0) {
             Spell expecto = expectoPatronum.get(0);
 
-            if (target.getName() == "Dementor") {
+            if (target.getName().equals("Dementor")) {
                 new_HP = target.getCurrentHP() - expectoCrit;
             } else {
                 new_HP = target.getCurrentHP() - expectoDmg;
@@ -293,7 +292,7 @@ public class Wizard extends Character {
         if (accio.size() > 0 && currentmanaPool > 0) {
             Spell spellAccio = accio.get(0);
 
-            if (target.getName() == "Basilic") {
+            if (target.getName().equals("Basilic")) {
                 new_HP = target.getCurrentHP() - accioDmg;
             } else {
                 new_HP = target.getCurrentHP() - 0;
@@ -318,7 +317,7 @@ public class Wizard extends Character {
         if (sectumsempra.size() > 0 && currentmanaPool > 0) {
             Spell sectum = sectumsempra.get(0);
 
-            if (target.getName() == "Basilic") {
+            if (target.getName().equals("Basilic")) {
                 new_HP = target.getCurrentHP() - sectumsempraDmg;
             } else {
                 new_HP = target.getCurrentHP() - 0;
@@ -342,7 +341,7 @@ public class Wizard extends Character {
         if (expelliarmus.size() > 0 && currentmanaPool > 0) {
             Spell expelli = expelliarmus.get(0);
 
-            if (target.getName() == "Basilic") {
+            if (target.getName().equals("Basilic")) {
                 new_HP = target.getCurrentHP() - expelliarmusDmg;
             } else {
                 new_HP = target.getCurrentHP() - 0;

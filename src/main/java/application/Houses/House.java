@@ -4,7 +4,7 @@ public abstract class House {
 
     public abstract String getName();
 
-    public double defenseMultiplier() { return 1; };
+    public double defenseMultiplier() { return 1; }
 
     public double attackMultiplier() { return 1; }
 
@@ -12,7 +12,7 @@ public abstract class House {
 
     public double potionImprovement() { return 1; }
 
-    public boolean canUseSword() { return false; };
+    public boolean canUseSword() { return false; }
 
     public boolean canJoinEnemy() { return false; }
 }

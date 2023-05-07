@@ -1,7 +1,6 @@
 package application.Levels;
 
 import application.Gaming;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -73,7 +72,7 @@ public class LevelTroll {
 
 
     @FXML
-    private void handleInventoryButtonPress(ActionEvent event) {
+    private void handleInventoryButtonPress() {
         attack.setVisible(false);
         defend.setVisible(false);
         inventory.setVisible(false);
@@ -86,7 +85,7 @@ public class LevelTroll {
     }
 
     @FXML
-    private void handleSpellPress(ActionEvent event) {
+    private void handleSpellPress() {
         attack.setVisible(false);
         defend.setVisible(false);
         inventory.setVisible(false);
@@ -97,7 +96,7 @@ public class LevelTroll {
 
 
     @FXML
-    private void handleReturn(ActionEvent event) {
+    private void handleReturn() {
         attack.setVisible(true);
         defend.setVisible(true);
         inventory.setVisible(true);
@@ -111,7 +110,7 @@ public class LevelTroll {
     }
 
     @FXML
-    private void handleAttackButtonPress(ActionEvent event) {
+    private void handleAttackButtonPress() {
         attackTroll.setVisible(true);
         attack.setVisible(false);
         defend.setVisible(false);
@@ -121,7 +120,7 @@ public class LevelTroll {
     }
 
     @FXML
-    private void attackTroll(ActionEvent event) throws IOException {
+    private void attackTroll() throws IOException {
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
@@ -142,7 +141,7 @@ public class LevelTroll {
     }
 
     @FXML
-    private void handleDefend(ActionEvent event) throws IOException {
+    private void handleDefend() throws IOException {
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
@@ -163,7 +162,7 @@ public class LevelTroll {
     }
 
     @FXML
-    private boolean handleWingardium(ActionEvent event) throws IOException {
+    private boolean handleWingardium() throws IOException {
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
@@ -173,7 +172,6 @@ public class LevelTroll {
         boolean success = gaming.wizard.useWingardiumLeviosa(gaming.troll);
         if (!success) {
             wingardiumWarning.setVisible(true);
-            success = false;
         } else {
             gaming.trollAttacksWizard();
         }
@@ -190,7 +188,7 @@ public class LevelTroll {
     }
 
     @FXML
-    private void handleHealthPotion(ActionEvent event) {
+    private void handleHealthPotion() {
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
@@ -206,7 +204,7 @@ public class LevelTroll {
     }
 
     @FXML
-    private void handleDamagePotion(ActionEvent event) {
+    private void handleDamagePotion() {
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
@@ -217,7 +215,7 @@ public class LevelTroll {
     }
 
     @FXML
-    private void handleManaPotion(ActionEvent event) {
+    private void handleManaPotion() {
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);

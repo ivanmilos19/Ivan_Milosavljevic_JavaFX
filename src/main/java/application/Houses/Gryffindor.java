@@ -8,5 +8,5 @@ public class Gryffindor extends House {
         return 1.5;
     }
 
-    public boolean canUseSword() { return true; };
+    public boolean canUseSword() { return true; }
 }

@@ -1,7 +1,6 @@
 package application.Levels;
 
 import application.Gaming;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -88,7 +87,7 @@ public class LevelDementor {
 
 
     @FXML
-    private void handleInventoryButtonPress(ActionEvent event) {
+    private void handleInventoryButtonPress() {
         attack.setVisible(false);
         defend.setVisible(false);
         inventory.setVisible(false);
@@ -101,7 +100,7 @@ public class LevelDementor {
     }
 
     @FXML
-    private void handleSpellPress(ActionEvent event) {
+    private void handleSpellPress() {
         attack.setVisible(false);
         defend.setVisible(false);
         inventory.setVisible(false);
@@ -114,7 +113,7 @@ public class LevelDementor {
 
 
     @FXML
-    private void handleReturn(ActionEvent event) {
+    private void handleReturn() {
         attack.setVisible(true);
         defend.setVisible(true);
         inventory.setVisible(true);
@@ -130,7 +129,7 @@ public class LevelDementor {
     }
 
     @FXML
-    private void handleAttackButtonPress(ActionEvent event) {
+    private void handleAttackButtonPress() {
         attackDementor.setVisible(true);
         attack.setVisible(false);
         defend.setVisible(false);
@@ -140,7 +139,7 @@ public class LevelDementor {
     }
 
     @FXML
-    private void attackDementor(ActionEvent event) throws IOException {
+    private void attackDementor() throws IOException {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -163,7 +162,7 @@ public class LevelDementor {
     }
 
     @FXML
-    private void handleDefend(ActionEvent event) throws IOException {
+    private void handleDefend() throws IOException {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -186,7 +185,7 @@ public class LevelDementor {
     }
 
     @FXML
-    private boolean handleWingardium(ActionEvent event) throws IOException {
+    private boolean handleWingardium() throws IOException {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -198,7 +197,6 @@ public class LevelDementor {
         boolean success = gaming.wizard.useWingardiumLeviosa(gaming.dementor);
         if (!success) {
             wingardiumWarning.setVisible(true);
-            success = false;
         } else {
             gaming.dementorAttacksWizard();
         }
@@ -215,7 +213,7 @@ public class LevelDementor {
     }
 
     @FXML
-    private boolean handleAccio(ActionEvent event) throws IOException {
+    private boolean handleAccio() throws IOException {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -227,7 +225,6 @@ public class LevelDementor {
         boolean success = gaming.wizard.useAccio(gaming.dementor);
         if (!success) {
             accioWarning.setVisible(true);
-            success = false;
         } else {
             gaming.dementorAttacksWizard();
         }
@@ -243,7 +240,7 @@ public class LevelDementor {
         return success;
     }
     @FXML
-    private boolean handleExpecto(ActionEvent event) throws IOException {
+    private boolean handleExpecto() throws IOException {
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -255,7 +252,6 @@ public class LevelDementor {
         boolean success = gaming.wizard.useExpecto(gaming.dementor);
         if (!success) {
             expectoWarning.setVisible(true);
-            success = false;
         } else {
             gaming.dementorAttacksWizard();
         }
@@ -273,7 +269,7 @@ public class LevelDementor {
 
 
     @FXML
-    private void handleHealthPotion(ActionEvent event) {
+    private void handleHealthPotion() {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -291,7 +287,7 @@ public class LevelDementor {
     }
 
     @FXML
-    private void handleDamagePotion(ActionEvent event) {
+    private void handleDamagePotion() {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -304,7 +300,7 @@ public class LevelDementor {
     }
 
     @FXML
-    private void handleManaPotion(ActionEvent event) {
+    private void handleManaPotion() {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);

@@ -2,7 +2,6 @@ package application;
 
 import lombok.Data;
 
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -19,16 +18,16 @@ public class Wand {
     Core core;
 
 
-    private static String qualities[] = {"Power", "Consistency", "Broadness" };
-    private static  Core cores[] = { Core.DRAGON_HEARTSTRING, Core.UNICORN_HAIR, Core.PHOENIX_FEATHER };
+    private static String[] qualities = {"Power", "Consistency", "Broadness" };
+    private static Core[] cores = { Core.DRAGON_HEARTSTRING, Core.UNICORN_HAIR, Core.PHOENIX_FEATHER };
     private void determineWandSize() {
         if (height <= 165) {
             this.size = 8 ;
         }
-        else if (height > 165 && height < 185) {
+        else if (height < 185) {
             this.size = 11;
         }
-        else if (height >= 185) {
+        else {
             this.size = 14;
         }
 

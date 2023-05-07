@@ -138,7 +138,7 @@ Button:hover {
 .Mana {
     -fx-fill: white;
     -fx-font-size: 11pt; /* Change the font size to 16 points */
-    -fx-translate-x: 200px; /* adjust as needed */
+    -fx-translate-x: 218px; /* adjust as needed */
 }
 
 .attack {

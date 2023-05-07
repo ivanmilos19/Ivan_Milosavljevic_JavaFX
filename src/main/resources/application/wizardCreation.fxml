@@ -1,50 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<AnchorPane prefHeight="576.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Gaming">
-   <children>
-      <ChoiceBox fx:id="qualityChoice" layoutX="369.0" layoutY="204.0" prefWidth="150.0" />
-      <Label fx:id="myLabel" alignment="CENTER" layoutX="266.0" layoutY="175.0" prefHeight="17.0" prefWidth="368.0" text="Select one of the qualities">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="petLabel" alignment="CENTER" layoutX="260.0" layoutY="248.0" prefHeight="17.0" prefWidth="368.0" text="Select a pet">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-      </Label>
-      <ChoiceBox fx:id="petChoice" layoutX="369.0" layoutY="274.0" prefWidth="150.0" />
-      <Label fx:id="wandLabel" alignment="CENTER" layoutX="260.0" layoutY="316.0" prefHeight="17.0" prefWidth="368.0" text="Select a wand core">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-      </Label>
-      <ChoiceBox fx:id="wandChoice" layoutX="368.0" layoutY="345.0" prefWidth="150.0" />
-      <Label fx:id="heightLabel" alignment="CENTER" layoutX="260.0" layoutY="389.0" prefHeight="17.0" prefWidth="368.0" text="How tall are you ?">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="height" layoutX="369.0" layoutY="418.0" />
-      <Button layoutX="378.0" layoutY="471.0" mnemonicParsing="false" onAction="#createWizard" prefHeight="31.0" prefWidth="131.0" text="Create your wizard !" />
-      <Button fx:id="startGame" layoutX="378.0" layoutY="516.0" mnemonicParsing="false" onAction="#startGame" prefHeight="31.0" prefWidth="131.0" text="Start the game" />
-      <Label fx:id="myLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="90.0" prefHeight="83.0" prefWidth="589.0" text="Welcome to Hogwarts ! Are you ready to go on an adventure ? If so, then create your own wizard !" wrapText="true">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="101.0" fitWidth="287.0" layoutX="335.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/title.png" />
-         </image>
-      </ImageView>
-   </children>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="576.0" prefWidth="842.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="application.Gaming">
+   <ChoiceBox fx:id="qualityChoice" layoutX="369.0" layoutY="204.0" prefWidth="150.0"/>
+   <Label fx:id="myLabel" alignment="CENTER" layoutX="266.0" layoutY="175.0" prefHeight="17.0" prefWidth="368.0"
+          text="Select one of the qualities">
+      <font>
+         <Font name="Arial Bold" size="18.0"/>
+      </font>
+   </Label>
+   <Label fx:id="petLabel" alignment="CENTER" layoutX="260.0" layoutY="248.0" prefHeight="17.0" prefWidth="368.0"
+          text="Select a pet">
+      <font>
+         <Font name="Arial Bold" size="18.0"/>
+      </font>
+   </Label>
+   <ChoiceBox fx:id="petChoice" layoutX="369.0" layoutY="274.0" prefWidth="150.0"/>
+   <Label fx:id="wandLabel" alignment="CENTER" layoutX="260.0" layoutY="316.0" prefHeight="17.0" prefWidth="368.0"
+          text="Select a wand core">
+      <font>
+         <Font name="Arial Bold" size="18.0"/>
+      </font>
+   </Label>
+   <ChoiceBox fx:id="wandChoice" layoutX="368.0" layoutY="345.0" prefWidth="150.0"/>
+   <Label fx:id="heightLabel" alignment="CENTER" layoutX="260.0" layoutY="389.0" prefHeight="17.0" prefWidth="368.0"
+          text="How tall are you ?">
+      <font>
+         <Font name="Arial Bold" size="18.0"/>
+      </font>
+   </Label>
+   <TextField fx:id="height" layoutX="369.0" layoutY="418.0"/>
+   <Button layoutX="378.0" layoutY="471.0" mnemonicParsing="false" onAction="#createWizard" prefHeight="31.0"
+           prefWidth="131.0" text="Create your wizard !"/>
+   <Button fx:id="startGame" layoutX="378.0" layoutY="516.0" mnemonicParsing="false" onAction="#startGame"
+           prefHeight="31.0" prefWidth="131.0" text="Start the game"/>
+   <Label fx:id="myLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="90.0" prefHeight="83.0"
+          prefWidth="589.0"
+          text="Welcome to Hogwarts ! Are you ready to go on an adventure ? If so, then create your own wizard !"
+          wrapText="true">
+      <font>
+         <Font name="Arial Bold" size="18.0"/>
+      </font>
+   </Label>
+   <ImageView fitHeight="101.0" fitWidth="287.0" layoutX="335.0" layoutY="6.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@images/title.png"/>
+   </ImageView>
 </AnchorPane>

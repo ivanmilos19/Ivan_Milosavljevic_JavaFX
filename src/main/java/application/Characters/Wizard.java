@@ -19,15 +19,15 @@ public class Wizard extends Character {
 
 
     ////////////// Arrays lists ////////////////////
-    ArrayList<Potion> healthPotions = new ArrayList<>();
-    ArrayList<Potion> damagePotions = new ArrayList<>();
-    ArrayList<Potion> manaPotions = new ArrayList<>();
+    ArrayList<Potion> healthPotions;
+    ArrayList<Potion> damagePotions;
+    ArrayList<Potion> manaPotions;
 
-    ArrayList<Spell> wingardiumLeviosa = new ArrayList<>();
-    ArrayList<Spell> accio = new ArrayList<>();
-    ArrayList<Spell> expectoPatronum = new ArrayList<>();
-    ArrayList<Spell> sectumsempra = new ArrayList<>();
-    ArrayList<Spell> expelliarmus = new ArrayList<>();
+    ArrayList<Spell> wingardiumLeviosa;
+    ArrayList<Spell> accio;
+    ArrayList<Spell> expectoPatronum;
+    ArrayList<Spell> sectumsempra;
+    ArrayList<Spell> expelliarmus;
 
     public int getNumberHealthPotion(ArrayList<Potion> healthPotions) {
         return healthPotions.size();
@@ -162,6 +162,7 @@ public class Wizard extends Character {
         healthPotions.add(potion);
     }
 
+
     public void addDamagePotion(Potion potion)
     {
         damagePotions.add(potion);
@@ -173,15 +174,11 @@ public class Wizard extends Character {
     }
 
     Spell spell = new Spell();
-    public void addSpell(Spell spell)
-    {
-        wingardiumLeviosa.add(spell);
-        expectoPatronum.add(spell);
-        accio.add(spell);
-        sectumsempra.add(spell);
-        expelliarmus.add(spell);
-    }
-
+    public void addWingardiumSpell(Spell spell) {wingardiumLeviosa.add(spell);}
+    public void addAccioSpell(Spell spell) {accio.add(spell);}
+    public void addExpectoSpell(Spell spell) {expectoPatronum.add(spell);}
+    public void addSectumsempraSpell(Spell spell) {sectumsempra.add(spell);}
+    public void addExpelliarmusSpell(Spell spell) {expelliarmus.add(spell);}
 
     public boolean useHealthPotion() {
         // use the first available potion in my collection of potions

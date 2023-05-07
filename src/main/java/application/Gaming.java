@@ -21,6 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -54,7 +55,6 @@ public class Gaming implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        // Auto-generated method stub
         qualityChoice.getItems().addAll(qualities);
         qualityChoice.setOnAction(this::getQuality);
         petChoice.getItems().addAll(pets);
@@ -79,7 +79,6 @@ public class Gaming implements Initializable {
             this.house = new Slytherin();
         }
     }
-
 
 
     public void getPet(ActionEvent event) {
@@ -158,8 +157,8 @@ public class Gaming implements Initializable {
 
 
             // add spells
-            wizard.addSpell(new Spell());
-            wizard.addSpell(new Spell());
+            wizard.addWingardiumSpell(new Spell());
+            wizard.addWingardiumSpell(new Spell());
 
             startGame.setVisible(true);
         }
@@ -182,9 +181,7 @@ public class Gaming implements Initializable {
     Text deathEaterInfo = new Text();
 
 
-
     Text numberHealthPotions = new Text();
-
 
 
     public void putText() {
@@ -203,7 +200,7 @@ public class Gaming implements Initializable {
         levelText.setText("Level: " + wizard.getLevel() + " ⭐" + "   |");
         levelText.getStyleClass().add("level");
 
-        numberHealthPotions.setText(Arrays.toString(new String[]{String.valueOf(wizard.getNumberHealthPotion(wizard.getHealthPotions()))}));
+        numberHealthPotions.setText(Arrays.toString(new String[]{String.valueOf(wizard.getNumberWingardiumSpells(wizard.getWingardiumLeviosa()))}));
         numberHealthPotions.getStyleClass().add("nbrHealthPots");
 
     }
@@ -222,22 +219,27 @@ public class Gaming implements Initializable {
         basilicInfo.setText(basilic.getName() + ": " + basilic.getCurrentHP() + "/" + basilic.getBaseHP() + " ❤");
         basilicInfo.getStyleClass().add("basilic");
     }
+
     public void putDementorInfo() {
         dementorInfo.setText(dementor.getName() + ": " + dementor.getCurrentHP() + "/" + dementor.getBaseHP() + " ❤");
         dementorInfo.getStyleClass().add("dementor");
     }
+
     public void putVoldemortInfo() {
         voldemortInfo.setText(voldemort.getName() + ": " + voldemort.getCurrentHP() + "/" + voldemort.getBaseHP() + " ❤");
         voldemortInfo.getStyleClass().add("voldemort");
     }
+
     public void putWormtailInfo() {
         wormtailInfo.setText(wormtail.getName() + ": " + wormtail.getCurrentHP() + "/" + wormtail.getBaseHP() + " ❤");
         wormtailInfo.getStyleClass().add("wormtail");
     }
+
     public void putDoloresInfo() {
         doloresInfo.setText(dolores.getName() + ": " + dolores.getCurrentHP() + "/" + dolores.getBaseHP() + " ❤");
         doloresInfo.getStyleClass().add("dolores");
     }
+
     public void putDeathEaterInfo() {
         deathEaterInfo.setText(deathEater.getName() + ": " + deathEater.getCurrentHP() + "/" + deathEater.getBaseHP() + " ❤");
         deathEaterInfo.getStyleClass().add("deathEater");
@@ -252,8 +254,6 @@ public class Gaming implements Initializable {
     private Stage deathEaterStage;
     private Stage shopStage;
     private Stage stageTransition;
-
-
 
 
     public void startGame(ActionEvent event) throws IOException {
@@ -274,6 +274,7 @@ public class Gaming implements Initializable {
         putText();
         putTrollInfo();
     }
+
     public void createTrollStage() throws IOException {
         this.trollStage = new Stage();
         FXMLLoader loaderTroll = new FXMLLoader(getClass().getResource("levels/troll.fxml"));
@@ -310,7 +311,7 @@ public class Gaming implements Initializable {
         Parent rootBasilic = loaderBasilic.load();
         Scene sceneBasilic = new Scene(rootBasilic);
         sceneBasilic.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
-        ((Pane) rootBasilic).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, basilicInfo);
+        ((Pane) rootBasilic).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, basilicInfo, numberHealthPotions);
         basilicStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         basilicStage.setTitle("Harry Potter");
         basilicStage.setResizable(false);
@@ -348,6 +349,7 @@ public class Gaming implements Initializable {
         controllerDementor.setGaming(this);
         dementorStage.show();
     }
+
     public void createHangletonStage() throws IOException {
 
         wormtail = Enemy.builder()
@@ -472,21 +474,27 @@ public class Gaming implements Initializable {
     public boolean checkGameStateTroll() {
         return troll.isDead();
     }
+
     public boolean checkGameStateBasilic() {
         return basilic.isDead();
     }
+
     public boolean checkGameStateDementor() {
         return dementor.isDead();
     }
+
     public boolean checkGameStateVoldemort() {
         return voldemort.isDead();
     }
+
     public boolean checkGameStateWormtail() {
         return wormtail.isDead();
     }
+
     public boolean checkGameStateDolores() {
         return dolores.isDead();
     }
+
     public boolean checkGameStateDeathEater() {
         return deathEater.isDead();
     }
@@ -509,6 +517,7 @@ public class Gaming implements Initializable {
     public void closeStage() {
         stageTransition.close();
     }
+
     public void closeShop() {
         shopStage.close();
 
@@ -535,47 +544,63 @@ public class Gaming implements Initializable {
         trollStage.close();
         stageTransition();
     }
+
     public void closeBasilicStage() throws IOException {
         basilicStage.close();
         stageTransition();
     }
+
     public void closeDementorStage() throws IOException {
         dementorStage.close();
         stageTransition();
     }
+
     public void closeHangletonStage() throws IOException {
         hangletonStage.close();
         stageTransition();
     }
+
     public void closeDoloresStage() throws IOException {
         doloresStage.close();
         stageTransition();
     }
+
     public void closeDeathEaterStage() throws IOException {
         deathEaterStage.close();
         stageTransition();
     }
 
 
+    public void trollAttacksWizard() {
+        troll.attack(wizard);
+    }
 
-    public void trollAttacksWizard() {troll.attack(wizard);}
-    public void basilicAttacksWizard() {basilic.attack(wizard);}
-    public void dementorAttacksWizard() {dementor.attack(wizard);}
+    public void basilicAttacksWizard() {
+        basilic.attack(wizard);
+    }
+
+    public void dementorAttacksWizard() {
+        dementor.attack(wizard);
+    }
+
     public void voldemortAttackWizard() {
         voldemort.attack(wizard);
     }
+
     public void wormtailAttacksWizard() {
         wormtail.attack(wizard);
     }
+
     public void doloresAttacksWizard() {
         dolores.attack(wizard);
     }
+
     public void deathEaterAttacksWizard() {
         deathEater.attack(wizard);
     }
 
 
-    public void wizardDefends(){
+    public void wizardDefends() {
         wizard.defend();
     }
 
@@ -617,6 +642,7 @@ public class Gaming implements Initializable {
         }
         return success;
     }
+
     public boolean canBuyDamagePotion() {
         int damagePrice = 30;
         boolean success = false;
@@ -627,6 +653,7 @@ public class Gaming implements Initializable {
         }
         return success;
     }
+
     public boolean canBuyManaPotion() {
         int manaPrice = 15;
         boolean success = false;
@@ -644,12 +671,30 @@ public class Gaming implements Initializable {
         wizard.setManaPool(wizard.getManaPool() + 25);
         wizard.setLevel(wizard.getLevel() + 1);
         wizard.setAttack_strength((wizard.getAttack_strength()) + 20);
-
         wizard.setCurrentHP(wizard.getBaseHP());
         wizard.setCurrentmanaPool(wizard.getManaPool());
+        switch(wizard.getLevel()) {
+            case 2 ->{
+                wizard.addWingardiumSpell(new Spell());
+                wizard.addAccioSpell(new Spell());
+                wizard.addAccioSpell(new Spell());
+            }
+            case 3, 4, 5 -> {
+                wizard.addWingardiumSpell(new Spell());
+                wizard.addAccioSpell(new Spell());
+                wizard.addExpectoSpell(new Spell());
+            }
+            case 6 -> {
+                wizard.addWingardiumSpell(new Spell());
+                wizard.addAccioSpell(new Spell());
+                wizard.addExpectoSpell(new Spell());
+                wizard.addSectumsempraSpell(new Spell());
+                wizard.addSectumsempraSpell(new Spell());
+            }
+            default -> {
+            }
+        }
 
-        wizard.addSpell(new Spell());
-        wizard.addSpell(new Spell());
     }
 
 }

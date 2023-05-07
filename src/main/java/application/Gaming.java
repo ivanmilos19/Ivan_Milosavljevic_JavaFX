@@ -6,6 +6,7 @@ import application.Characters.Wizard;
 import application.Houses.*;
 import application.Levels.LevelBasilic;
 import application.Levels.LevelDementor;
+import application.Levels.LevelHangleton;
 import application.Levels.LevelTroll;
 import application.Shops.ShopStageBasilic;
 import application.StageTransitions.StageTransitionBasilic;
@@ -23,7 +24,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -72,15 +72,17 @@ public class Gaming implements Initializable {
         String myQuality = qualityChoice.getValue();
         myLabel.setText(myQuality);
         if (myQuality == "Daring")
-            house = new Gryffindor();
+            this.house = new Gryffindor();
         else if (myQuality == "Curious") {
-            house = new Ravenclaw();
+            this.house = new Ravenclaw();
         } else if (myQuality == "Loyal") {
-            house = new Hufflepuff();
+            this.house = new Hufflepuff();
         } else if (myQuality == "Ambitious") {
-            house = new Slytherin();
+            this.house = new Slytherin();
         }
     }
+
+
 
     public void getPet(ActionEvent event) {
         String myPet = petChoice.getValue();
@@ -97,6 +99,9 @@ public class Gaming implements Initializable {
     public Enemy troll;
     public Boss basilic;
     public Enemy dementor;
+    public Boss voldemort;
+    public Enemy wormtail;
+    public Enemy trophy;
 
     public void createWizard(ActionEvent event) {
         if (house != null) {
@@ -171,6 +176,8 @@ public class Gaming implements Initializable {
     Text trollInfo = new Text();
     Text basilicInfo = new Text();
     Text dementorInfo = new Text();
+    Text wormtailInfo = new Text();
+    Text voldemortInfo = new Text();
 
     Text numberHealthPotions = new Text();
 
@@ -215,10 +222,19 @@ public class Gaming implements Initializable {
         dementorInfo.setText(dementor.getName() + ": " + dementor.getCurrentHP() + "/" + dementor.getBaseHP() + " ❤");
         dementorInfo.getStyleClass().add("dementor");
     }
+    public void putVoldemortInfo() {
+        voldemortInfo.setText(voldemort.getName() + ": " + voldemort.getCurrentHP() + "/" + voldemort.getBaseHP() + " ❤");
+        voldemortInfo.getStyleClass().add("dementor");
+    }
+    public void putWormtailInfo() {
+        wormtailInfo.setText(wormtail.getName() + ": " + wormtail.getCurrentHP() + "/" + wormtail.getBaseHP() + " ❤");
+        wormtailInfo.getStyleClass().add("dementor");
+    }
 
     private Stage trollStage;
     private Stage basilicStage;
     private Stage dementorStage;
+    private Stage hangletonStage;
     private Stage shopStage;
     private Stage stageTransition;
 
@@ -317,6 +333,47 @@ public class Gaming implements Initializable {
         controllerDementor.setGaming(this);
         dementorStage.show();
     }
+    public void createHangletonStage() throws IOException {
+
+        wormtail = Enemy.builder()
+                .currentHP(600)
+                .baseHP(600)
+                .attack_strength(20)
+                .attackStrengthMultiplier(3)
+                .name("Wormtail")
+                .build();
+
+        voldemort = Boss.builder()
+                .currentHP(2000)
+                .baseHP(2000)
+                .attack_strength(80)
+                .attackStrengthMultiplier(3)
+                .name("Voldemort")
+                .build();
+
+        trophy = Enemy.builder()
+                .build();
+
+        voldemortInfo.setText(voldemort.getName() + ": " + voldemort.getCurrentHP() + "/" + voldemort.getBaseHP() + " ❤");
+        voldemortInfo.getStyleClass().add("voldemort");
+
+        wormtailInfo.setText(wormtail.getName() + ": " + wormtail.getCurrentHP() + "/" + wormtail.getBaseHP() + " ❤");
+        wormtailInfo.getStyleClass().add("wormtail");
+
+        this.hangletonStage = new Stage();
+        FXMLLoader loaderHangleton = new FXMLLoader(getClass().getResource("hangleton.fxml"));
+        Parent rootHangleton = loaderHangleton.load();
+        Scene sceneHangleton = new Scene(rootHangleton);
+        sceneHangleton.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        ((Pane) rootHangleton).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, voldemortInfo, wormtailInfo);
+        hangletonStage.getIcons().add(new Image(getClass().getResourceAsStream("images/HP_logo.png")));
+        hangletonStage.setTitle("Harry Potter");
+        hangletonStage.setResizable(false);
+        hangletonStage.setScene(sceneHangleton);
+        LevelHangleton controllerHangleton = loaderHangleton.getController();
+        controllerHangleton.setGaming(this);
+        hangletonStage.show();
+    }
 
     public void createShop() throws IOException {
         this.shopStage = new Stage();
@@ -360,9 +417,23 @@ public class Gaming implements Initializable {
         }
         return false;
     }
+    public boolean checkGameStateVoldemort() {
+        if (voldemort.isDead()) {
+            return true;
+        }
+        return false;
+    }
+    public boolean checkGameStateWormtail() {
+        if (wormtail.isDead()) {
+            return true;
+        }
+        return false;
+    }
 
     public void gameOver() throws IOException {
         trollStage.close();
+        hangletonStage.close();
+
         Stage stage = new Stage();
         FXMLLoader loaderGameOver = new FXMLLoader(getClass().getResource("GameOver.fxml"));
         Parent rootGamerOver = loaderGameOver.load();
@@ -411,6 +482,10 @@ public class Gaming implements Initializable {
         dementorStage.close();
         stageTransition();
     }
+    public void closeHangletonStage() throws IOException {
+        hangletonStage.close();
+        stageTransition();
+    }
 
 
     public void trollAttacksWizard() {
@@ -421,6 +496,12 @@ public class Gaming implements Initializable {
     }
     public void dementorAttacksWizard() {
         dementor.attack(wizard);
+    }
+    public void voldemortAttackWizard() {
+        voldemort.attack(wizard);
+    }
+    public void wormtailAttacksWizard() {
+        wormtail.attack(wizard);
     }
 
     public void wizardDefends(){

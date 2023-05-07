@@ -21,7 +21,7 @@ public class StageTransitionBasilic {
         gaming.closeStage();
     }
     public void handleNoButton() throws IOException {
-        gaming.createDementorStage();
+        gaming.createHangletonStage();
         gaming.closeStage();
     }
 }

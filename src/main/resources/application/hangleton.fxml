@@ -15,7 +15,7 @@
       <Button fx:id="defend" layoutX="38.0" layoutY="510.0" mnemonicParsing="false" onAction="#handleDefend" text="Defend" />
       <Button fx:id="inventory" layoutX="38.0" layoutY="546.0" mnemonicParsing="false" onAction="#handleInventoryButtonPress" text="Inventory" />
       <Button fx:id="spell" layoutX="37.0" layoutY="580.0" mnemonicParsing="false" onAction="#handleSpellPress" text="Spell" />
-      <Button fx:id="attackVoldemort" layoutX="38.0" layoutY="476.0" mnemonicParsing="false" onAction="#attackVoldemort" text="Voldemot" />
+      <Button fx:id="attackVoldemort" layoutX="38.0" layoutY="476.0" mnemonicParsing="false" onAction="#attackVoldemort" text="Voldemort" />
       <Button fx:id="returnButton" layoutX="436.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleReturn" text="Return" />
       <Button fx:id="healPotion" layoutX="40.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleHealthPotion" text="Healing Potion" />
       <Button fx:id="damagePotion" layoutX="38.0" layoutY="510.0" mnemonicParsing="false" onAction="#handleDamagePotion" text="Damage Potion" />
@@ -56,5 +56,12 @@
          </font>
       </Label>
       <Button fx:id="attackWormtail" layoutX="226.0" layoutY="476.0" mnemonicParsing="false" onAction="#attackWormtail" text="Wormtail" />
+      <Button fx:id="accioTrophy" layoutX="38.0" layoutY="511.0" mnemonicParsing="false" onAction="#handleAccioTrophy" text="Trophy" />
+      <Button fx:id="wingardiumVoldemort" layoutX="38.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleWingardiumVoldemort" text="Voldemort" />
+      <Button fx:id="wingardiumWormtail" layoutX="226.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleWingardiumWormtail" text="Wormtail" />
+      <Button fx:id="accioVoldemort" layoutX="38.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleAccioVoldemort" text="Voldemort" />
+      <Button fx:id="expectoVoldemort" layoutX="38.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleExpectoVoldemort" text="Voldemort" />
+      <Button fx:id="accioWormtail" layoutX="226.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleAccioWormtail" text="Wormtail" />
+      <Button fx:id="expectoWormtail" layoutX="226.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleExpectoWormtail" text="Wormtail" />
    </children>
 </AnchorPane>

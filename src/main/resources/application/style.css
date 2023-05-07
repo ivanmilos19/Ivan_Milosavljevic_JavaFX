@@ -171,6 +171,18 @@ Button:hover {
     -fx-translate-x: 940px; /* adjust as needed */
 }
 
+.voldemort {
+    -fx-fill: red;
+    -fx-font-size:  11pt; /* Change the font size to 16 points */
+    -fx-translate-x: 990px; /* adjust as needed */
+}
+
+.wormtail {
+    -fx-fill: red;
+    -fx-font-size:  11pt; /* Change the font size to 16 points */
+    -fx-translate-x: 800px; /* adjust as needed */
+}
+
 
 #rectangle {
     -fx-fill: black;
@@ -182,7 +194,8 @@ Button:hover {
 
 
 
-#attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic,#attackDementor, #attackVoldemort, #attackWormtail, #returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium, #accio, #expecto
+#attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic,#attackDementor, #attackVoldemort, #accioTrophy, #attackWormtail, #wingardiumVoldemort, #accioVoldemort, #expectoVoldemort,
+#returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium, #accio, #expecto, #wingardiumWormtail, #accioWormtail, #expectoWormtail, #accioTrophy
 , #shopHp, #shopDamage, #shopMana, #yesButton, #noButton, #leaveShop {
     -fx-font-weight: bold;
     -fx-background-color: transparent;
@@ -197,7 +210,8 @@ Button:hover {
 }
 
 #attack:hover, #defend:hover, #inventory:hover, #spell:hover , #attackTroll:hover, #attackBasilic:hover,#attackDementor:hover, #attackVoldemort:hover,  #attackWormtail:hover, #returnButton:hover, #healPotion:hover, #damagePotion:hover, #manaPotion:hover, #wingardium:hover, #shopHp:hover, #shopDamage:hover, #shopMana:hover
- , #yesButton:hover, #noButton:hover, #leaveShop:hover , #accio:hover, #expecto:hover{
+ , #yesButton:hover, #noButton:hover, #leaveShop:hover , #accio:hover, #expecto:hover, #accioTrophy:hover, #wingardiumVoldemort:hover, #accioVoldemort:hover, #expectoVoldemort:hover
+ , #wingardiumWormtail:hover, #accioWormtail:hover, #expectoWormtail:hover, #accioTrophy:hover{
    -fx-text-fill: #00FF00; /* Green color */
 }
 

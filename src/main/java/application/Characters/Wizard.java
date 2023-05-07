@@ -1,6 +1,7 @@
 package application.Characters;
 
 import application.Characters.Character;
+import application.Houses.House;
 import application.Potion;
 import application.Spell;
 import application.Wand;
@@ -99,6 +100,8 @@ public class Wizard extends Character {
 
     @Override
     public String getName() { return "Harry Potter"; }
+
+   House house;
 
 
     @Override

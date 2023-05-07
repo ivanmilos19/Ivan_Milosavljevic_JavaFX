@@ -1,6 +1,7 @@
-package application;
+package application.Shops;
 
 import application.Characters.Wizard;
+import application.Spell;
 
 public class Rewards {
     String newLine = System.getProperty("line.separator");

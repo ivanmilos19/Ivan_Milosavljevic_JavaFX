@@ -29,6 +29,23 @@ public class LevelHangleton {
     @FXML
     private Button accioTrophy;
 
+
+
+    // cast spells on specific target ///
+
+    @FXML
+    private Button wingardiumVoldemort;
+    @FXML
+    private Button accioVoldemort;
+    @FXML
+    private Button expectoVoldemort;
+    @FXML
+    private Button wingardiumWormtail;
+    @FXML
+    private Button  accioWormtail;
+    @FXML
+    private Button expectoWormtail;
+
     ///////Potions Buttons/////////
     @FXML
     private Button healPotion;
@@ -71,6 +88,7 @@ public class LevelHangleton {
     public void initialize() {
         attackVoldemort.setVisible(false);
         attackWormtail.setVisible(false);
+        accioTrophy.setVisible(false);
         returnButton.setVisible(false);
         healPotion.setVisible(false);
         damagePotion.setVisible(false);
@@ -78,6 +96,13 @@ public class LevelHangleton {
         wingardium.setVisible(false);
         accio.setVisible(false);
         expecto.setVisible(false);
+
+        wingardiumVoldemort.setVisible(false);
+        accioVoldemort.setVisible(false);
+        expectoVoldemort.setVisible(false);
+        wingardiumWormtail.setVisible(false);
+        accioWormtail.setVisible(false);
+        expectoWormtail.setVisible(false);
 
         //messages//
         wingardiumWarning.setVisible(false);
@@ -124,12 +149,19 @@ public class LevelHangleton {
         spell.setVisible(true);
         attackVoldemort.setVisible(false);
         attackWormtail.setVisible(false);
+        accioTrophy.setVisible(false);
         healPotion.setVisible(false);
         damagePotion.setVisible(false);
         manaPotion.setVisible(false);
         wingardium.setVisible(false);
         accio.setVisible(false);
         expecto.setVisible(false);
+        wingardiumVoldemort.setVisible(false);
+        accioVoldemort.setVisible(false);
+        expectoVoldemort.setVisible(false);
+        wingardiumWormtail.setVisible(false);
+        accioWormtail.setVisible(false);
+        expectoWormtail.setVisible(false);
         returnButton.setVisible(false);
     }
 
@@ -153,17 +185,17 @@ public class LevelHangleton {
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
-        gaming.wizard.attack(gaming.dementor);
-        gaming.dementorAttacksWizard();
+        gaming.wizard.attack(gaming.voldemort);
+        gaming.voldemortAttackWizard();
         gaming.putText();
-        gaming.putDementorInfo();
+        gaming.putVoldemortInfo();
 
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
         }
 
-        if (gaming.checkGameStateDementor()) {
-            gaming.closeDementorStage();
+        if (gaming.checkGameStateWormtail() && gaming.checkGameStateVoldemort()) {
+            gaming.closeHangletonStage();
         }
     }
     @FXML
@@ -175,17 +207,17 @@ public class LevelHangleton {
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
-        gaming.wizard.attack(gaming.dementor);
-        gaming.dementorAttacksWizard();
+        gaming.wizard.attack(gaming.wormtail);
+        gaming.wormtailAttacksWizard();
         gaming.putText();
-        gaming.putDementorInfo();
+        gaming.putWormtailInfo();
 
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
         }
 
-        if (gaming.checkGameStateDementor()) {
-            gaming.closeDementorStage();
+        if (gaming.checkGameStateWormtail() && gaming.checkGameStateVoldemort()) {
+            gaming.closeHangletonStage();
         }
     }
 
@@ -199,21 +231,66 @@ public class LevelHangleton {
         manaPotionWarning.setVisible(false);
 
         gaming.wizardDefends();
-        gaming.dementorAttacksWizard();
+        gaming.voldemortAttackWizard();
+        gaming.wormtailAttacksWizard();
         gaming.wizardStopsDefend();
         gaming.putText();
 
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
         }
-
-        if (gaming.checkGameStateDementor()) {
-            gaming.closeDementorStage();
-        }
     }
 
     @FXML
-    private boolean handleWingardium(ActionEvent event) throws IOException {
+    private void handleWingardium(ActionEvent event) throws IOException {
+        wingardiumVoldemort.setVisible(true);
+        wingardiumWormtail.setVisible(true);
+        wingardium.setVisible(false);
+        accio.setVisible(false);
+        expecto.setVisible(false);
+
+        attack.setVisible(false);
+        defend.setVisible(false);
+        inventory.setVisible(false);
+        spell.setVisible(false);
+        returnButton.setVisible(true);
+
+    }
+    @FXML
+    private void handleAccio(ActionEvent event) throws IOException {
+        accioVoldemort.setVisible(true);
+        accioWormtail.setVisible(true);
+        accioTrophy.setVisible(true);
+        wingardium.setVisible(false);
+        accio.setVisible(false);
+        expecto.setVisible(false);
+
+        attack.setVisible(false);
+        defend.setVisible(false);
+        inventory.setVisible(false);
+        spell.setVisible(false);
+        returnButton.setVisible(true);
+
+    }
+    @FXML
+    private void handleExpecto(ActionEvent event) throws IOException {
+        expectoWormtail.setVisible(true);
+        expectoVoldemort.setVisible(true);
+        wingardium.setVisible(false);
+        accio.setVisible(false);
+        expecto.setVisible(false);
+
+        attack.setVisible(false);
+        defend.setVisible(false);
+        inventory.setVisible(false);
+        spell.setVisible(false);
+        returnButton.setVisible(true);
+
+    }
+
+
+    @FXML
+    private boolean handleWingardiumVoldemort(ActionEvent event) throws IOException {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -222,27 +299,29 @@ public class LevelHangleton {
         manaPotionWarning.setVisible(false);
 
 
-        boolean success = gaming.wizard.useWingardiumLeviosa(gaming.dementor);
+        boolean success = gaming.wizard.useWingardiumLeviosa(gaming.voldemort);
         if (!success) {
             wingardiumWarning.setVisible(true);
             success = false;
         } else {
-            gaming.dementorAttacksWizard();
+            gaming.voldemortAttackWizard();
+            gaming.wormtailAttacksWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
         }
 
-        if (gaming.checkGameStateDementor()) {
-            gaming.closeDementorStage();
+        if (gaming.checkGameStateVoldemort() && gaming.checkGameStateWormtail()) {
+            gaming.closeHangletonStage();
         }
         gaming.putText();
-        gaming.putDementorInfo();
+        gaming.putVoldemortInfo();
+        gaming.putWormtailInfo();
         return success;
     }
 
     @FXML
-    private boolean handleAccio(ActionEvent event) throws IOException {
+    private boolean handleAccioVoldemort(ActionEvent event) throws IOException {
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -251,26 +330,28 @@ public class LevelHangleton {
         manaPotionWarning.setVisible(false);
 
 
-        boolean success = gaming.wizard.useAccio(gaming.dementor);
+        boolean success = gaming.wizard.useAccio(gaming.voldemort);
         if (!success) {
             accioWarning.setVisible(true);
             success = false;
         } else {
-            gaming.dementorAttacksWizard();
+            gaming.voldemortAttackWizard();
+            gaming.wormtailAttacksWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
         }
 
-        if (gaming.checkGameStateDementor()) {
-            gaming.closeDementorStage();
+        if (gaming.checkGameStateVoldemort() && gaming.checkGameStateWormtail()) {
+            gaming.closeHangletonStage();
         }
         gaming.putText();
-        gaming.putDementorInfo();
+        gaming.putVoldemortInfo();
+        gaming.putWormtailInfo();
         return success;
     }
     @FXML
-    private boolean handleExpecto(ActionEvent event) throws IOException {
+    private boolean handleExpectoVoldemort(ActionEvent event) throws IOException {
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -279,22 +360,136 @@ public class LevelHangleton {
         manaPotionWarning.setVisible(false);
 
 
-        boolean success = gaming.wizard.useExpecto(gaming.dementor);
+        boolean success = gaming.wizard.useExpecto(gaming.voldemort);
         if (!success) {
             expectoWarning.setVisible(true);
             success = false;
         } else {
-            gaming.dementorAttacksWizard();
+            gaming.voldemortAttackWizard();
+            gaming.wormtailAttacksWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
         }
 
-        if (gaming.checkGameStateDementor()) {
-            gaming.closeDementorStage();
+        if (gaming.checkGameStateVoldemort() && gaming.checkGameStateWormtail()) {
+            gaming.closeHangletonStage();
         }
         gaming.putText();
-        gaming.putDementorInfo();
+        gaming.putVoldemortInfo();
+        gaming.putWormtailInfo();
+        return success;
+    }
+
+    @FXML
+    private boolean handleWingardiumWormtail(ActionEvent event) throws IOException {
+        wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
+        expectoWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
+
+        boolean success = gaming.wizard.useWingardiumLeviosa(gaming.wormtail);
+        if (!success) {
+            wingardiumWarning.setVisible(true);
+            success = false;
+        } else {
+            gaming.voldemortAttackWizard();
+            gaming.wormtailAttacksWizard();
+        }
+        if (gaming.checkGameStateWizard()) {
+            gaming.gameOver();
+        }
+
+        if (gaming.checkGameStateVoldemort() && gaming.checkGameStateWormtail()) {
+            gaming.closeHangletonStage();
+        }
+        gaming.putText();
+        gaming.putVoldemortInfo();
+        gaming.putWormtailInfo();
+        return success;
+    }
+
+    @FXML
+    private boolean handleAccioWormtail(ActionEvent event) throws IOException {
+        wingardiumWarning.setVisible(false);
+        accioWarning.setVisible(false);
+        expectoWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
+
+        boolean success = gaming.wizard.useAccio(gaming.wormtail);
+        if (!success) {
+            accioWarning.setVisible(true);
+            success = false;
+        } else {
+            gaming.voldemortAttackWizard();
+            gaming.wormtailAttacksWizard();
+        }
+        if (gaming.checkGameStateWizard()) {
+            gaming.gameOver();
+        }
+
+        if (gaming.checkGameStateVoldemort() && gaming.checkGameStateWormtail()) {
+            gaming.closeHangletonStage();
+        }
+        gaming.putText();
+        gaming.putVoldemortInfo();
+        gaming.putWormtailInfo();
+        return success;
+    }
+    @FXML
+    private boolean handleExpectoWormtail(ActionEvent event) throws IOException {
+        accioWarning.setVisible(false);
+        wingardiumWarning.setVisible(false);
+        expectoWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
+
+        boolean success = gaming.wizard.useExpecto(gaming.wormtail);
+        if (!success) {
+            expectoWarning.setVisible(true);
+            success = false;
+        } else {
+            gaming.voldemortAttackWizard();
+            gaming.wormtailAttacksWizard();
+        }
+        if (gaming.checkGameStateWizard()) {
+            gaming.gameOver();
+        }
+
+        if (gaming.checkGameStateVoldemort() && gaming.checkGameStateWormtail()) {
+            gaming.closeHangletonStage();
+        }
+        gaming.putText();
+        gaming.putVoldemortInfo();
+        gaming.putWormtailInfo();
+        return success;
+    }
+
+    @FXML
+    private boolean handleAccioTrophy(ActionEvent event) throws IOException {
+        accioWarning.setVisible(false);
+        wingardiumWarning.setVisible(false);
+        expectoWarning.setVisible(false);
+        healthPotionWarning.setVisible(false);
+        damagePotionWarning.setVisible(false);
+        manaPotionWarning.setVisible(false);
+
+        boolean success = gaming.wizard.useAccio(gaming.trophy);
+
+        if (!success) {
+            accioWarning.setVisible(true);
+            success = false;
+        } else {
+            gaming.closeHangletonStage();
+        }
         return success;
     }
 

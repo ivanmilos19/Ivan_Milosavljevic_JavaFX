@@ -47,21 +47,25 @@ public class Shop {
     }
 
     public void leaveShop() throws IOException {
-        if (gaming.wizard.getLevel() == 2) {
-            gaming.createBasilicStage();
-            gaming.closeShop();
-        } if (gaming.wizard.getLevel() == 3) {
-            gaming.createDementorStage();
-            gaming.closeShop();
-        } if (gaming.wizard.getLevel() == 4) {
-            gaming.createHangletonStage();
-            gaming.closeShop();
-        } if (gaming.wizard.getLevel() == 5) {
-            gaming.createDoloresStage();
-            gaming.closeShop();
-        } if (gaming.wizard.getLevel() == 6) {
-            gaming.createDeatheaterStage();
-            gaming.closeShop();
+        switch(gaming.wizard.getLevel()) {
+            case 2:
+                gaming.createBasilicStage();
+                break;
+            case 3:
+                gaming.createDementorStage();
+                break;
+            case 4:
+                gaming.createHangletonStage();
+                break;
+            case 5:
+                gaming.createDoloresStage();
+                break;
+            case 6:
+                gaming.createDeatheaterStage();
+                break;
+            default:
+                break;
         }
+        gaming.closeStage();
     }
 }

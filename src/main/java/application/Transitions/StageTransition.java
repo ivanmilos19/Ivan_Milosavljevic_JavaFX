@@ -15,21 +15,26 @@ public class StageTransition {
         gaming.closeStage();
     }
     public void handleNoButton() throws IOException {
-        if (gaming.wizard.getLevel() == 2) {
-            gaming.createBasilicStage();
-            gaming.closeStage();
-        } if (gaming.wizard.getLevel() == 3) {
-            gaming.createDementorStage();
-            gaming.closeStage();
-        } if (gaming.wizard.getLevel() == 4) {
-            gaming.createHangletonStage();
-            gaming.closeStage();
-        } if (gaming.wizard.getLevel() == 5) {
-            gaming.createDoloresStage();
-            gaming.closeStage();
-        } if (gaming.wizard.getLevel() == 6) {
-            gaming.createDeatheaterStage();
-            gaming.closeStage();
+        switch(gaming.wizard.getLevel()) {
+            case 2:
+                gaming.createBasilicStage();
+                break;
+            case 3:
+                gaming.createDementorStage();
+                break;
+            case 4:
+                gaming.createHangletonStage();
+                break;
+            case 5:
+                gaming.createDoloresStage();
+                break;
+            case 6:
+                gaming.createDeatheaterStage();
+                break;
+            default:
+                break;
         }
+        gaming.closeStage();
     }
+
 }

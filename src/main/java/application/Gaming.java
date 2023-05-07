@@ -261,7 +261,7 @@ public class Gaming implements Initializable {
     }
     public void createTrollStage() throws IOException {
         this.trollStage = new Stage();
-        FXMLLoader loaderTroll = new FXMLLoader(getClass().getResource("troll.fxml"));
+        FXMLLoader loaderTroll = new FXMLLoader(getClass().getResource("levels/troll.fxml"));
         Parent rootTroll = loaderTroll.load();
         Scene sceneTroll = new Scene(rootTroll);
         sceneTroll.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -291,7 +291,7 @@ public class Gaming implements Initializable {
 
 
         this.basilicStage = new Stage();
-        FXMLLoader loaderBasilic = new FXMLLoader(getClass().getResource("basilic.fxml"));
+        FXMLLoader loaderBasilic = new FXMLLoader(getClass().getResource("Levels/basilic.fxml"));
         Parent rootBasilic = loaderBasilic.load();
         Scene sceneBasilic = new Scene(rootBasilic);
         sceneBasilic.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -320,7 +320,7 @@ public class Gaming implements Initializable {
 
 
         this.dementorStage = new Stage();
-        FXMLLoader loaderDementor = new FXMLLoader(getClass().getResource("dementor.fxml"));
+        FXMLLoader loaderDementor = new FXMLLoader(getClass().getResource("Levels/dementor.fxml"));
         Parent rootDementor = loaderDementor.load();
         Scene sceneDementor = new Scene(rootDementor);
         sceneDementor.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -361,7 +361,7 @@ public class Gaming implements Initializable {
         wormtailInfo.getStyleClass().add("wormtail");
 
         this.hangletonStage = new Stage();
-        FXMLLoader loaderHangleton = new FXMLLoader(getClass().getResource("hangleton.fxml"));
+        FXMLLoader loaderHangleton = new FXMLLoader(getClass().getResource("Levels/hangleton.fxml"));
         Parent rootHangleton = loaderHangleton.load();
         Scene sceneHangleton = new Scene(rootHangleton);
         sceneHangleton.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -377,7 +377,7 @@ public class Gaming implements Initializable {
 
     public void createShop() throws IOException {
         this.shopStage = new Stage();
-        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("shop.fxml"));
+        FXMLLoader loaderStage = new FXMLLoader(getClass().getResource("Shops/shop.fxml"));
         Parent rootShop = loaderStage.load();
         Scene sceneShop = new Scene(rootShop);
         sceneShop.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -456,7 +456,7 @@ public class Gaming implements Initializable {
     public void stageTransition() throws IOException {
 
         this.stageTransition = new Stage();
-        FXMLLoader loaderTransition = new FXMLLoader(getClass().getResource("StageTransition.fxml"));
+        FXMLLoader loaderTransition = new FXMLLoader(getClass().getResource("StageTransitions/StageTransition.fxml"));
         Parent rootTransition = loaderTransition.load();
         Scene sceneTransition = new Scene(rootTransition);
         sceneTransition.getStylesheets().add(getClass().getResource("style.css").toExternalForm());

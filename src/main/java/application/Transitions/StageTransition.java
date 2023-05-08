@@ -10,7 +10,7 @@ public class StageTransition {
 
     public void handleYesButton() throws IOException {
         gaming.createShopStage();
-        gaming.closeStage();
+        gaming.closeTransitionStage();
     }
     public void handleNoButton() throws IOException {
         switch (gaming.wizard.getLevel()) {
@@ -18,12 +18,19 @@ public class StageTransition {
             case 3 -> gaming.createDementorStage();
             case 4 -> gaming.createHangletonStage();
             case 5 -> gaming.createDoloresStage();
-            case 6 -> gaming.createDeatheaterStage();
+            case 6 ->
+            {
+                if (gaming.joinEnnemy()) {
+                    gaming.createJoinSlytherinStage();
+                } else {
+                    gaming.createDeatheaterStage();
+                }
+            }
             case 7 -> gaming.createVoldemortStage();
             default -> {
             }
         }
-        gaming.closeStage();
+        gaming.closeTransitionStage();
     }
 
 }

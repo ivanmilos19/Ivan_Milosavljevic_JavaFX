@@ -126,7 +126,7 @@ public class Gaming implements Initializable {
                     .sectumsempra(new ArrayList<>())
                     .expelliarmus(new ArrayList<>())
 
-                    .attack_strength((int) (400 * house.attackMultiplier()))
+                    .attack_strength((int) (5000 * house.attackMultiplier()))
                     .manaPool(150)
                     .currentmanaPool(150)
 
@@ -167,7 +167,6 @@ public class Gaming implements Initializable {
             wizard.addWingardiumSpell(new Spell());
 
             startGame.setVisible(true);
-            System.out.println(house);
         }
     }
 
@@ -302,18 +301,13 @@ public class Gaming implements Initializable {
         trollStage.setScene(sceneTroll);
         LevelTroll controllerTroll = loaderTroll.getController();
         controllerTroll.setGaming(this);
-
         trollStage.show();
-        System.out.println(wizard.getHouse());
-
     }
 
     public boolean godricSword(){
-        System.out.println(house);
         return house.canUseSword();
     }
     public void createBasilicStage() throws IOException {
-        System.out.println(house);
         basilic = Boss.builder()
                 .currentHP(1000)
                 .baseHP(1000)
@@ -567,8 +561,11 @@ public class Gaming implements Initializable {
         stage.show();
     }
 
-    public void closeStage() {
+    public void closeTransitionStage() {
         stageTransition.close();
+    }
+
+    public void closeSlytherinJoinStage() {
         joinSlytherinStage.close();
     }
 
@@ -594,18 +591,20 @@ public class Gaming implements Initializable {
         stageTransition.show();
     }
 
-    public void joinSlytherinStage() throws IOException {
+    public boolean joinEnnemy(){
+        return house.canJoinEnemy();
+    }
+    public void createJoinSlytherinStage() throws IOException {
         this.joinSlytherinStage = new Stage();
-        FXMLLoader loaderJoinSlytherin = new FXMLLoader(getClass().getResource("slytherinJoin.fxml"));
-        Parent rootJoinSlytherin = loaderJoinSlytherin.load();
-        Scene sceneJoinSlytherin = new Scene(rootJoinSlytherin);
-        sceneJoinSlytherin.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
+        FXMLLoader loaderJoinSlytherinStage =  new FXMLLoader(getClass().getResource("slytherinJoin.fxml"));
+        loaderJoinSlytherinStage.setControllerFactory(controllerClass -> new SlytherinJoinStage(this));
+        Parent rootJoinSlytherinStage = loaderJoinSlytherinStage.load();
+        Scene sceneJoinSlytherinStage  = new Scene(rootJoinSlytherinStage);
+        sceneJoinSlytherinStage.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
         joinSlytherinStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         joinSlytherinStage.setTitle("Harry Potter");
         joinSlytherinStage.setResizable(false);
-        joinSlytherinStage.setScene(sceneJoinSlytherin);
-        SlytherinJoinStage controllerSlytherinJoin = loaderJoinSlytherin.getController();
-        controllerSlytherinJoin.setGaming(this);
+        joinSlytherinStage.setScene(sceneJoinSlytherinStage);
         joinSlytherinStage.show();
     }
 
@@ -684,7 +683,6 @@ public class Gaming implements Initializable {
         boolean canUseHealthPotion = true;
         boolean success = wizard.useHealthPotion();
         if (!success) {
-            System.out.println("You have no hp pots");
             canUseHealthPotion = false;
         }
         return canUseHealthPotion;
@@ -694,7 +692,6 @@ public class Gaming implements Initializable {
         boolean canUseManaPotion = true;
         boolean success = wizard.useManaPotion();
         if (!success) {
-            System.out.println("You have no mana pots");
             canUseManaPotion = false;
         }
         return canUseManaPotion;

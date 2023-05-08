@@ -9,8 +9,6 @@ import java.io.IOException;
 
 public class LevelBasilic {
 
-
-
     Gaming gaming;
     public LevelBasilic(Gaming gaming) {
         this.gaming = gaming;
@@ -64,7 +62,6 @@ public class LevelBasilic {
 
     @FXML
     public void initialize() {
-        System.out.println(gaming.godricSword());
         if (gaming.godricSword()) {
             godric.setVisible(true);
             attack.setVisible(false);
@@ -119,7 +116,6 @@ public class LevelBasilic {
 
     @FXML
     private void handleReturn() {
-        System.out.println(gaming.godricSword());
         if (gaming.godricSword()) {
             godric.setVisible(true);
             attack.setVisible(false);

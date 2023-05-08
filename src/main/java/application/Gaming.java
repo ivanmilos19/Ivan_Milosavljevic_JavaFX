@@ -71,13 +71,13 @@ public class Gaming implements Initializable {
         String myQuality = qualityChoice.getValue();
         myLabel.setText(myQuality);
         if (Objects.equals(myQuality, "Daring"))
-            this.house = new Gryffindor();
+            house = new Gryffindor();
         else if (Objects.equals(myQuality, "Curious")) {
-            this.house = new Ravenclaw();
+            house = new Ravenclaw();
         } else if (Objects.equals(myQuality, "Loyal")) {
-            this.house = new Hufflepuff();
+            house = new Hufflepuff();
         } else if (Objects.equals(myQuality, "Ambitious")) {
-            this.house = new Slytherin();
+            house = new Slytherin();
         }
     }
 
@@ -165,6 +165,7 @@ public class Gaming implements Initializable {
             wizard.addWingardiumSpell(new Spell());
 
             startGame.setVisible(true);
+            System.out.println(house);
         }
     }
 
@@ -184,7 +185,6 @@ public class Gaming implements Initializable {
     Text doloresInfo = new Text();
     Text deathEaterInfo = new Text();
     Text bellatrixInfo = new Text();
-
 
 
     Text numberHealthPotions = new Text();
@@ -250,6 +250,7 @@ public class Gaming implements Initializable {
         deathEaterInfo.setText(deathEater.getName() + ": " + deathEater.getCurrentHP() + "/" + deathEater.getBaseHP() + " ❤");
         deathEaterInfo.getStyleClass().add("deathEater");
     }
+
     public void putBellatrixInfo() {
         bellatrixInfo.setText(bellatrix.getName() + ": " + bellatrix.getCurrentHP() + "/" + bellatrix.getBaseHP() + " ❤");
         bellatrixInfo.getStyleClass().add("wormtail");
@@ -262,7 +263,6 @@ public class Gaming implements Initializable {
     private Stage hangletonStage;
     private Stage doloresStage;
     private Stage deathEaterStage;
-    private Stage voldemortStage;
     private Stage shopStage;
     private Stage stageTransition;
 
@@ -301,10 +301,16 @@ public class Gaming implements Initializable {
         controllerTroll.setGaming(this);
 
         trollStage.show();
+        System.out.println(wizard.getHouse());
+
     }
 
+    public boolean godricSword(){
+        System.out.println(house);
+        return house instanceof Gryffindor;
+    }
     public void createBasilicStage() throws IOException {
-
+        System.out.println(house);
         basilic = Boss.builder()
                 .currentHP(1000)
                 .baseHP(1000)
@@ -313,8 +319,7 @@ public class Gaming implements Initializable {
                 .name("Basilic")
                 .build();
 
-       putBasilicInfo();
-
+        putBasilicInfo();
 
         this.basilicStage = new Stage();
         FXMLLoader loaderBasilic = new FXMLLoader(getClass().getResource("Levels/basilic.fxml"));
@@ -454,6 +459,7 @@ public class Gaming implements Initializable {
         controllerDeathEater.setGaming(this);
         deathEaterStage.show();
     }
+
     public void createVoldemortStage() throws IOException {
 
         bellatrix = Enemy.builder()
@@ -475,9 +481,9 @@ public class Gaming implements Initializable {
         putVoldemortInfo();
         putBellatrixInfo();
 
-        this.voldemortStage = new Stage();
+        Stage voldemortStage = new Stage();
         FXMLLoader loaderVoldemort = new FXMLLoader(getClass().getResource("Levels/voldemort.fxml"));
-        Parent rootVoldemort= loaderVoldemort.load();
+        Parent rootVoldemort = loaderVoldemort.load();
         Scene sceneVoldemort = new Scene(rootVoldemort);
         sceneVoldemort.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
         ((Pane) rootVoldemort).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, voldemortInfo, bellatrixInfo);
@@ -528,7 +534,9 @@ public class Gaming implements Initializable {
         return voldemort.isDead();
     }
 
-    public boolean checkGameStateWormtail() {return wormtail.isDead();}
+    public boolean checkGameStateWormtail() {
+        return wormtail.isDead();
+    }
 
     public boolean checkGameStateDolores() {
         return dolores.isDead();
@@ -537,6 +545,7 @@ public class Gaming implements Initializable {
     public boolean checkGameStateDeathEater() {
         return deathEater.isDead();
     }
+
     public boolean checkGameStateBellatrix() {
         return bellatrix.isDead();
     }
@@ -613,17 +622,25 @@ public class Gaming implements Initializable {
     }
 
 
-    public void trollAttacksWizard() {troll.attack(wizard);}
+    public void trollAttacksWizard() {
+        troll.attack(wizard);
+    }
 
-    public void basilicAttacksWizard() {basilic.attack(wizard);}
+    public void basilicAttacksWizard() {
+        basilic.attack(wizard);
+    }
 
-    public void dementorAttacksWizard() {dementor.attack(wizard);}
+    public void dementorAttacksWizard() {
+        dementor.attack(wizard);
+    }
 
     public void voldemortAttackWizard() {
         voldemort.attack(wizard);
     }
 
-    public void wormtailAttacksWizard() {wormtail.attack(wizard);}
+    public void wormtailAttacksWizard() {
+        wormtail.attack(wizard);
+    }
 
     public void doloresAttacksWizard() {
         dolores.attack(wizard);
@@ -632,6 +649,7 @@ public class Gaming implements Initializable {
     public void deathEaterAttacksWizard() {
         deathEater.attack(wizard);
     }
+
     public void deathBellatrixWizard() {
         bellatrix.attack(wizard);
     }
@@ -709,8 +727,8 @@ public class Gaming implements Initializable {
         wizard.setAttack_strength((wizard.getAttack_strength()) + 20);
         wizard.setCurrentHP(wizard.getBaseHP());
         wizard.setCurrentmanaPool(wizard.getManaPool());
-        switch(wizard.getLevel()) {
-            case 2 ->{
+        switch (wizard.getLevel()) {
+            case 2 -> {
                 wizard.addWingardiumSpell(new Spell());
                 wizard.addAccioSpell(new Spell());
                 wizard.addAccioSpell(new Spell());
@@ -730,7 +748,5 @@ public class Gaming implements Initializable {
             default -> {
             }
         }
-
     }
-
 }

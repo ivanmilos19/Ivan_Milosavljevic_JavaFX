@@ -10,7 +10,7 @@ import java.io.IOException;
 public class LevelDolores {
 
 
-
+    private int counter = 0;
     Gaming gaming = new Gaming();
     public void setGaming(Gaming gaming){
         this.gaming = gaming;
@@ -65,7 +65,6 @@ public class LevelDolores {
     private Label manaPotionWarning;
 
 
-
     @FXML
     public void initialize() {
         attackDolores.setVisible(false);
@@ -76,7 +75,7 @@ public class LevelDolores {
         wingardium.setVisible(false);
         accio.setVisible(false);
         expecto.setVisible(false);
-        fireworks.setVisible(true);
+        fireworks.setVisible(false);
 
         //messages//
         wingardiumWarning.setVisible(false);
@@ -88,6 +87,12 @@ public class LevelDolores {
         manaPotionWarning.setVisible(false);
     }
 
+    public boolean fireworksTurnCount() {
+        if (counter == 5) {
+            return true;
+        }
+        return false;
+    }
 
     @FXML
     private void handleInventoryButtonPress() {
@@ -98,6 +103,10 @@ public class LevelDolores {
         healPotion.setVisible(true);
         damagePotion.setVisible(true);
         manaPotion.setVisible(true);
+        if (fireworksTurnCount()) {
+            fireworks.setVisible(true);
+        }
+
         returnButton.setVisible(true);
 
     }
@@ -125,6 +134,7 @@ public class LevelDolores {
         healPotion.setVisible(false);
         damagePotion.setVisible(false);
         manaPotion.setVisible(false);
+        fireworks.setVisible(false);
         wingardium.setVisible(false);
         accio.setVisible(false);
         expecto.setVisible(false);
@@ -154,6 +164,7 @@ public class LevelDolores {
         gaming.doloresAttacksWizard();
         gaming.putText();
         gaming.putDoloresInfo();
+        counter++;
 
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -177,6 +188,7 @@ public class LevelDolores {
         gaming.doloresAttacksWizard();
         gaming.wizardStopsDefend();
         gaming.putText();
+        counter++;
 
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -202,6 +214,7 @@ public class LevelDolores {
             wingardiumWarning.setVisible(true);
         } else {
             gaming.doloresAttacksWizard();
+            counter++;
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -230,6 +243,7 @@ public class LevelDolores {
             accioWarning.setVisible(true);
         } else {
             gaming.doloresAttacksWizard();
+            counter++;
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -257,6 +271,7 @@ public class LevelDolores {
             expectoWarning.setVisible(true);
         } else {
             gaming.doloresAttacksWizard();
+            counter++;
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -319,10 +334,10 @@ public class LevelDolores {
         }
         gaming.putText();
     }
-
     @FXML
-    private void handleFireworksButtonPress(){
-
+    private void handleFireworks() throws IOException {
+        gaming.closeDoloresStage();
     }
+
 
 }

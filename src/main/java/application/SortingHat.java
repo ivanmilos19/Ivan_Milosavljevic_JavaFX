@@ -8,9 +8,7 @@ public class SortingHat {
 
     private House house;
 
-
     public SortingHat() {
-
         String houseName = null;
     }
 }

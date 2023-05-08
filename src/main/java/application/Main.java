@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-//TODO - faire fxml de tt les levels / ajouter message pour dégâts et attaques ratée / résoudre probleme de house.null /ajouter grosses attaques
+//TODO -  ajouter message pour dégâts et attaques ratée / ajouter grosses attaques / finir mécanique death eater et basilic
 
 
 public class Main extends Application {

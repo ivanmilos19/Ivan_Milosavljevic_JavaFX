@@ -18,6 +18,8 @@ public class LevelBasilic {
     @FXML
     private Button attack;
     @FXML
+    private Button godric;
+    @FXML
     private Button defend;
     @FXML
     private Button inventory;
@@ -62,6 +64,14 @@ public class LevelBasilic {
 
     @FXML
     public void initialize() {
+        System.out.println(gaming.godricSword());
+        if (gaming.godricSword()) {
+            godric.setVisible(true);
+            attack.setVisible(false);
+        } else {
+            attack.setVisible(true);
+            godric.setVisible(false);
+        }
         attackBasilic.setVisible(false);
         returnButton.setVisible(false);
         healPotion.setVisible(false);
@@ -76,11 +86,13 @@ public class LevelBasilic {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+
     }
 
 
     @FXML
     private void handleInventoryButtonPress() {
+        godric.setVisible(false);
         attack.setVisible(false);
         defend.setVisible(false);
         inventory.setVisible(false);
@@ -94,6 +106,7 @@ public class LevelBasilic {
 
     @FXML
     private void handleSpellPress() {
+        godric.setVisible(false);
         attack.setVisible(false);
         defend.setVisible(false);
         inventory.setVisible(false);
@@ -106,7 +119,14 @@ public class LevelBasilic {
 
     @FXML
     private void handleReturn() {
-        attack.setVisible(true);
+        System.out.println(gaming.godricSword());
+        if (gaming.godricSword()) {
+            godric.setVisible(true);
+            attack.setVisible(false);
+        } else {
+            attack.setVisible(true);
+            godric.setVisible(false);
+        }
         defend.setVisible(true);
         inventory.setVisible(true);
         spell.setVisible(true);
@@ -122,6 +142,7 @@ public class LevelBasilic {
     @FXML
     private void handleAttackButtonPress() {
         attackBasilic.setVisible(true);
+        godric.setVisible(false);
         attack.setVisible(false);
         defend.setVisible(false);
         inventory.setVisible(false);
@@ -270,4 +291,5 @@ public class LevelBasilic {
         }
         gaming.putText();
     }
+
 }

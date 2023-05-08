@@ -1,7 +1,5 @@
 package application.Transitions;
-
 import application.Gaming;
-
 import java.io.IOException;
 
 public class StageTransition {
@@ -21,6 +19,7 @@ public class StageTransition {
             case 4 -> gaming.createHangletonStage();
             case 5 -> gaming.createDoloresStage();
             case 6 -> gaming.createDeatheaterStage();
+            case 7 -> gaming.createVoldemortStage();
             default -> {
             }
         }

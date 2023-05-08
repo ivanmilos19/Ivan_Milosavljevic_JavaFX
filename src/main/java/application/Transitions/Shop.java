@@ -8,9 +8,11 @@ import java.io.IOException;
 
 public class Shop {
     Gaming gaming = new Gaming();
-    public void setGaming(Gaming gaming){
+
+    public void setGaming(Gaming gaming) {
         this.gaming = gaming;
     }
+
     @FXML
     private Label noGoldLeft;
 
@@ -28,6 +30,7 @@ public class Shop {
             noGoldLeft.setVisible(true);
         }
     }
+
     public void buyDamagePotion() {
         gaming.putText();
         noGoldLeft.setVisible(false);
@@ -37,6 +40,7 @@ public class Shop {
             noGoldLeft.setVisible(true);
         }
     }
+
     public void buyManaPotion() {
         gaming.putText();
         noGoldLeft.setVisible(false);
@@ -54,6 +58,7 @@ public class Shop {
             case 4 -> gaming.createHangletonStage();
             case 5 -> gaming.createDoloresStage();
             case 6 -> gaming.createDeatheaterStage();
+            case 7 -> gaming.createVoldemortStage();
             default -> {
             }
         }

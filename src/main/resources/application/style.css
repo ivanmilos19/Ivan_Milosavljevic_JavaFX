@@ -226,7 +226,7 @@ Button:hover {
 
 #attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic,#attackDementor, #attackVoldemort, #accioTrophy, #attackWormtail, #wingardiumVoldemort, #accioVoldemort, #expectoVoldemort,
 #returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium, #accio, #expecto, #wingardiumWormtail, #accioWormtail, #expectoWormtail, #accioTrophy, #attackDolores
-, #shopHp, #shopDamage, #shopMana, #yesButton, #noButton, #leaveShop, #fireworks, #deathEater, #sectumsempra, #attackDeathEater
+, #shopHp, #shopDamage, #shopMana #leaveShop, #fireworks, #deathEater, #sectumsempra, #attackDeathEater
 ,#attackBellatrix, #wingardiumBellatrix, #accioBellatrix, #expectoBellatrix, #sectumsempraBellatrix, #expelliarmusBellatrix, #expelliarmusVoldemort, #sectumsempraVoldemort, #expelliarmus, #godric    {
     -fx-font-weight: bold;
     -fx-background-color: transparent;
@@ -252,7 +252,14 @@ Button:hover {
 }
 
 
-
+#yesButton, #noButton {
+ -fx-font-weight: bold;
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 15px;
+    -fx-alignment: baseline-left;
+    -fx-graphic: url('images/triangle.png'); /* set the bullet point image as the button's graphic */
+}
 
 
 

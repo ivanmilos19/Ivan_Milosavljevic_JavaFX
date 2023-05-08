@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Transitions.SlytherinJoinStage">
+   <children>
+      <Label layoutX="23.0" layoutY="41.0" text="Your slytherin roots, tell you to join the ennemy. Will you do it ? ">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="yesButton" layoutX="171.0" layoutY="188.0" mnemonicParsing="false" onAction="#handleYesButtonSlytherin" text="YES" />
+      <Button fx:id="noButton" layoutX="313.0" layoutY="188.0" mnemonicParsing="false" onAction="#handleNoButtonSlytherin" text="NO" />
+   </children>
+</AnchorPane>

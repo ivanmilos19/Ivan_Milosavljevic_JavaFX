@@ -11,8 +11,8 @@ public class LevelBasilic {
 
 
 
-    Gaming gaming = new Gaming();
-    public void setGaming(Gaming gaming){
+    Gaming gaming;
+    public LevelBasilic(Gaming gaming) {
         this.gaming = gaming;
     }
     @FXML

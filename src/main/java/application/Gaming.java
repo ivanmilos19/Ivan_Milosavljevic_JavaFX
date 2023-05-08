@@ -6,6 +6,7 @@ import application.Characters.Wizard;
 import application.Houses.*;
 import application.Levels.*;
 import application.Transitions.Shop;
+import application.Transitions.SlytherinJoinStage;
 import application.Transitions.StageTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -79,6 +80,7 @@ public class Gaming implements Initializable {
         } else if (Objects.equals(myQuality, "Ambitious")) {
             house = new Slytherin();
         }
+
     }
 
 
@@ -265,6 +267,7 @@ public class Gaming implements Initializable {
     private Stage deathEaterStage;
     private Stage shopStage;
     private Stage stageTransition;
+    private Stage joinSlytherinStage;
 
 
     public void startGame(ActionEvent event) throws IOException {
@@ -307,7 +310,7 @@ public class Gaming implements Initializable {
 
     public boolean godricSword(){
         System.out.println(house);
-        return house instanceof Gryffindor;
+        return house.canUseSword();
     }
     public void createBasilicStage() throws IOException {
         System.out.println(house);
@@ -323,6 +326,7 @@ public class Gaming implements Initializable {
 
         this.basilicStage = new Stage();
         FXMLLoader loaderBasilic = new FXMLLoader(getClass().getResource("Levels/basilic.fxml"));
+        loaderBasilic.setControllerFactory(controllerClass -> new LevelBasilic(this));
         Parent rootBasilic = loaderBasilic.load();
         Scene sceneBasilic = new Scene(rootBasilic);
         sceneBasilic.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
@@ -331,8 +335,6 @@ public class Gaming implements Initializable {
         basilicStage.setTitle("Harry Potter");
         basilicStage.setResizable(false);
         basilicStage.setScene(sceneBasilic);
-        LevelBasilic controllerBasilic = loaderBasilic.getController();
-        controllerBasilic.setGaming(this);
         basilicStage.show();
     }
 
@@ -567,6 +569,7 @@ public class Gaming implements Initializable {
 
     public void closeStage() {
         stageTransition.close();
+        joinSlytherinStage.close();
     }
 
     public void closeShop() {
@@ -589,6 +592,21 @@ public class Gaming implements Initializable {
         StageTransition controllerTransition = loaderTransition.getController();
         controllerTransition.setGaming(this);
         stageTransition.show();
+    }
+
+    public void joinSlytherinStage() throws IOException {
+        this.joinSlytherinStage = new Stage();
+        FXMLLoader loaderJoinSlytherin = new FXMLLoader(getClass().getResource("slytherinJoin.fxml"));
+        Parent rootJoinSlytherin = loaderJoinSlytherin.load();
+        Scene sceneJoinSlytherin = new Scene(rootJoinSlytherin);
+        sceneJoinSlytherin.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
+        joinSlytherinStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
+        joinSlytherinStage.setTitle("Harry Potter");
+        joinSlytherinStage.setResizable(false);
+        joinSlytherinStage.setScene(sceneJoinSlytherin);
+        SlytherinJoinStage controllerSlytherinJoin = loaderJoinSlytherin.getController();
+        controllerSlytherinJoin.setGaming(this);
+        joinSlytherinStage.show();
     }
 
     public void closeTrollStage() throws IOException {

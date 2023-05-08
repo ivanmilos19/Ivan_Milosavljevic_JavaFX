@@ -10,14 +10,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-//TODO -  ajouter message pour dégâts et attaques ratée / ajouter grosses attaques / finir mécanique death eater et basilic
+//TODO -  ajouter message pour dégâts et attaques ratée / ajouter grosses attaques / finir mécanique death eater
 
 
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-            FXMLLoader loaderCreateWizard = new FXMLLoader(getClass().getResource("wizardCreation.fxml"));
+            FXMLLoader loaderCreateWizard = new FXMLLoader(getClass().getResource("wizardcreation.fxml"));
             Parent rootCreateWizard = loaderCreateWizard.load();
             Scene sceneCreateWizard = new Scene(rootCreateWizard);
             sceneCreateWizard.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());

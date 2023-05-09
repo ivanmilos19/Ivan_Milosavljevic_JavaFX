@@ -764,4 +764,24 @@ public class Gaming implements Initializable {
             }
         }
     }
+
+    public boolean trollUsesMace() {
+        boolean success = false;
+        if (troll.canUseMace()) {
+            troll.attack(wizard);
+            System.out.println("The troll smashed you and dealt big damage!");
+            success = true;
+        } else {
+            troll.attack(wizard);
+        }
+        troll.resetMace();
+        return success;
+    }
+    public boolean warningTrollMace() {
+        boolean success = false;
+        if (troll.randomUseMace()) {
+            return true;
+        }
+        return success;
+    }
 }

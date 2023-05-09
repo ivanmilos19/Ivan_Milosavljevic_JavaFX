@@ -7,7 +7,6 @@ AnchorPane {
 
 /* Label styles */
 Label {
-    -fx-text-fill: #FFFFFF;
     -fx-font-weight: bold;
     -fx-font-size: 18px;
 }
@@ -74,6 +73,8 @@ Button:hover {
     -fx-background-size: cover;
     -fx-background-position: center center;
 }
+
+
 
 #deathEaterBackground {
     -fx-background-image: url('images/deathEater.jpg');

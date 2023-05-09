@@ -37,6 +37,11 @@ public class LevelTroll {
 
     @FXML
     private Button wingardium;
+    // warning troll mace///
+    @FXML
+    private Label warningMace;
+    @FXML
+    private Label bigDmg;
 
     /////Return to initial choices//////
     @FXML
@@ -56,6 +61,8 @@ public class LevelTroll {
 
     @FXML
     public void initialize() {
+        warningMace.setVisible(false);
+        bigDmg.setVisible(false);
         attackTroll.setVisible(false);
         returnButton.setVisible(false);
         healPotion.setVisible(false);
@@ -142,15 +149,22 @@ public class LevelTroll {
 
     @FXML
     private void handleDefend() throws IOException {
+        warningMace.setVisible(false);
+        bigDmg.setVisible(false);
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
         gaming.wizardDefends();
-        gaming.trollAttacksWizard();
+        if (gaming.trollUsesMace()) {
+            bigDmg.setVisible(true);
+        }
         gaming.wizardStopsDefend();
         gaming.putText();
+        if (gaming.warningTrollMace()) {
+            warningMace.setVisible(true);
+        }
 
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();

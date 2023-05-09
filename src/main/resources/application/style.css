@@ -9,7 +9,10 @@ AnchorPane {
 Label {
     -fx-font-weight: bold;
     -fx-font-size: 18px;
+    -fx-text-fill:#FFFFFF;
 }
+
+
 
 /* ChoiceBox styles */
 ChoiceBox {

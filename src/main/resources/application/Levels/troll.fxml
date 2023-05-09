@@ -49,7 +49,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="bigDmg" alignment="CENTER" layoutX="386.0" layoutY="20.0" prefHeight="17.0" prefWidth="427.0" text="The troll dealt a huge blow" textFill="#bf31ac">
+      <Label fx:id="missedAttack" alignment="CENTER" layoutX="377.0" layoutY="19.0" prefHeight="17.0" prefWidth="427.0" text="Your attack missed !" textFill="#48e14f">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>

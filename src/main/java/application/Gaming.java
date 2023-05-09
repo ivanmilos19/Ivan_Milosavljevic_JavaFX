@@ -126,7 +126,7 @@ public class Gaming implements Initializable {
                     .sectumsempra(new ArrayList<>())
                     .expelliarmus(new ArrayList<>())
 
-                    .attack_strength((int) (5000 * house.attackMultiplier()))
+                    .attack_strength((int) (5 * house.attackMultiplier()))
                     .manaPool(150)
                     .currentmanaPool(150)
 
@@ -784,4 +784,5 @@ public class Gaming implements Initializable {
         }
         return success;
     }
+
 }

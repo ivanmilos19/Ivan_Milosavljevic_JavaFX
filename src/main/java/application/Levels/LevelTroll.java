@@ -37,12 +37,14 @@ public class LevelTroll {
 
     @FXML
     private Button wingardium;
-    // warning troll mace///
+    // warning troll crit///
     @FXML
     private Label warningMace;
-    @FXML
-    private Label bigDmg;
 
+    //attack missed//
+
+    @FXML
+    private Label missedAttack;
     /////Return to initial choices//////
     @FXML
     private Button returnButton;
@@ -62,7 +64,8 @@ public class LevelTroll {
     @FXML
     public void initialize() {
         warningMace.setVisible(false);
-        bigDmg.setVisible(false);
+        missedAttack.setVisible(false);
+
         attackTroll.setVisible(false);
         returnButton.setVisible(false);
         healPotion.setVisible(false);
@@ -128,12 +131,16 @@ public class LevelTroll {
 
     @FXML
     private void attackTroll() throws IOException {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
         gaming.wizard.attack(gaming.troll);
+        if (gaming.troll.getCurrentHP() == gaming.troll.getPreviousHP()) {
+            missedAttack.setVisible(true);
+        }
         gaming.trollAttacksWizard();
         gaming.putText();
         gaming.putTrollInfo();
@@ -149,17 +156,15 @@ public class LevelTroll {
 
     @FXML
     private void handleDefend() throws IOException {
+        missedAttack.setVisible(false);
         warningMace.setVisible(false);
-        bigDmg.setVisible(false);
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
         gaming.wizardDefends();
-        if (gaming.trollUsesMace()) {
-            bigDmg.setVisible(true);
-        }
+        gaming.trollUsesMace();
         gaming.wizardStopsDefend();
         gaming.putText();
         if (gaming.warningTrollMace()) {
@@ -177,6 +182,7 @@ public class LevelTroll {
 
     @FXML
     private boolean handleWingardium() throws IOException {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
@@ -203,6 +209,7 @@ public class LevelTroll {
 
     @FXML
     private void handleHealthPotion() {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
@@ -230,6 +237,7 @@ public class LevelTroll {
 
     @FXML
     private void handleManaPotion() {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);

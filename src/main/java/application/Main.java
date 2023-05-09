@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-//TODO -  ajouter message pour dégâts et attaques ratée / ajouter grosses attaques
+//TODO - finaliser grosses attaques
 
 
 public class Main extends Application {

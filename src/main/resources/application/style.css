@@ -12,6 +12,9 @@ Label {
     -fx-text-fill:#FFFFFF;
 }
 
+#special {
+}
+
 
 /* ChoiceBox styles */
 ChoiceBox {

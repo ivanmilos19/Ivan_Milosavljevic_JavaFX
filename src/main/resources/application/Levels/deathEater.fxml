@@ -66,5 +66,10 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
+      <Text fill="#7d22a1" layoutX="791.0" layoutY="556.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Death Eaters have invaded Hogwarts. You learned from the Half Blood prince a powerful spell : Sectumsempra !! Use it wisely..." wrappingWidth="356.908203125">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

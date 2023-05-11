@@ -88,5 +88,10 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
+      <Text fill="#7d22a1" layoutX="804.0" layoutY="557.0" strokeType="OUTSIDE" strokeWidth="0.0" text="It's time to face Voldemort and end this. But be careful, not only is Bellatrix with him, he won't hesitate to cast Avada Kedavra !" wrappingWidth="356.908203125">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

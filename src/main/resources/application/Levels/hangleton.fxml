@@ -68,5 +68,10 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
+      <Text fill="#7d22a1" layoutX="788.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You won the Sorcerer's Tourney, but Voldemort and Pettigrow are here! You are no match for them, you should flee while you can, luckily the Portoloin is here, you remember a spell that allows you to pull objects towards you... Accio!" wrappingWidth="356.908203125">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

@@ -66,5 +66,10 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
+      <Text fill="#7d22a1" layoutX="781.0" layoutY="575.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OWL time! Distract dolores for 5 turns, so you can get some fireworks in your inventory. Let the party begin !" wrappingWidth="364.908203125">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

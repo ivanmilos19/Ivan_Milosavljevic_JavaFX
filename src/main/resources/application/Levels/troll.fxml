@@ -54,5 +54,10 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
+      <Text fill="#7d22a1" layoutX="803.0" layoutY="556.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A troll is roaming in the bathroom ! Your just learne how to use Wingardium Leviosa in your previous class.  Will you be able to defeat him ?" wrappingWidth="356.908203125">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

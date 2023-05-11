@@ -60,5 +60,10 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
+      <Text fill="#7d22a1" layoutX="827.0" layoutY="556.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The basilic has escaped. Will you use the sword of Godric to slay him ? Or use one of his teeth to destroy Tom Riddle's journal using accio?" wrappingWidth="321.908203125">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

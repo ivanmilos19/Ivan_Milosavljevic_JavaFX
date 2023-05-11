@@ -10,16 +10,11 @@
 
 <AnchorPane fx:id="finishedBackground" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FinishedGame">
    <children>
-      <Label layoutX="98.0" layoutY="95.0" text="You finished the game ! Congratulations.">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="164.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="myLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="44.0" layoutY="143.0" prefHeight="83.0" prefWidth="660.0" text="You finished the game ! Congratulations. Your name will be remembered throughout history, as one of the greatest wizards to have lived." wrapText="true">
          <font>
-            <Font name="System Bold" size="21.0" />
+            <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="164.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="201.0" layoutY="155.0">
-         <image>
-            <Image url="@../../../../../../AppData/Local/Temp/istockphoto-1133905331-612x612.jpg" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

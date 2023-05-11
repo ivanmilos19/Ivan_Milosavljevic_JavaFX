@@ -107,9 +107,9 @@ public class Gaming implements Initializable {
 
     public void createWizard() {
         if (house != null) {
-            wizard = Wizard.builder().currentHP(5000)
-                    .previousHP(5000)
-                    .baseHP(5000)
+            wizard = Wizard.builder().currentHP(700)
+                    .previousHP(700)
+                    .baseHP(700)
                     .level(1)
                     .accuracy(0.85 + house.precision())
                     .joinedEnemy(false)
@@ -125,7 +125,7 @@ public class Gaming implements Initializable {
                     .sectumsempra(new ArrayList<>())
                     .expelliarmus(new ArrayList<>())
 
-                    .attack_strength((int) (40665 * house.attackMultiplier()))
+                    .attack_strength((int) (50 * house.attackMultiplier()))
                     .manaPool(150)
                     .currentmanaPool(150)
 
@@ -465,7 +465,7 @@ public class Gaming implements Initializable {
 
         voldemort = Boss.builder()
                 .currentHP(2000)
-                .baseHP(2000)
+                .baseHP(1500)
                 .attack_strength(80)
                 .attackStrengthMultiplier(5)
                 .name("Voldemort")

@@ -26,7 +26,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -102,15 +101,15 @@ public class Gaming implements Initializable {
     public Boss voldemort;
     public Enemy wormtail;
     public Enemy trophy;
-    public Boss dolores;
+    public Enemy dolores;
     public Boss deathEater;
     public Enemy bellatrix;
 
     public void createWizard() {
         if (house != null) {
-            wizard = Wizard.builder().currentHP(5000)
+            wizard = Wizard.builder().currentHP(50)
                     .previousHP(5000)
-                    .baseHP(5000)
+                    .baseHP(5)
                     .level(1)
                     .accuracy(0.85 + house.precision())
                     .joinedEnemy(false)
@@ -126,7 +125,7 @@ public class Gaming implements Initializable {
                     .sectumsempra(new ArrayList<>())
                     .expelliarmus(new ArrayList<>())
 
-                    .attack_strength((int) (5 * house.attackMultiplier()))
+                    .attack_strength((int) (40665 * house.attackMultiplier()))
                     .manaPool(150)
                     .currentmanaPool(150)
 
@@ -188,9 +187,6 @@ public class Gaming implements Initializable {
     Text bellatrixInfo = new Text();
 
 
-    Text numberHealthPotions = new Text();
-
-
     public void putText() {
         textHP.setText("Wizard HP: " + wizard.getCurrentHP() + "/" + wizard.getBaseHP() + " ❤" + "   |");
         textHP.getStyleClass().add("HP");
@@ -206,9 +202,6 @@ public class Gaming implements Initializable {
 
         levelText.setText("Level: " + wizard.getLevel() + " ⭐" + "   |");
         levelText.getStyleClass().add("level");
-
-        numberHealthPotions.setText(Arrays.toString(new String[]{String.valueOf(wizard.getNumberHealthPotion(wizard.getHealthPotions()))}));
-        numberHealthPotions.getStyleClass().add("nbrHealthPots");
 
     }
 
@@ -264,6 +257,8 @@ public class Gaming implements Initializable {
     private Stage hangletonStage;
     private Stage doloresStage;
     private Stage deathEaterStage;
+    private Stage voldemortStage;
+
     private Stage shopStage;
     private Stage stageTransition;
     private Stage joinSlytherinStage;
@@ -294,7 +289,7 @@ public class Gaming implements Initializable {
         Parent rootTroll = loaderTroll.load();
         Scene sceneTroll = new Scene(rootTroll);
         sceneTroll.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
-        ((Pane) rootTroll).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, numberHealthPotions, trollInfo);
+        ((Pane) rootTroll).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, trollInfo);
         trollStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         trollStage.setTitle("Harry Potter");
         trollStage.setResizable(false);
@@ -324,7 +319,7 @@ public class Gaming implements Initializable {
         Parent rootBasilic = loaderBasilic.load();
         Scene sceneBasilic = new Scene(rootBasilic);
         sceneBasilic.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
-        ((Pane) rootBasilic).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, basilicInfo, numberHealthPotions);
+        ((Pane) rootBasilic).getChildren().addAll(textHP, levelText, textMana, textAttack, textAccuracy, basilicInfo);
         basilicStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         basilicStage.setTitle("Harry Potter");
         basilicStage.setResizable(false);
@@ -374,11 +369,12 @@ public class Gaming implements Initializable {
                 .currentHP(2000)
                 .baseHP(2000)
                 .attack_strength(80)
-                .attackStrengthMultiplier(3)
+
                 .name("Voldemort")
                 .build();
 
         trophy = Enemy.builder()
+                .name("Trophy")
                 .build();
 
         putVoldemortInfo();
@@ -402,7 +398,7 @@ public class Gaming implements Initializable {
 
     public void createDoloresStage() throws IOException {
 
-        dolores = Boss.builder()
+        dolores = Enemy.builder()
                 .currentHP(1500)
                 .baseHP(1500)
                 .attack_strength(65)
@@ -470,14 +466,14 @@ public class Gaming implements Initializable {
                 .currentHP(2000)
                 .baseHP(2000)
                 .attack_strength(80)
-                .attackStrengthMultiplier(3)
+                .attackStrengthMultiplier(5)
                 .name("Voldemort")
                 .build();
 
         putVoldemortInfo();
         putBellatrixInfo();
 
-        Stage voldemortStage = new Stage();
+        this.voldemortStage = new Stage();
         FXMLLoader loaderVoldemort = new FXMLLoader(getClass().getResource("Levels/voldemort.fxml"));
         Parent rootVoldemort = loaderVoldemort.load();
         Scene sceneVoldemort = new Scene(rootVoldemort);
@@ -492,6 +488,20 @@ public class Gaming implements Initializable {
         voldemortStage.show();
     }
 
+    public void createFinishedGame() throws IOException {
+
+        Stage FinishedStage = new Stage();
+        FXMLLoader loaderVoldemort = new FXMLLoader(getClass().getResource("FinishedGame.fxml"));
+        Parent rootFinished = loaderVoldemort.load();
+        Scene sceneFinished = new Scene(rootFinished);
+        sceneFinished.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
+        FinishedStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
+        FinishedStage.setTitle("Harry Potter");
+        FinishedStage.setResizable(false);
+        FinishedStage.setScene(sceneFinished);
+        FinishedStage.show();
+    }
+
     public void createShopStage() throws IOException {
         showGold();
         this.shopStage = new Stage();
@@ -499,7 +509,7 @@ public class Gaming implements Initializable {
         Parent rootShop = loaderStage.load();
         Scene sceneShop = new Scene(rootShop);
         sceneShop.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
-        ((Pane) rootShop).getChildren().addAll(gold, numberHealthPotions);
+        ((Pane) rootShop).getChildren().addAll(gold);
         shopStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
         shopStage.setTitle("Harry Potter");
         shopStage.setResizable(false);
@@ -548,7 +558,24 @@ public class Gaming implements Initializable {
 
     public void gameOver() throws IOException {
         trollStage.close();
-        hangletonStage.close();
+        if (hangletonStage != null) {
+            hangletonStage.close();
+        }
+        if (dementorStage != null) {
+            dementorStage.close();
+        }
+        if (basilicStage != null) {
+            basilicStage.close();
+        }
+        if (doloresStage != null) {
+            doloresStage.close();
+        }
+        if (deathEaterStage != null) {
+            deathEaterStage.close();
+        }
+        if (voldemortStage != null) {
+            voldemortStage.close();
+        }
 
         Stage stage = new Stage();
         FXMLLoader loaderGameOver = new FXMLLoader(getClass().getResource("GameOver.fxml"));
@@ -591,7 +618,7 @@ public class Gaming implements Initializable {
         stageTransition.show();
     }
 
-    public boolean joinEnnemy(){
+    public boolean joinEnemy(){
         return house.canJoinEnemy();
     }
     public void createJoinSlytherinStage() throws IOException {
@@ -667,7 +694,7 @@ public class Gaming implements Initializable {
         deathEater.attack(wizard);
     }
 
-    public void deathBellatrixWizard() {
+    public void bellatrixAttackWizard() {
         bellatrix.attack(wizard);
     }
 
@@ -780,6 +807,66 @@ public class Gaming implements Initializable {
     public boolean warningTrollMace() {
         boolean success = false;
         if (troll.randomUseMace()) {
+            return true;
+        }
+        return success;
+    }
+
+    public boolean basilicUsesBite() {
+        boolean success = false;
+        if (basilic.canBite()) {
+            basilic.attack(wizard);
+            System.out.println("The troll smashed you and dealt big damage!");
+            success = true;
+        } else {
+            basilic.attack(wizard);
+        }
+        basilic.resetBite();
+        return success;
+    }
+    public boolean warningBite() {
+        boolean success = false;
+        if (basilic.RandomBite()) {
+            return true;
+        }
+        return success;
+    }
+
+    public boolean DoloresThrowsBook() {
+        boolean success = false;
+        if (dolores.canThrowBook()) {
+            dolores.attack(wizard);
+            System.out.println("book lol");
+            success = true;
+        } else {
+            dolores.attack(wizard);
+        }
+        dolores.resetBook();
+        return success;
+    }
+    public boolean warningBook() {
+        boolean success = false;
+        if (dolores.randomThrowBook()) {
+            return true;
+        }
+        return success;
+    }
+
+    public boolean voldemortUsesAvada() {
+        boolean success = false;
+        if (voldemort.canUseAvada()) {
+            voldemort.attack(wizard);
+            System.out.println("avada lol");
+            success = true;
+        } else {
+            voldemort.attack(wizard);
+        }
+        voldemort.resetUseAvada();
+        return success;
+    }
+    public boolean warningAvada() {
+        boolean success = false;
+        if (voldemort.RandomUseAvada()) {
             return true;
         }
         return success;

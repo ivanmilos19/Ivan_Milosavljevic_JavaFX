@@ -42,7 +42,6 @@ public class LevelTroll {
     private Label warningMace;
 
     //attack missed//
-
     @FXML
     private Label missedAttack;
     /////Return to initial choices//////
@@ -136,14 +135,20 @@ public class LevelTroll {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        warningMace.setVisible(false);
 
         gaming.wizard.attack(gaming.troll);
         if (gaming.troll.getCurrentHP() == gaming.troll.getPreviousHP()) {
             missedAttack.setVisible(true);
         }
-        gaming.trollAttacksWizard();
+
+        gaming.trollUsesMace();
         gaming.putText();
         gaming.putTrollInfo();
+
+        if (gaming.warningTrollMace()) {
+            warningMace.setVisible(true);
+        }
 
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -167,6 +172,7 @@ public class LevelTroll {
         gaming.trollUsesMace();
         gaming.wizardStopsDefend();
         gaming.putText();
+
         if (gaming.warningTrollMace()) {
             warningMace.setVisible(true);
         }
@@ -183,6 +189,7 @@ public class LevelTroll {
     @FXML
     private boolean handleWingardium() throws IOException {
         missedAttack.setVisible(false);
+        warningMace.setVisible(false);
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
@@ -195,6 +202,8 @@ public class LevelTroll {
         } else {
             gaming.trollAttacksWizard();
         }
+
+
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
         }
@@ -214,6 +223,7 @@ public class LevelTroll {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        warningMace.setVisible(false);
 
         boolean canUseHealthPotion = gaming.healthPotionButtonPress();
         if (canUseHealthPotion) {
@@ -230,6 +240,7 @@ public class LevelTroll {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        warningMace.setVisible(false);
 
         gaming.wizardUsesDamagePotion();
         gaming.putText();
@@ -242,6 +253,8 @@ public class LevelTroll {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        warningMace.setVisible(false);
+
 
         boolean canUseManaPotion = gaming.manaPotionButtonPress();
         if (canUseManaPotion) {

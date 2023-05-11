@@ -50,6 +50,8 @@ public class LevelDeathEater {
 
     //warning messages//
     @FXML
+    private Label missedAttack;
+    @FXML
     private Label wingardiumWarning;
     @FXML
     private Label accioWarning;
@@ -87,6 +89,8 @@ public class LevelDeathEater {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        missedAttack.setVisible(false);
+
     }
 
 
@@ -136,6 +140,7 @@ public class LevelDeathEater {
 
     @FXML
     private void handleAttackButtonPress() {
+
         attackDeathEater.setVisible(true);
         attack.setVisible(false);
         defend.setVisible(false);
@@ -146,6 +151,7 @@ public class LevelDeathEater {
 
     @FXML
     private void attackDeathEater() throws IOException {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -155,6 +161,9 @@ public class LevelDeathEater {
         manaPotionWarning.setVisible(false);
 
         gaming.wizard.attack(gaming.deathEater);
+        if (gaming.deathEater.getCurrentHP() == gaming.deathEater.getPreviousHP()) {
+            missedAttack.setVisible(true);
+        }
         gaming.deathEaterAttacksWizard();
         gaming.putText();
         gaming.putDeathEaterInfo();
@@ -170,6 +179,7 @@ public class LevelDeathEater {
 
     @FXML
     private void handleDefend() throws IOException {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -194,6 +204,7 @@ public class LevelDeathEater {
 
     @FXML
     private boolean handleWingardium() throws IOException {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -223,6 +234,7 @@ public class LevelDeathEater {
 
     @FXML
     private boolean handleAccio() throws IOException {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -251,6 +263,7 @@ public class LevelDeathEater {
     }
     @FXML
     private boolean handleExpecto() throws IOException {
+        missedAttack.setVisible(false);
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -280,6 +293,7 @@ public class LevelDeathEater {
 
     @FXML
     private boolean handleSectumsempra() throws IOException {
+        missedAttack.setVisible(false);
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -309,6 +323,7 @@ public class LevelDeathEater {
 
     @FXML
     private void handleHealthPotion() {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -328,6 +343,7 @@ public class LevelDeathEater {
 
     @FXML
     private void handleDamagePotion() {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -342,6 +358,7 @@ public class LevelDeathEater {
 
     @FXML
     private void handleManaPotion() {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);

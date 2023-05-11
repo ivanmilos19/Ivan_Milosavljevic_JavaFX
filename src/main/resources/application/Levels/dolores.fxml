@@ -56,5 +56,15 @@
          </font>
       </Label>
       <Button fx:id="fireworks" layoutX="37.0" layoutY="580.0" mnemonicParsing="false" onAction="#handleFireworks" text="Fireworks" />
+      <Label fx:id="warningBook" alignment="CENTER" layoutX="385.0" layoutY="19.0" prefHeight="17.0" prefWidth="427.0" text="Dolores is about to throw a book in yoru face !" textFill="#bf31ac">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="missedAttack" alignment="CENTER" layoutX="380.0" layoutY="19.0" prefHeight="17.0" prefWidth="427.0" text="Your attack missed !" textFill="#48e14f">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

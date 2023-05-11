@@ -25,6 +25,10 @@ public class LevelBasilic {
     private Button spell;
     @FXML
     private Button attackBasilic;
+    @FXML
+    private Label warningBite;
+    @FXML
+    private Label missedAttack;
 
     ///////Potions Buttons/////////
     @FXML
@@ -83,6 +87,8 @@ public class LevelBasilic {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        missedAttack.setVisible(false);
+        warningBite.setVisible(false);
 
     }
 
@@ -98,6 +104,7 @@ public class LevelBasilic {
         damagePotion.setVisible(true);
         manaPotion.setVisible(true);
         returnButton.setVisible(true);
+
 
     }
 
@@ -148,6 +155,8 @@ public class LevelBasilic {
 
     @FXML
     private void attackBasilic() throws IOException {
+        missedAttack.setVisible(false);
+        warningBite.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
@@ -155,7 +164,14 @@ public class LevelBasilic {
         manaPotionWarning.setVisible(false);
 
         gaming.wizard.attack(gaming.basilic);
-        gaming.basilicAttacksWizard();
+        if (gaming.basilic.getCurrentHP() == gaming.basilic.getPreviousHP()) {
+            missedAttack.setVisible(true);
+        }
+        gaming.basilicUsesBite();
+        if (gaming.warningBite()) {
+            warningBite.setVisible(true);
+        }
+
         gaming.putText();
         gaming.putBasilicInfo();
 
@@ -170,6 +186,8 @@ public class LevelBasilic {
 
     @FXML
     private void handleDefend() throws IOException {
+        missedAttack.setVisible(false);
+        warningBite.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
@@ -177,7 +195,12 @@ public class LevelBasilic {
         manaPotionWarning.setVisible(false);
 
         gaming.wizardDefends();
-        gaming.basilicAttacksWizard();
+        gaming.basilicUsesBite();
+
+        if (gaming.warningBite()) {
+            warningBite.setVisible(true);
+        }
+
         gaming.wizardStopsDefend();
         gaming.putText();
 
@@ -192,6 +215,8 @@ public class LevelBasilic {
 
     @FXML
     private boolean handleWingardium() throws IOException {
+        missedAttack.setVisible(false);
+        warningBite.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
@@ -219,6 +244,8 @@ public class LevelBasilic {
 
     @FXML
     private boolean handleAccio() throws IOException {
+        missedAttack.setVisible(false);
+        warningBite.setVisible(false);
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
@@ -232,6 +259,12 @@ public class LevelBasilic {
         } else {
             gaming.basilicAttacksWizard();
         }
+
+        gaming.basilicUsesBite();
+        if (gaming.warningBite()) {
+            warningBite.setVisible(true);
+        }
+
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
         }
@@ -247,6 +280,8 @@ public class LevelBasilic {
 
     @FXML
     private void handleHealthPotion() {
+        missedAttack.setVisible(false);
+        warningBite.setVisible(false);
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
@@ -263,6 +298,8 @@ public class LevelBasilic {
 
     @FXML
     private void handleDamagePotion() {
+        missedAttack.setVisible(false);
+        warningBite.setVisible(false);
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
@@ -274,6 +311,8 @@ public class LevelBasilic {
 
     @FXML
     private void handleManaPotion() {
+        missedAttack.setVisible(false);
+        warningBite.setVisible(false);
         wingardiumWarning.setVisible(false);
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);

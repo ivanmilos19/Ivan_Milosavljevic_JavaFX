@@ -80,6 +80,8 @@ public class LevelHangleton {
     private Label damagePotionWarning;
     @FXML
     private Label manaPotionWarning;
+    @FXML
+    private Label missedAttack;
 
 
 
@@ -111,6 +113,8 @@ public class LevelHangleton {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        missedAttack.setVisible(false);
+
     }
 
 
@@ -177,6 +181,7 @@ public class LevelHangleton {
 
     @FXML
     private void attackVoldemort() throws IOException {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -185,6 +190,9 @@ public class LevelHangleton {
         manaPotionWarning.setVisible(false);
 
         gaming.wizard.attack(gaming.voldemort);
+        if (gaming.voldemort.getCurrentHP() == gaming.voldemort.getPreviousHP()) {
+            missedAttack.setVisible(true);
+        }
         gaming.voldemortAttackWizard();
         gaming.putText();
         gaming.putVoldemortInfo();
@@ -199,6 +207,7 @@ public class LevelHangleton {
     }
     @FXML
     private void attackWormtail() throws IOException {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -207,6 +216,9 @@ public class LevelHangleton {
         manaPotionWarning.setVisible(false);
 
         gaming.wizard.attack(gaming.wormtail);
+        if (gaming.wormtail.getCurrentHP() == gaming.wormtail.getPreviousHP()) {
+            missedAttack.setVisible(true);
+        }
         gaming.wormtailAttacksWizard();
         gaming.putText();
         gaming.putWormtailInfo();
@@ -222,6 +234,7 @@ public class LevelHangleton {
 
     @FXML
     private void handleDefend() throws IOException {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -242,6 +255,7 @@ public class LevelHangleton {
 
     @FXML
     private void handleWingardium() {
+        missedAttack.setVisible(false);
         wingardiumVoldemort.setVisible(true);
         wingardiumWormtail.setVisible(true);
         wingardium.setVisible(false);
@@ -257,6 +271,7 @@ public class LevelHangleton {
     }
     @FXML
     private void handleAccio() {
+        missedAttack.setVisible(false);
         accioVoldemort.setVisible(true);
         accioWormtail.setVisible(true);
         accioTrophy.setVisible(true);
@@ -273,6 +288,7 @@ public class LevelHangleton {
     }
     @FXML
     private void handleExpecto() {
+        missedAttack.setVisible(false);
         expectoWormtail.setVisible(true);
         expectoVoldemort.setVisible(true);
         wingardium.setVisible(false);
@@ -290,6 +306,7 @@ public class LevelHangleton {
 
     @FXML
     private boolean handleWingardiumVoldemort() throws IOException {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -320,6 +337,7 @@ public class LevelHangleton {
 
     @FXML
     private boolean handleAccioVoldemort() throws IOException {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -349,6 +367,7 @@ public class LevelHangleton {
     }
     @FXML
     private boolean handleExpectoVoldemort() throws IOException {
+        missedAttack.setVisible(false);
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -379,6 +398,7 @@ public class LevelHangleton {
 
     @FXML
     private boolean handleWingardiumWormtail() throws IOException {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -409,6 +429,7 @@ public class LevelHangleton {
 
     @FXML
     private boolean handleAccioWormtail() throws IOException {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -438,6 +459,7 @@ public class LevelHangleton {
     }
     @FXML
     private boolean handleExpectoWormtail() throws IOException {
+        missedAttack.setVisible(false);
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -468,6 +490,7 @@ public class LevelHangleton {
 
     @FXML
     private boolean handleAccioTrophy() throws IOException {
+        missedAttack.setVisible(false);
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -488,6 +511,7 @@ public class LevelHangleton {
 
     @FXML
     private void handleHealthPotion() {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -506,6 +530,7 @@ public class LevelHangleton {
 
     @FXML
     private void handleDamagePotion() {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -519,6 +544,7 @@ public class LevelHangleton {
 
     @FXML
     private void handleManaPotion() {
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);

@@ -78,5 +78,15 @@
       <Button fx:id="expelliarmusBellatrix" layoutX="226.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleExpelliarmusBellatrix" text="Bellatrix" />
       <Button fx:id="expelliarmusVoldemort" layoutX="37.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleExpelliarmusVoldemort" text="Voldemort" />
       <Button fx:id="sectumsempraVoldemort" layoutX="38.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleSectumsempraVoldemort" text="Voldemort" />
+      <Label fx:id="missedAttack" alignment="CENTER" layoutX="384.0" layoutY="19.0" prefHeight="17.0" prefWidth="427.0" text="Your attack missed !" textFill="#48e14f">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="warningAvada" alignment="CENTER" layoutX="385.0" layoutY="18.0" prefHeight="17.0" prefWidth="427.0" text="Voldemort is about to cast Avada Kedrava !" textFill="#bf31ac">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

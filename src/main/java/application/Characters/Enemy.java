@@ -40,7 +40,7 @@ public class Enemy extends AbstractEnemy {
     public boolean randomUseMace() {
         castMace = false;
         Random rand = new Random();
-        double probability = 0.3; // hitting accuracy
+        double probability = 0.15; // hitting accuracy
 
         if (rand.nextDouble() < probability) {
             System.out.println(PURPLE_BOLD_BRIGHT +"The troll is about to smash you with his mace and is about to do big damage !");
@@ -63,7 +63,7 @@ public class Enemy extends AbstractEnemy {
     public boolean randomThrowBook() {
         throwBook = false;
         Random rand = new Random();
-        double probability = 0.6; // hitting accuracy
+        double probability = 0.2; // hitting accuracy
 
         if (rand.nextDouble() < probability) {
             System.out.println(PURPLE_BOLD_BRIGHT +"Dolores is about to throw the Wizard encyclopedia at you ! Big damage incoming !");

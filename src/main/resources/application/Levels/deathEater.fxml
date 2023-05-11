@@ -61,5 +61,10 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
+      <Label fx:id="missedAttack" alignment="CENTER" layoutX="384.0" layoutY="20.0" prefHeight="17.0" prefWidth="427.0" text="Your attack missed !" textFill="#48e14f">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

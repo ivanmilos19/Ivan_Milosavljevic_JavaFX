@@ -20,7 +20,7 @@ public class StageTransition {
             case 5 -> gaming.createDoloresStage();
             case 6 ->
             {
-                if (gaming.joinEnnemy()) {
+                if (gaming.joinEnemy()) {
                     gaming.createJoinSlytherinStage();
                 } else {
                     gaming.createDeatheaterStage();
@@ -29,6 +29,7 @@ public class StageTransition {
             case 7 -> gaming.createVoldemortStage();
             default -> {
             }
+            case 8 -> gaming.createFinishedGame();
         }
         gaming.closeTransitionStage();
     }

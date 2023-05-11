@@ -25,6 +25,10 @@ public class LevelDolores {
     private Button spell;
     @FXML
     private Button attackDolores;
+    @FXML
+    private Label warningBook;
+    @FXML
+    private Label missedAttack;
 
     ///////Potions Buttons/////////
     @FXML
@@ -85,10 +89,12 @@ public class LevelDolores {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        missedAttack.setVisible(false);
+        warningBook.setVisible(false);
     }
 
     public boolean fireworksTurnCount() {
-        if (counter == 5) {
+        if (counter >= 5) {
             return true;
         }
         return false;
@@ -148,6 +154,7 @@ public class LevelDolores {
         defend.setVisible(false);
         inventory.setVisible(false);
         spell.setVisible(false);
+
         returnButton.setVisible(true);
     }
 
@@ -159,9 +166,18 @@ public class LevelDolores {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        missedAttack.setVisible(false);
+        warningBook.setVisible(false);
 
         gaming.wizard.attack(gaming.dolores);
-        gaming.doloresAttacksWizard();
+        if (gaming.dolores.getCurrentHP() == gaming.dolores.getPreviousHP()) {
+            missedAttack.setVisible(true);
+        }
+        gaming.DoloresThrowsBook();
+        if (gaming.warningBook()) {
+            warningBook.setVisible(true);
+        }
+
         gaming.putText();
         gaming.putDoloresInfo();
         counter++;
@@ -183,9 +199,14 @@ public class LevelDolores {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        missedAttack.setVisible(false);
+        warningBook.setVisible(false);
 
         gaming.wizardDefends();
-        gaming.doloresAttacksWizard();
+        gaming.DoloresThrowsBook();
+        if (gaming.warningBook()) {
+            warningBook.setVisible(true);
+        }
         gaming.wizardStopsDefend();
         gaming.putText();
         counter++;
@@ -207,6 +228,8 @@ public class LevelDolores {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        missedAttack.setVisible(false);
+        warningBook.setVisible(false);
 
 
         boolean success = gaming.wizard.useWingardiumLeviosa(gaming.dolores);
@@ -236,6 +259,8 @@ public class LevelDolores {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        missedAttack.setVisible(false);
+        warningBook.setVisible(false);
 
 
         boolean success = gaming.wizard.useAccio(gaming.dolores);
@@ -264,6 +289,8 @@ public class LevelDolores {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        missedAttack.setVisible(false);
+        warningBook.setVisible(false);
 
 
         boolean success = gaming.wizard.useExpecto(gaming.dolores);
@@ -294,6 +321,8 @@ public class LevelDolores {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        missedAttack.setVisible(false);
+        warningBook.setVisible(false);
 
         boolean canUseHealthPotion = gaming.healthPotionButtonPress();
         if (canUseHealthPotion) {
@@ -312,6 +341,8 @@ public class LevelDolores {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        missedAttack.setVisible(false);
+        warningBook.setVisible(false);
 
         gaming.wizardUsesDamagePotion();
         gaming.putText();
@@ -325,6 +356,8 @@ public class LevelDolores {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+        missedAttack.setVisible(false);
+        warningBook.setVisible(false);
 
         boolean canUseManaPotion = gaming.manaPotionButtonPress();
         if (canUseManaPotion) {

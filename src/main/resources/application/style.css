@@ -230,7 +230,8 @@ Button:hover {
 #attack, #defend, #inventory, #spell, #attackTroll, #attackBasilic,#attackDementor, #attackVoldemort, #accioTrophy, #attackWormtail, #wingardiumVoldemort, #accioVoldemort, #expectoVoldemort,
 #returnButton, #healPotion, #damagePotion, #manaPotion, #wingardium, #accio, #expecto, #wingardiumWormtail, #accioWormtail, #expectoWormtail, #accioTrophy, #attackDolores
 , #shopHp, #shopDamage, #shopMana #leaveShop, #fireworks, #deathEater, #sectumsempra, #attackDeathEater
-,#attackBellatrix, #wingardiumBellatrix, #accioBellatrix, #expectoBellatrix, #sectumsempraBellatrix, #expelliarmusBellatrix, #expelliarmusVoldemort, #sectumsempraVoldemort, #expelliarmus, #godric    {
+,#attackBellatrix, #wingardiumBellatrix, #leaveShop, #shopMana
+, #accioBellatrix, #expectoBellatrix, #sectumsempraBellatrix, #expelliarmusBellatrix, #expelliarmusVoldemort, #sectumsempraVoldemort, #expelliarmus, #godric    {
     -fx-font-weight: bold;
     -fx-background-color: transparent;
     -fx-text-fill: #FFFFFF;
@@ -250,7 +251,7 @@ Button:hover {
  , #wingardiumWormtail:hover, #accioWormtail:hover, #expectoWormtail:hover, #accioTrophy:hover, #fireworks:hover, #attackDolores:hover
  , #deathEater:hover, #sectumsempra:hover
  ,#attackDeathEater:hover, #attackBellatrix:hover, #wingardiumBellatrix:hover, #accioBellatrix:hover, #expectoBellatrix:hover, #sectumsempraBellatrix:hover
- , #expelliarmusBellatrix:hover, #expelliarmusVoldemort:hover, #sectumsempraVoldemort:hover, #expelliarmus:hover, #godric:hover   {
+ , #expelliarmusBellatrix:hover, #expelliarmusVoldemort:hover, #sectumsempraVoldemort:hover, #expelliarmus:hover, #godric:hover, #leaveShop:hover, #shopMana:hover   {
    -fx-text-fill: #00FF00; /* Green color */
 }
 

@@ -50,5 +50,15 @@
          </font>
       </Label>
       <Button fx:id="godric" layoutX="39.0" layoutY="476.0" mnemonicParsing="false" onAction="#handleAttackButtonPress" text="Godric's sword" />
+      <Label fx:id="missedAttack" alignment="CENTER" layoutX="385.0" layoutY="20.0" prefHeight="17.0" prefWidth="427.0" text="Your attack missed !" textFill="#48e14f">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="warningBite" alignment="CENTER" layoutX="388.0" layoutY="18.0" prefHeight="17.0" prefWidth="427.0" text="Basilic is about to bite you !" textFill="#bf31ac">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

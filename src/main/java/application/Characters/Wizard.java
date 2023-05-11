@@ -113,7 +113,7 @@ public class Wizard extends Character {
         if (house.canUseSword() && level == 2)
             effective_attack_strength *= 1.5;
         if (damagePotionTurnsLeft > 0) {
-            effective_attack_strength += currentDamagePotion.attackImprovement();
+            effective_attack_strength += currentDamagePotion.attackImprovement() * house.potionImprovement();
             damagePotionTurnsLeft--;
         } else {
             currentDamagePotion = null;
@@ -190,7 +190,7 @@ public class Wizard extends Character {
         if (healthPotions.size() > 0) {
             Potion potion = healthPotions.get(0);
             int newHP = getCurrentHP();
-            newHP += potion.healthImprovement();
+            newHP += potion.healthImprovement() * house.potionImprovement();
             setCurrentHP(newHP);
             // now remove the used potion
             healthPotions.remove(0);
@@ -206,7 +206,7 @@ public class Wizard extends Character {
         boolean success = true;
         if (manaPotions.size() > 0) {
             Potion potion = manaPotions.get(0);
-            currentmanaPool += potion.manaImprovement();
+            currentmanaPool += potion.manaImprovement() * house.potionImprovement();
             // now remove the used potion
             manaPotions.remove(0);
             maxMana();
@@ -293,7 +293,7 @@ public class Wizard extends Character {
         if (accio.size() > 0 && currentmanaPool > 0) {
             Spell spellAccio = accio.get(0);
 
-            if (target.getName().equals("Basilic")) {
+            if (target.getName().equals("Basilic") || target.getName().equals("Trophy")) {
                 new_HP = target.getCurrentHP() - accioDmg;
             } else {
                 new_HP = target.getCurrentHP() - 0;

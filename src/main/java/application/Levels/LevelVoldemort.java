@@ -25,6 +25,12 @@ public class LevelVoldemort {
     private Button attackVoldemort;
     @FXML
     private Button attackBellatrix;
+    @FXML
+    private Label warningAvada;
+
+    //attack missed//
+    @FXML
+    private Label missedAttack;
 
 
     // cast spells on specific target ///
@@ -133,6 +139,9 @@ public class LevelVoldemort {
         healthPotionWarning.setVisible(false);
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
+
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
     }
 
 
@@ -216,6 +225,9 @@ public class LevelVoldemort {
         manaPotionWarning.setVisible(false);
 
         gaming.wizard.attack(gaming.voldemort);
+        if (gaming.voldemort.getCurrentHP() == gaming.voldemort.getPreviousHP()) {
+            missedAttack.setVisible(true);
+        }
         gaming.voldemortAttackWizard();
         gaming.putText();
         gaming.putVoldemortInfo();
@@ -240,7 +252,10 @@ public class LevelVoldemort {
         manaPotionWarning.setVisible(false);
 
         gaming.wizard.attack(gaming.bellatrix);
-        gaming.deathBellatrixWizard();
+        if (gaming.bellatrix.getCurrentHP() == gaming.bellatrix.getPreviousHP()) {
+            missedAttack.setVisible(true);
+        }
+        gaming.bellatrixAttackWizard();
         gaming.putText();
         gaming.putBellatrixInfo();
 
@@ -255,6 +270,8 @@ public class LevelVoldemort {
 
     @FXML
     private void handleDefend() throws IOException {
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -264,11 +281,17 @@ public class LevelVoldemort {
         damagePotionWarning.setVisible(false);
         manaPotionWarning.setVisible(false);
 
+
+
         gaming.wizardDefends();
-        gaming.voldemortAttackWizard();
-        gaming.deathBellatrixWizard();
+        gaming.voldemortUsesAvada();
+        gaming.bellatrixAttackWizard();
         gaming.wizardStopsDefend();
         gaming.putText();
+
+        if (gaming.warningAvada()) {
+            warningAvada.setVisible(true);
+        }
 
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -364,6 +387,8 @@ public class LevelVoldemort {
 
     @FXML
     private boolean handleWingardiumVoldemort() throws IOException {
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -379,7 +404,7 @@ public class LevelVoldemort {
             wingardiumWarning.setVisible(true);
         } else {
             gaming.voldemortAttackWizard();
-            gaming.deathBellatrixWizard();
+            gaming.bellatrixAttackWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -396,6 +421,8 @@ public class LevelVoldemort {
 
     @FXML
     private boolean handleAccioVoldemort() throws IOException {
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -411,7 +438,7 @@ public class LevelVoldemort {
             accioWarning.setVisible(true);
         } else {
             gaming.voldemortAttackWizard();
-            gaming.deathBellatrixWizard();
+            gaming.bellatrixAttackWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -427,6 +454,8 @@ public class LevelVoldemort {
     }
     @FXML
     private boolean handleExpectoVoldemort() throws IOException {
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -437,12 +466,12 @@ public class LevelVoldemort {
         manaPotionWarning.setVisible(false);
 
 
-        boolean success = gaming.wizard.useExpecto(gaming.voldemort);
-        if (!success) {
+        boolean successExpelliarmus = gaming.wizard.useExpecto(gaming.voldemort);
+        if (!successExpelliarmus) {
             expectoWarning.setVisible(true);
         } else {
             gaming.voldemortAttackWizard();
-            gaming.deathBellatrixWizard();
+            gaming.bellatrixAttackWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -454,10 +483,12 @@ public class LevelVoldemort {
         gaming.putText();
         gaming.putVoldemortInfo();
         gaming.putBellatrixInfo();
-        return success;
+        return successExpelliarmus;
     }
     @FXML
     private boolean handleSectumsempraVoldemort() throws IOException {
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -473,7 +504,7 @@ public class LevelVoldemort {
             sectumsempraWarning.setVisible(true);
         } else {
             gaming.voldemortAttackWizard();
-            gaming.deathBellatrixWizard();
+            gaming.bellatrixAttackWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -489,6 +520,8 @@ public class LevelVoldemort {
     }
     @FXML
     private boolean handleExpelliarmusVoldemort() throws IOException {
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -504,7 +537,7 @@ public class LevelVoldemort {
             expelliarmusWarning.setVisible(true);
         } else {
             gaming.voldemortAttackWizard();
-            gaming.deathBellatrixWizard();
+            gaming.bellatrixAttackWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -521,6 +554,8 @@ public class LevelVoldemort {
 
     @FXML
     private boolean handleWingardiumBellatrix() throws IOException {
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -536,7 +571,7 @@ public class LevelVoldemort {
             wingardiumWarning.setVisible(true);
         } else {
             gaming.voldemortAttackWizard();
-            gaming.deathBellatrixWizard();
+            gaming.bellatrixAttackWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -553,6 +588,8 @@ public class LevelVoldemort {
 
     @FXML
     private boolean handleAccioBellatrix() throws IOException {
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -568,7 +605,7 @@ public class LevelVoldemort {
             accioWarning.setVisible(true);
         } else {
             gaming.voldemortAttackWizard();
-            gaming.deathBellatrixWizard();
+            gaming.bellatrixAttackWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -584,6 +621,8 @@ public class LevelVoldemort {
     }
     @FXML
     private boolean handleExpectoBellatrix() throws IOException {
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -599,7 +638,7 @@ public class LevelVoldemort {
             expectoWarning.setVisible(true);
         } else {
             gaming.voldemortAttackWizard();
-            gaming.deathBellatrixWizard();
+            gaming.bellatrixAttackWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -615,6 +654,8 @@ public class LevelVoldemort {
     }
     @FXML
     private boolean handleSectumsempraBellatrix() throws IOException {
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -630,7 +671,7 @@ public class LevelVoldemort {
             sectumsempraWarning.setVisible(true);
         } else {
             gaming.voldemortAttackWizard();
-            gaming.deathBellatrixWizard();
+            gaming.bellatrixAttackWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -646,6 +687,8 @@ public class LevelVoldemort {
     }
     @FXML
     private boolean handleExpelliarmusBellatrix() throws IOException {
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
         accioWarning.setVisible(false);
         wingardiumWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -660,8 +703,9 @@ public class LevelVoldemort {
         if (!success) {
             expelliarmusWarning.setVisible(true);
         } else {
+
             gaming.voldemortAttackWizard();
-            gaming.deathBellatrixWizard();
+            gaming.bellatrixAttackWizard();
         }
         if (gaming.checkGameStateWizard()) {
             gaming.gameOver();
@@ -680,6 +724,8 @@ public class LevelVoldemort {
 
     @FXML
     private void handleHealthPotion() {
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -700,6 +746,8 @@ public class LevelVoldemort {
 
     @FXML
     private void handleDamagePotion() {
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);
@@ -715,6 +763,8 @@ public class LevelVoldemort {
 
     @FXML
     private void handleManaPotion() {
+        warningAvada.setVisible(false);
+        missedAttack.setVisible(false);
         wingardiumWarning.setVisible(false);
         accioWarning.setVisible(false);
         expectoWarning.setVisible(false);

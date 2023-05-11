@@ -35,7 +35,7 @@ public class  Boss extends AbstractEnemy {
     public boolean RandomUseAvada() {
         castAvada = false;
         Random rand = new Random();
-        double probability = 0.2; // hitting accuracy
+        double probability = 0.1; // hitting accuracy
 
         if (rand.nextDouble() < probability) {
             System.out.println(PURPLE_BOLD_BRIGHT + "Voldemort is preparing to use Avada Kedavra!");
@@ -56,7 +56,7 @@ public class  Boss extends AbstractEnemy {
     public boolean RandomBite() {
         basilicBite = false;
         Random rand = new Random();
-        double probability = 0.3; // hitting accuracy
+        double probability = 0.2; // hitting accuracy
 
         if (rand.nextDouble() < probability) {
             System.out.println( PURPLE_BOLD_BRIGHT + "The basilic is about to bite you!");

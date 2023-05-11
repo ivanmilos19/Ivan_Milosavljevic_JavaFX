@@ -8,8 +8,9 @@ public class SlytherinJoinStage {
         this.gaming = gaming;
     }
 
-    public void handleYesButtonSlytherin() {
+    public void handleYesButtonSlytherin() throws IOException {
         gaming.closeSlytherinJoinStage();
+        gaming.createJoinedSlytherinStage();
     }
     public void handleNoButtonSlytherin() throws IOException {
         gaming.createDeatheaterStage();

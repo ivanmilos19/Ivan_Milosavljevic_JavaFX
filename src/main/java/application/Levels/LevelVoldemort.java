@@ -237,7 +237,7 @@ public class LevelVoldemort {
         }
 
         if (gaming.checkGameStateBellatrix() && gaming.checkGameStateVoldemort()) {
-            gaming.closeHangletonStage();
+            gaming.closeVoldemortStage();
         }
     }
     @FXML
@@ -264,7 +264,7 @@ public class LevelVoldemort {
         }
 
         if (gaming.checkGameStateBellatrix() && gaming.checkGameStateVoldemort()) {
-            gaming.closeHangletonStage();
+            gaming.closeVoldemortStage();
         }
     }
 
@@ -411,7 +411,7 @@ public class LevelVoldemort {
         }
 
         if (gaming.checkGameStateVoldemort() && gaming.checkGameStateBellatrix()) {
-            gaming.closeHangletonStage();
+            gaming.closeVoldemortStage();
         }
         gaming.putText();
         gaming.putVoldemortInfo();
@@ -445,7 +445,7 @@ public class LevelVoldemort {
         }
 
         if (gaming.checkGameStateVoldemort() && gaming.checkGameStateBellatrix()) {
-            gaming.closeHangletonStage();
+            gaming.closeVoldemortStage();
         }
         gaming.putText();
         gaming.putVoldemortInfo();
@@ -478,7 +478,7 @@ public class LevelVoldemort {
         }
 
         if (gaming.checkGameStateVoldemort() && gaming.checkGameStateBellatrix()) {
-            gaming.closeHangletonStage();
+            gaming.closeVoldemortStage();
         }
         gaming.putText();
         gaming.putVoldemortInfo();
@@ -511,7 +511,7 @@ public class LevelVoldemort {
         }
 
         if (gaming.checkGameStateVoldemort() && gaming.checkGameStateBellatrix()) {
-            gaming.closeHangletonStage();
+            gaming.closeVoldemortStage();
         }
         gaming.putText();
         gaming.putVoldemortInfo();
@@ -544,7 +544,7 @@ public class LevelVoldemort {
         }
 
         if (gaming.checkGameStateVoldemort() && gaming.checkGameStateBellatrix()) {
-            gaming.closeHangletonStage();
+            gaming.closeVoldemortStage();
         }
         gaming.putText();
         gaming.putVoldemortInfo();
@@ -578,7 +578,7 @@ public class LevelVoldemort {
         }
 
         if (gaming.checkGameStateVoldemort() && gaming.checkGameStateBellatrix()) {
-            gaming.closeHangletonStage();
+            gaming.closeVoldemortStage();
         }
         gaming.putText();
         gaming.putVoldemortInfo();
@@ -612,7 +612,7 @@ public class LevelVoldemort {
         }
 
         if (gaming.checkGameStateVoldemort() && gaming.checkGameStateBellatrix()) {
-            gaming.closeHangletonStage();
+            gaming.closeVoldemortStage();
         }
         gaming.putText();
         gaming.putVoldemortInfo();
@@ -645,7 +645,7 @@ public class LevelVoldemort {
         }
 
         if (gaming.checkGameStateVoldemort() && gaming.checkGameStateBellatrix()) {
-            gaming.closeHangletonStage();
+            gaming.closeVoldemortStage();
         }
         gaming.putText();
         gaming.putVoldemortInfo();

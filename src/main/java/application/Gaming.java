@@ -107,9 +107,9 @@ public class Gaming implements Initializable {
 
     public void createWizard() {
         if (house != null) {
-            wizard = Wizard.builder().currentHP(50)
+            wizard = Wizard.builder().currentHP(5000)
                     .previousHP(5000)
-                    .baseHP(5)
+                    .baseHP(5000)
                     .level(1)
                     .accuracy(0.85 + house.precision())
                     .joinedEnemy(false)
@@ -262,6 +262,7 @@ public class Gaming implements Initializable {
     private Stage shopStage;
     private Stage stageTransition;
     private Stage joinSlytherinStage;
+    private Stage joinedSlytherinStage;
 
 
     public void startGame(ActionEvent event) throws IOException {
@@ -635,6 +636,19 @@ public class Gaming implements Initializable {
         joinSlytherinStage.show();
     }
 
+    public void createJoinedSlytherinStage() throws IOException {
+        this.joinedSlytherinStage = new Stage();
+        FXMLLoader loaderJoinSlytherinStage =  new FXMLLoader(getClass().getResource("joinedEnemy.fxml"));
+        loaderJoinSlytherinStage.setControllerFactory(controllerClass -> new SlytherinJoinStage(this));
+        Parent rootJoinSlytherinStage = loaderJoinSlytherinStage.load();
+        Scene sceneJoinSlytherinStage  = new Scene(rootJoinSlytherinStage);
+        joinedSlytherinStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/HP_logo.png"))));
+        joinedSlytherinStage.setTitle("Harry Potter");
+        joinedSlytherinStage.setResizable(false);
+        joinedSlytherinStage.setScene(sceneJoinSlytherinStage);
+        joinedSlytherinStage.show();
+    }
+
     public void closeTrollStage() throws IOException {
         trollStage.close();
         stageTransition();
@@ -663,6 +677,11 @@ public class Gaming implements Initializable {
     public void closeDeathEaterStage() throws IOException {
         deathEaterStage.close();
         stageTransition();
+    }
+
+    public void closeVoldemortStage() throws IOException {
+        voldemortStage.close();
+        createFinishedGame();
     }
 
 
